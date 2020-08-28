@@ -17,7 +17,12 @@ mongoose
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
 
-app.use(morgan("tiny"));
+// create a rotating write stream
+var accessLogStream = rfs("access.log", {
+  interval: "1d", // rotate daily
+  path: path.join(__dirname, "log"),
+});
+app.use(morgan("combined", { stream: accessLogStream }));
 app.use(helmet());
 app.use(express.json());
 app.use("/api/contactus", require("./routes/api/contactus"));
