@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tw">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" <!---- />
+    <meta name="author" content="KOL Resound 呼聲" />
+    <meta
+      name="description"
+      content="人人都是粉絲和專家,每個關鍵的聲音都值得被聆聽. 與我們聯繫,讓你被聽見!"
+    />
+    <meta name="keyword" content="KOL,網紅,遊戲,直播,行銷,活動" />
+    <meta property="og:title" content="Resound 呼聲數位 | KOL全方位整合行銷" />
+    <meta property="og:image" content="https://i.imgur.com/I8Az5iP.jpg" />
+    <meta property="og:site_name" content="Resound 呼聲數位" />
+    <meta
+      property="og:description"
+      content="人人都是粉絲和專家,每個關鍵的聲音都值得被聆聽. 與我們聯繫,讓你被聽見!"
+    />
+    <meta property="og:type" content="website" />
+
+    <title>Resound 呼聲數位 | KOL全方位整合行銷</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- icon -->
+    <link rel="icon" href="%PUBLIC_URL%/img/icon.png" type="image/icon" />
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+
+    <!-- Javascript -->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/jquery.backstretch.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/retina-1.1.0.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        $("#gotop").click(function () {
+          jQuery("html,body").animate(
+            {
+              scrollTop: 0,
+            },
+            1000
+          );
+        });
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 300) {
+            $("#gotop").fadeIn("fast");
+          } else {
+            $("#gotop").stop().fadeOut("fast");
+          }
+        });
+      });
+    </script>
+
+    <!--[if lt IE 10]>
+      <script src="js/placeholder.js"></script>
+    <![endif]-->
+  </body>
+</html>
