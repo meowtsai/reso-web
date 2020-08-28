@@ -20,7 +20,7 @@ mongoose
 app.use(morgan("tiny"));
 app.use(helmet());
 app.use(express.json());
-
+app.use("/api/contactus", require("./routes/api/contactus"));
 //serve static assets if in production
 if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {
   //set a static folder
@@ -38,7 +38,6 @@ if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {
 // app.get("/api/contactus", function (req, res) {
 //   res.send("hello, world!");
 // });
-app.use("/api/contactus", require("./routes/api/contactus"));
 
 const port = process.env.PORT || 4936;
 
