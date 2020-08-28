@@ -2,7 +2,7 @@ const express = require("express");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-var rfs = require("rotating-file-stream");
+const rfs = require("rotating-file-stream");
 const path = require("path");
 require("dotenv").config();
 
@@ -18,10 +18,13 @@ mongoose
   .catch((err) => console.log(err));
 
 // create a rotating write stream
-var accessLogStream = rfs("access.log", {
+const accessLogStream = rfs.createStream("access.log", {
+  size: "10M", // rotate every 10 MegaBytes written
   interval: "1d", // rotate daily
+  compress: "gzip", // compress rotated files
   path: path.join(__dirname, "log"),
 });
+
 app.use(morgan("combined", { stream: accessLogStream }));
 app.use(helmet());
 app.use(express.json());
