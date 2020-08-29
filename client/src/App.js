@@ -9,7 +9,7 @@ const MatchIndex = React.lazy(() => import("./pages/Match/"));
 const IntegrIndex = React.lazy(() => import("./pages/Integr/"));
 const Footer = React.lazy(() => import("./components/Footer"));
 const Nav = React.lazy(() => import("./components/Nav"));
-
+const RequestServiceIndex = React.lazy(() => import("./pages/RequestService"));
 //import HomeIndex from "./pages/Home/";
 // import AboutIndex from "./pages/About/";
 // import KOLIndex from "./pages/KOL/";
@@ -52,6 +52,10 @@ function App() {
             <Route exact path="/integr">
               <IntegrIndex />
             </Route>
+            <Route exact path="/service-request">
+              <RequestServiceIndex />
+            </Route>
+
             <Route path="*" exact={true} component={BlankIndex} />
           </Switch>
           <Footer />

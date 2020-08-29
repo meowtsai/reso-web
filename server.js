@@ -27,6 +27,15 @@ const accessLogStream = rfs.createStream("access.log", {
 
 app.use(morgan("combined", { stream: accessLogStream }));
 app.use(helmet());
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "'unsafe-inline'"],
+      mediaSrc: ["'self'", "https://assets.mixkit.co"],
+    },
+  })
+);
 app.use(express.json());
 app.use("/api/contactus", require("./routes/api/contactus"));
 //serve static assets if in production
