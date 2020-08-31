@@ -52,7 +52,7 @@ const Footer = () => {
                 &ensp;02-8667-2598
               </p>
               <p>
-                <i className="far fa fa-envelope"></i>&ensp;it@resound.global
+                <i className="far fa fa-envelope"></i>&ensp;hi@resound.global
               </p>
               <p>
                 <i className="far fa fa-map-marker"></i>
