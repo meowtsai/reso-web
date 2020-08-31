@@ -33,6 +33,24 @@ const KOLRow = ({ title = "YouTuber", data = [], style }) => {
           spaceBetween={30}
           slidesPerView={4.5}
           pagination={{ clickable: true }}
+          breakpoints={{
+            1024: {
+              slidesPerView: 4.5,
+              spaceBetween: 30,
+            },
+            768: {
+              slidesPerView: 3.5,
+              spaceBetween: 20,
+            },
+            640: {
+              slidesPerView: 1.5,
+              spaceBetween: 10,
+            },
+            320: {
+              slidesPerView: 1.5,
+              spaceBetween: 10,
+            },
+          }}
         >
           <div className="swiper-wrapper kol-box ">
             {data.map((yt) => (

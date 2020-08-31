@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import KOLRow from "./KOLRow";
+import "./kol.css";
 const KOLIndex = () => {
   const ytdata = [
     { title: "這群人TGOP", image: "img/kol-Y/TGOP.jpg" },
