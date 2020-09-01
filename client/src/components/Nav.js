@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 const Nav = () => {
   return (
     <nav
@@ -20,18 +20,20 @@ const Nav = () => {
             <span className="icon-bar"></span>{" "}
           </button>
 
-          <Link to="/" className="navbar-brand" title="首頁" />
+          <a href="/" className="navbar-brand" title="首頁">
+            {" "}
+          </a>
         </div>
         <div className="collapse navbar-collapse" id="top-navbar-1">
           <ul className="nav navbar-nav navbar-right">
             <li>
-              <Link to="/about" title="關於呼聲">
+              <a href="/about" title="關於呼聲">
                 關於呼聲
-              </Link>
+              </a>
             </li>
             <li className="nav-item dropdown">
               <a
-                href="index.html"
+                href="/"
                 className=" nav-link dropdown-toggle"
                 id="navbarDropdown"
                 role="button"
@@ -44,44 +46,44 @@ const Nav = () => {
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <Link
-                    to="/match"
+                  <a
+                    href="/match"
                     className="dropdown-item"
                     title="KOL網紅創意服務"
                   >
                     KOL網紅創意服務
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    to="/integr"
+                  <a
+                    href="/integr"
                     className="dropdown-item"
                     title="全方位整合行銷"
                   >
-                    KOL網紅創意服務
-                  </Link>
+                    全方位整合行銷
+                  </a>
                 </li>
-                <li>
-                  <Link
-                    to="/request-service"
+                {/* <li>
+                  <a
+                    href="/request-service"
                     className="dropdown-item"
-                    title="全方位整合行銷"
+                    title="KOL網紅流量服務"
                   >
                     KOL網紅流量服務
-                  </Link>
-                </li>
+                  </a>
+                </li> */}
               </ul>
             </li>
 
             <li>
-              <Link to="/kol" title="網紅合作">
+              <a href="/kol" title="網紅合作">
                 網紅合作
-              </Link>
+              </a>
             </li>
             <li>
-              <Link to="/contact" title="聯絡呼聲">
+              <a href="/contact" title="聯絡呼聲">
                 聯絡呼聲
-              </Link>
+              </a>
             </li>
             {/* <li>
               <Link to="/service-request" title="我要發案">

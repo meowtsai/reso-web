@@ -6,7 +6,7 @@ const IntegrIndex = () => {
     const wow = new WOW({
       offset: 100,
       mobile: false,
-      live: true,
+      live: false,
     });
 
     wow.init();
