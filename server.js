@@ -33,9 +33,11 @@ app.use(
       defaultSrc: ["'self'"],
       scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
       mediaSrc: ["'self'", "https://assets.mixkit.co"],
+      fontSrc: ["'self'", "data:"],
     },
   })
 );
+
 app.use(express.json());
 app.use("/api/contactus", require("./routes/api/contactus"));
 
