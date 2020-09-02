@@ -54,9 +54,9 @@ function App() {
               <IntegrIndex />
             </Route>
 
-            {/* <Route exact path="/service-request">
+            <Route exact path="/service-request">
               <RequestServiceIndex />
-            </Route> */}
+            </Route>
 
             <Route path="*" exact={true} component={BlankIndex} />
           </Switch>

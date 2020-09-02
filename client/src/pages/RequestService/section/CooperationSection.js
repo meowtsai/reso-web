@@ -1,6 +1,14 @@
 import React from "react";
-
-const CooperationSection = () => {
+import { useFormContext } from "react-hook-form";
+const CooperationSection = ({ step, setStep }) => {
+  const { register, errors, trigger } = useFormContext();
+  const nextStep = async () => {
+    const result = await trigger(["company", "name", "phone", "email"]);
+    //console.log("result", result);
+    if (result) {
+      setStep(1);
+    }
+  };
   return (
     <fieldset>
       <div className="form-card">

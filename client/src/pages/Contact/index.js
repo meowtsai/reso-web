@@ -105,7 +105,7 @@ const ContactIndex = () => {
                   ref={register({
                     required: "*必填，請輸入您的電子郵件",
                     pattern: {
-                      value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+                      value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
                       message: "電子郵件格式不符合",
                     },
                   })}

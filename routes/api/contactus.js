@@ -30,7 +30,7 @@ router.post("/", (req, res) => {
     const newMessage = new ContactMessage({
       name,
       company,
-      email,
+      email: email.toLowerCase(),
       phone,
       ip: req.ip,
       message,

@@ -12,11 +12,11 @@ const RequestServiceIndex = () => {
   const [step, setStep] = useState(1);
 
   const methods = useForm(); // initialise the hook
-
+  //console.log(step);
   const onSubmit = (data) => {
-    console.log(data);
+    //console.log(data);
     //setFormData({ ...formData, ...data });
-    setStep(step + 1);
+    //setStep(step + 1);
     // if (area === "") {
     //   setError("area", {
     //     type: "manual",
@@ -24,7 +24,6 @@ const RequestServiceIndex = () => {
     //   });
     //   return;
     // }
-
     // onNextStepClick({ ...data, area, game_id: gameId });
   };
   return (
@@ -67,13 +66,28 @@ const RequestServiceIndex = () => {
                           />
 
                           {/* <!--合作方式--> */}
-                          {step === 3 && <CooperationSection />}
+                          {step === 3 && (
+                            <CooperationSection
+                              step={step}
+                              setStep={(n) => setStep(step + n)}
+                            />
+                          )}
 
                           {/* <!--聯繫方式--> */}
-                          {step === 4 && <ContactMethodSection />}
+                          {step === 4 && (
+                            <ContactMethodSection
+                              step={step}
+                              setStep={(n) => setStep(step + n)}
+                            />
+                          )}
 
                           {/* <!--確認發送--> */}
-                          {step === 5 && <FinalConfirmSection />}
+                          {step === 5 && (
+                            <FinalConfirmSection
+                              step={step}
+                              setStep={(n) => setStep(step + n)}
+                            />
+                          )}
 
                           <input
                             type="submit"

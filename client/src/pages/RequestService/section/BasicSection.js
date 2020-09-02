@@ -3,11 +3,22 @@ import { Categories, Platforms, genders, goals } from "./config";
 import { useFormContext } from "react-hook-form";
 import classnames from "classnames";
 const BasicSection = ({ step, setStep }) => {
-  const { register, errors, getValues } = useFormContext();
+  const { register, errors, trigger } = useFormContext();
 
-  // const nextStep = () => {
-  //   console.log(errors);
-  // };
+  const nextStep = async () => {
+    const result = await trigger([
+      "categories",
+      "platforms",
+      "genders",
+      "budget",
+      "kolnumber",
+      "goals",
+    ]);
+    //console.log("result", result);
+    if (result) {
+      setStep(2);
+    }
+  };
   return (
     <fieldset className={step === 1 ? "step-current" : "step-non-current"}>
       <div className="form-card">
@@ -118,11 +129,13 @@ const BasicSection = ({ step, setStep }) => {
           })}
         />
       </div>
+
       <input
-        type="submit"
+        type="button"
         name="next"
         className="next action-button step-1"
         value="下一步"
+        onClick={nextStep}
       />
     </fieldset>
   );
