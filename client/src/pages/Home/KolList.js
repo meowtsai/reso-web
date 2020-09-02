@@ -7,7 +7,7 @@ const KolList = () => {
     { title: "葉式特工Yes Ranger", image: "img/kol-Y/YesRanger.jpg" },
     { title: "木曜4超玩", image: "img/kol-Y/muyao4.jpg" },
     { title: "吃貨們", image: "img/kol-Y/EatFunnyGirl.jpg" },
-    { title: "華森", image: "img/kol-Y/Hanksmkinghw.jpg" },
+    { title: "華森", image: "img/kol-Y/hanksmkinghw.jpg" },
     { title: "鐵牛", image: "img/kol-Y/ironbull.jpg" },
     { title: "放火", image: "img/kol-Y/louislee0602.jpg" },
   ];
