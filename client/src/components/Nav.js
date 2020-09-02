@@ -63,7 +63,7 @@ const Nav = () => {
                     全方位整合行銷
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <a
                     href="/request-service"
                     className="dropdown-item"
@@ -71,7 +71,7 @@ const Nav = () => {
                   >
                     KOL網紅流量服務
                   </a>
-                </li>
+                </li> */}
               </ul>
             </li>
 
@@ -85,11 +85,11 @@ const Nav = () => {
                 聯絡呼聲
               </a>
             </li>
-            <li>
+            {/* <li>
               <a href="/service-request" title="我要發案">
                 我要發案
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
