@@ -1,6 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import classnames from "classnames";
 const KolList = () => {
+  const list = [
+    { title: "這群人TGOP", image: "img/kol-Y/TGOP.jpg" },
+    { title: "眾量級CROWD", image: "img/kol-Y/CROWD.jpg" },
+    { title: "葉式特工Yes Ranger", image: "img/kol-Y/YesRanger.jpg" },
+    { title: "木曜4超玩", image: "img/kol-Y/muyao4.jpg" },
+    { title: "吃貨們", image: "img/kol-Y/EatFunnyGirl.jpg" },
+    { title: "華森", image: "img/kol-Y/Hanksmkinghw.jpg" },
+    { title: "鐵牛", image: "img/kol-Y/ironbull.jpg" },
+    { title: "放火", image: "img/kol-Y/louislee0602.jpg" },
+  ];
+
   return (
     <div className="kol-container section-container">
       <div className="container">
@@ -17,74 +28,18 @@ const KolList = () => {
             </p>
           </div>
         </div>
-        <div className="row">
-          <div className="col-sm-3 kol-box wow fadeInUp">
-            <div className="kol-photo">
-              {" "}
-              <img src="img/kol-Y/TGOP.jpg" alt="" />{" "}
-            </div>
-            <h4>這群人TGOP</h4>
-          </div>
-          <div className="col-sm-3 kol-box wow fadeInDown">
-            <div className="kol-photo">
-              {" "}
-              <img src="img/kol-Y/CROWD.jpg" alt="" />{" "}
-            </div>
-            <h4>眾量級CROWD</h4>
-          </div>
-          <div className="col-sm-3 kol-box wow fadeInUp">
-            <div className="kol-photo">
-              {" "}
-              <img src="img/kol-Y/YesRanger.jpg" alt="" />{" "}
-            </div>
-            <h4>葉式特工Yes Ranger</h4>
-          </div>
-          <div className="col-sm-3 kol-box wow fadeInUp">
-            <div className="kol-photo">
-              {" "}
-              <img src="img/kol-Y/HuangBros.jpg" alt="" />{" "}
-            </div>
-            <h4>黃氏兄弟</h4>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-sm-3 kol-box wow fadeInUp">
-            <div className="kol-photo">
-              {" "}
-              <img src="img/kol-Y/howfun.jpg" alt="" />{" "}
-            </div>
-            <h4>HowFun</h4>
-          </div>
-          <div className="col-sm-3 kol-box wow fadeInDown">
-            <div className="kol-photo">
-              {" "}
-              <img src="img/kol-Y/chuchushoe.jpg" alt="" />{" "}
-            </div>
-            <h4>啾啾鞋</h4>
-          </div>
-          <div className="col-sm-3 kol-box wow fadeInUp">
-            <div className="kol-photo">
-              {" "}
-              <img src="img/kol-Y/loserZUN.jpg" alt="" />{" "}
-            </div>
-            <h4>人生肥宅X尊</h4>
-          </div>
-          <div className="col-sm-3 kol-box wow fadeInUp">
-            <div className="kol-photo">
-              {" "}
-              <img src="img/kol-Y/OnionMan.jpg" alt="" />{" "}
-            </div>
-            <h4>Onion Man</h4>
-          </div>
-        </div>
+        <KolRowForIndexPage kols={list.slice(0, 4)} />
+        <KolRowForIndexPage kols={list.slice(4, 8)} />
+
         <div className="row">
           <div
             className="col-sm-12 section-bottom-button wow fadeInUp"
             style={{ marginBottom: "60px" }}
           >
-            <Link to="/kol" className="btn-link-2">
+            {" "}
+            <a className="btn-link-2" href="/kol" target="_blank">
               看更多
-            </Link>
+            </a>{" "}
           </div>
         </div>
       </div>
@@ -93,3 +48,30 @@ const KolList = () => {
 };
 
 export default KolList;
+
+const KolRowForIndexPage = ({ kols }) => {
+  return (
+    <div className="row">
+      {kols.slice(0, 4).map((kol, i) => (
+        <div
+          key={`kolrowindex_${kol.title}`}
+          className={classnames(
+            "col-sm-3 kol-box wow ",
+            {
+              fadeInUp: i !== 1,
+            },
+            {
+              fadeInDown: i === 1,
+            }
+          )}
+        >
+          <div className="kol-photo">
+            {" "}
+            <img src={kol.image} alt="" />{" "}
+          </div>
+          <h4>{kol.title}</h4>
+        </div>
+      ))}
+    </div>
+  );
+};
