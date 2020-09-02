@@ -38,7 +38,6 @@ const KOLIndex = () => {
     { title: "我不喝拿鐵", image: "img/kol-S/idontdrinklatte.jpg" },
     { title: "Cqi西區", image: "img/kol-S/Cqi.jpg" },
     { title: "鶻先生", image: "img/kol-S/zhihaoq1.jpg" },
-    { title: "Lice萊斯", image: "img/kol-S/lice.jpg" },
     { title: "平民百姓", image: "img/kol-S/layman.jpg" },
     { title: "我是RT", image: "img/kol-S/imRT.jpg" },
   ];
