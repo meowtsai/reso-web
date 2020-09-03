@@ -432,3 +432,32 @@ label .note {
   opacity: 0;
   display: none;
 }
+.datepicker-container {
+  width: 210px;
+}
+.footer-menu-box {
+  padding-top: 30px;
+  padding-bottom: 15px;
+}
+.datepicker-top-left:before,
+.datepicker-top-right:before {
+  border-bottom-color: #fdd108;
+}
+.datepicker-top-left,
+.datepicker-top-right {
+  border: 1px solid #fdd108;
+}
+.datepicker-panel > ul > li.picked,
+.datepicker-panel > ul > li.picked:hover {
+  color: #231815;
+}
+.datepicker-panel > ul > li.highlighted:hover {
+  background-color: #e4e4e4;
+}
+.datepicker-panel > ul > li.highlighted {
+  background-color: #e4e4e4;
+}
+.datepicker-panel > ul > li:hover {
+  background-color: #e4e4e4;
+  color: #231815;
+}

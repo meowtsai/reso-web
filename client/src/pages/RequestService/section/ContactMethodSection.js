@@ -1,16 +1,19 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
 const ContactMethodSection = ({ step, setStep }) => {
-  const { register, errors, trigger } = useFormContext();
+  const { register, errors, trigger, getValues } = useFormContext();
+
   const nextStep = async () => {
     const result = await trigger(["company", "name", "phone", "email"]);
     //console.log("result", result);
+    const values = getValues();
+    console.log(values);
     if (result) {
       setStep(1);
     }
   };
   return (
-    <fieldset className={step === 3 ? "step-current" : "step-non-current"}>
+    <fieldset className={step === 4 ? "step-current" : "step-non-current"}>
       <div className="form-card">
         <h2>4.聯繫方式</h2>
         <div id="campaign-contact" className="form-group row ml-0 mr-0">

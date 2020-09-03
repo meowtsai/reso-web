@@ -2,6 +2,7 @@ import React from "react";
 import { Categories, Platforms, genders, goals } from "./config";
 import { useFormContext } from "react-hook-form";
 import classnames from "classnames";
+import CheckboxSubSection from "./CheckboxSubSection";
 const BasicSection = ({ step, setStep }) => {
   const { register, errors, trigger } = useFormContext();
 
@@ -120,7 +121,7 @@ const BasicSection = ({ step, setStep }) => {
 
         <CheckboxSubSection
           secid={"goals"}
-          title="類型"
+          title="合作目標"
           note="(可複選)"
           error={errors.goals}
           list={goals}
@@ -142,39 +143,3 @@ const BasicSection = ({ step, setStep }) => {
 };
 
 export default BasicSection;
-
-const CheckboxSubSection = ({
-  secid,
-  title = "類型",
-  note = "(可複選)",
-  error,
-  list,
-  register,
-}) => {
-  return (
-    <div id={`campaign-${secid}`} className="form-group row ml-0 mr-0">
-      <label className="col-form-label col-12">
-        <i className="far fa fa-pencil"></i>
-        {title} &nbsp;
-        <span className="note">{note}</span>
-        {error && <small className="text-danger">* {error.message}</small>}
-      </label>
-      <div className="col-12 pl-0 pr-0">
-        <div className="btn-group-toggle" data-toggle="buttons">
-          {Object.keys(list).map((key) => (
-            <label key={`cate_${key}`} className="btn btn-secondary">
-              <input
-                type="checkbox"
-                autoComplete="off"
-                value={key}
-                name={secid}
-                ref={register}
-              />
-              {list[key].cht}
-            </label>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};

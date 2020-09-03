@@ -16,7 +16,7 @@ const AProgressSection = ({ step }) => {
     >
       <ul id="progressbar" className="sticky">
         {progressStep.map((ps) => {
-          if (ps.step === step) {
+          if (ps.step <= step) {
             return (
               <li key={`pstep-${ps.id}`} className="active" id={ps.id}>
                 {ps.text}

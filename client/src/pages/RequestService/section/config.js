@@ -75,3 +75,10 @@ export const goals = {
   members: { cht: "會員數", eng: "Members" },
   sales: { cht: "銷售數", eng: "Sales" },
 };
+
+export const formats = {
+  post: { cht: "貼文", eng: "post" },
+  video: { cht: "影片", eng: "video" },
+  story: { cht: "即時動態", eng: "story" },
+  show_up_event: { cht: "邀請實體活動出席", eng: "show_up_event" },
+};
