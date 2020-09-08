@@ -41,8 +41,8 @@ const CooperationSection = ({ step, setStep }) => {
       });
       return;
     }
-    console.log("result", result);
-    console.log("errors", errors);
+    // console.log("result", result);
+    // console.log("errors", errors);
     if (result) {
       setStep(1);
     }

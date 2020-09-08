@@ -1,14 +1,15 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
 import { Categories, Platforms, genders, goals, formats } from "./config";
-const FinalConfirmSection = ({ step, setStep }) => {
+const FinalConfirmSection = ({ step, setStep, loading }) => {
   const { getValues } = useFormContext();
   const formValues = getValues();
-  console.log("formValues", formValues);
+  //console.log("savedRecord", savedRecord);
 
   if (step !== 5) {
     return null;
   }
+
   return (
     <fieldset
       className={
@@ -148,21 +149,16 @@ const FinalConfirmSection = ({ step, setStep }) => {
         value="上一步"
         onClick={() => setStep(-1)}
       />
-      <button id="submit" type="button" className="action-button" data-ref="">
-        送出
+      {loading ? (
         <div className="spinner-border text-light" role="status">
           {" "}
           <span className="sr-only">Loading...</span>{" "}
         </div>
-      </button>
-
-      <input
-        type="button"
-        name="previous"
-        className="previous action-button-previous"
-        value="上一步"
-        onClick={() => setStep(-1)}
-      />
+      ) : (
+        <button type="submit" className="action-button" data-ref="">
+          送出
+        </button>
+      )}
     </fieldset>
   );
 };

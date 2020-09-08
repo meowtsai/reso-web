@@ -40,7 +40,7 @@ app.use(
 
 app.use(express.json());
 app.use("/api/contactus", require("./routes/api/contactus"));
-
+app.use("/api/service-request", require("./routes/api/service-request"));
 //serve static assets if in production
 if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {
   //set a static folder

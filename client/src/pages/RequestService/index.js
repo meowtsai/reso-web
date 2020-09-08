@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useForm, FormProvider, useFormContext } from "react-hook-form";
-
+import { useForm, FormProvider } from "react-hook-form";
+import axios from "axios";
 import "./demand.css";
 import AProgressSection from "./section/AProgressSection";
 import BasicSection from "./section/BasicSection";
@@ -8,14 +8,35 @@ import BrandSection from "./section/BrandSection";
 import ContactMethodSection from "./section/ContactMethodSection";
 import CooperationSection from "./section/CooperationSection";
 import FinalConfirmSection from "./section/FinalConfirmSection";
+import { useHistory } from "react-router-dom";
 const RequestServiceIndex = () => {
   const [step, setStep] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   const methods = useForm(); // initialise the hook
-  const watchAdOK = methods.watch("socialadperm");
+
+  let history = useHistory();
   //console.log(step);
   const onSubmit = (data) => {
-    console.log(data);
+    //e.preventDefault();
+    //console.log("onSubmit", JSON.stringify(data));
+    setLoading(true);
+    axios
+      .post("/api/service-request/", {
+        ...data,
+      })
+      .then((res) => {
+        //setLoading(false);
+        //console.log("result", res.data);
+        //const result = res.data;
+        //const newId = result._id;
+        //setSavedRecord(res.data);
+        history.push(`/general?category=2&id=${res.data._id}`);
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.log("err.result", err);
+      });
     //setFormData({ ...formData, ...data });
     //setStep(step + 1);
     // if (area === "") {
@@ -27,6 +48,13 @@ const RequestServiceIndex = () => {
     // }
     // onNextStepClick({ ...data, area, game_id: gameId });
   };
+  if (loading) {
+    return (
+      <div className="spinner-grow text-warning" role="status">
+        <span className="sr-only">Loading...</span>
+      </div>
+    );
+  }
   return (
     <div className="service-container section-container">
       <div className="container">
@@ -85,6 +113,7 @@ const RequestServiceIndex = () => {
                           <FinalConfirmSection
                             step={step}
                             setStep={(n) => setStep(step + n)}
+                            loading={loading}
                           />
                         </form>
                       </FormProvider>
