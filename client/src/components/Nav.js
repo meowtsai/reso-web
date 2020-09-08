@@ -65,7 +65,7 @@ const Nav = () => {
                 </li>
                 <li>
                   <a
-                    href="/request-service"
+                    href="/service-request"
                     className="dropdown-item"
                     title="KOL網紅流量服務"
                   >

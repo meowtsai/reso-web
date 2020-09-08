@@ -48,7 +48,7 @@ const Service = () => {
           </div>
           <div className="col-sm-4 service-box wow fadeInUp">
             {" "}
-            <a href="/demand" target="_blank">
+            <a href="/service-request" target="_blank">
               <div className="service-box-icon">
                 <i className="fa fa-cogs"></i>
               </div>

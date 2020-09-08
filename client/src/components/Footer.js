@@ -38,7 +38,7 @@ const Footer = () => {
                 </a>
               </p>
               <p>
-                <a className="fm" href="/demand" target="_blank">
+                <a className="fm" href="/service-request" target="_blank">
                   KOL流量服務
                 </a>
               </p>
