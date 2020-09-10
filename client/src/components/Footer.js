@@ -49,7 +49,7 @@ const Footer = () => {
               </div>
               <p>
                 <i className="far fa fa-phone" style={{ color: "#fff" }}></i>
-                &ensp;02-8667-2598
+                &ensp;02-8667-2958
               </p>
               <p>
                 <i className="far fa fa-envelope"></i>&ensp;hi@resound.global
