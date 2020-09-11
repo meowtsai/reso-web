@@ -35,7 +35,7 @@ app.use(
         "'self'",
         "'unsafe-inline'",
         "'unsafe-eval'",
-        "ttps://use.fontawesome.com",
+        "https://use.fontawesome.com",
         "https://cdnjs.cloudflare.com",
         "https://stackpath.bootstrapcdn.com/",
       ],
