@@ -45,20 +45,16 @@ app.use("/api/course", require("./routes/api/course"));
 //serve static assets if in production
 if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {
   //set a static folder
+  app.use("/course", express.static(path.join(__dirname, "course/build")));
   app.use(express.static("client/build"));
   //set a route for anything else not list above
+  app.get("course/*", (req, res) => {
+    res.sendFile(path.join(__dirname + "/course/build/index.html"));
+  });
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
-
-// app.get("/", function (req, res) {
-//   res.send("hello, world!");
-// });
-
-// app.get("/api/contactus", function (req, res) {
-//   res.send("hello, world!");
-// });
 
 const port = process.env.PORT || 4936;
 
