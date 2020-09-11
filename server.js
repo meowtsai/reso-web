@@ -30,8 +30,15 @@ app.use(helmet());
 app.use(
   helmet.contentSecurityPolicy({
     directives: {
-      defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
+      defaultSrc: ["'self'", "'unsafe-inline'"],
+      scriptSrc: [
+        "'self'",
+        "'unsafe-inline'",
+        "'unsafe-eval'",
+        "ttps://use.fontawesome.com",
+        "https://cdnjs.cloudflare.com",
+        "https://stackpath.bootstrapcdn.com/",
+      ],
       mediaSrc: ["'self'", "https://assets.mixkit.co"],
       fontSrc: ["'self'", "data:"],
     },
