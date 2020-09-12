@@ -14,6 +14,7 @@
 # production
 /build
 /client/build
+/course/build
 # misc
 .DS_Store
 .env

@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { Modal, Button } from "react-bootstrap";
-const ErrorModal = ({ error }) => {
+import React, { useState, useEffect } from 'react';
+import { Modal, Button } from 'react-bootstrap';
+const ErrorModal = ({ error, onClose }) => {
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    onClose();
+    setShow(false);
+  };
 
   useEffect(() => {
     if (error?.msg) {
@@ -23,7 +26,7 @@ const ErrorModal = ({ error }) => {
           <p>{error.msg}</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant='secondary' onClick={handleClose}>
             關閉
           </Button>
         </Modal.Footer>
