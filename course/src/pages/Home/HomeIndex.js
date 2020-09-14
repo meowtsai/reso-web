@@ -88,7 +88,7 @@ const HomeIndex = () => {
             <div className="col-lg-4 col-sm-6 mb-4">
               <div className="course-item">
                 {" "}
-                <a className="course-link" href="/course/A">
+                <a className="course-link" href="/course/form/A">
                   <div className="course-hover">
                     <div className="course-hover-content">
                       <i className="fas fa-plus fa-3x"></i>
@@ -115,7 +115,7 @@ const HomeIndex = () => {
             <div className="col-lg-4 col-sm-6 mb-4">
               <div className="course-item">
                 {" "}
-                <a className="course-link" href="/course/B">
+                <a className="course-link" href="/course/form/B">
                   <div className="course-hover">
                     <div className="course-hover-content">
                       <i className="fas fa-plus fa-3x"></i>
