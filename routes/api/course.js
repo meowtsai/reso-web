@@ -15,15 +15,25 @@ router.get("/list", async (req, res) => {
 });
 
 router.get("/allRegisterData", async (req, res) => {
-  CourseRegister.find()
-    .then((data) => {
-      res.json(data);
-    })
-    .catch((err) => {
-      return res.status(500).json({ error: err.message });
-    });
+  try {
+    const registers = await CourseRegister.find();
+    const wires = await CourseWireReport.find();
+    res.json({ registers, wires });
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
+  }
 });
 
+router.post("/updateRegister", async (req, res) => {
+  const criteria = req.body;
+  CourseRegister.findOne({ _id: criteria.id, status: 2 })
+    .then((record) => {
+      record.status = criteria.status;
+      record.save();
+      res.json(record);
+    })
+    .catch((err) => res.status(500).json({ error: err.message }));
+});
 router.post("/seatsByDate", async (req, res) => {
   //const criteria = { courseId: 'A', date: '2020-09-19' };
   const criteria = req.body;
@@ -178,6 +188,9 @@ router.post("/wirereport", async (req, res) => {
       if (registerRecord) {
         newWireReport.registerId = registerRecord._id;
       }
+
+      registerRecord.status = 2; //改為已經確認
+      registerRecord.save();
 
       newWireReport
         .save()
