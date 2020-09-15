@@ -9,12 +9,12 @@ const sgMail = require("@sendgrid/mail");
 const CONFIG = require("../../config/course");
 
 router.get("/test", async (req, res) => {
-  console.log(CONFIG.cclist);
+  console.log(CONFIG.courses);
   res.json({ msg: "oh hi there" });
 });
 
 router.get("/list", async (req, res) => {
-  res.json(courseConfig.courses);
+  res.json(CONFIG.courses);
 });
 
 router.get("/allRegisterData", async (req, res) => {
@@ -171,7 +171,7 @@ router.post("/register", async (req, res) => {
         .then((data) => {
           //console.log(data);
           data.courseDetail = `課程${data.courseId}-${
-            courseConfig.courses.filter((c) => c.id === data.courseId)[0].name
+            CONFIG.courses.filter((c) => c.id === data.courseId)[0].name
           }`;
           sendMailRegister(data);
 
@@ -326,7 +326,7 @@ const validateFormInput = (formData) => {
   }
   if (validator.isEmpty(level)) {
     errors.level = "等級必填";
-  } else if (!validator.isInt(level, { min: 1, max: 99 })) {
+  } else if (!validator.isInt(level, { min: 1, max: 120 })) {
     errors.level = "等級不是數字或在錯誤範圍";
   }
   if (validator.isEmpty(rank)) {
@@ -338,12 +338,12 @@ const validateFormInput = (formData) => {
   return errors;
 };
 
-const courseConfig = {
-  courses: [
-    { id: "A", name: "求生者：遛監管者技巧教學" },
-    { id: "B", name: "求生者：對戰觀念教學" },
-  ],
-};
+// const courseConfig = {
+//   courses: [
+//     { id: "A", name: "求生者：遛監管者技巧教學" },
+//     { id: "B", name: "求生者：對戰觀念教學" },
+//   ],
+// };
 
 const getRandomString = (length) => {
   const charString = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
@@ -380,7 +380,7 @@ const sendMailRegister = (record) => {
     
     <hr />
     課程${record.courseId}-${
-    courseConfig.courses.filter((c) => c.id === record.courseId)[0].name
+    CONFIG.courses.filter((c) => c.id === record.courseId)[0].name
   }
     <br />
     費用合計$500元<br />
@@ -443,7 +443,7 @@ const sendMailConfirmed = (record) => {
     
     <hr />
     課程${record.courseId}-${
-    courseConfig.courses.filter((c) => c.id === record.courseId)[0].name
+    CONFIG.courses.filter((c) => c.id === record.courseId)[0].name
   }
     <br />
     提醒您，課前務必準備好：<br />

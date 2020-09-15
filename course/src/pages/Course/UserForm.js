@@ -223,7 +223,7 @@ const UserForm = ({ setRegisterResult, courseId, setError }) => {
                   required: "等級必填．",
                   min: { value: 1, message: "等級不符合範圍" },
                   max: {
-                    value: 99,
+                    value: 120,
                     message: "等級不符合範圍",
                   },
                 })}
