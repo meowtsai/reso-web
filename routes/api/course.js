@@ -6,7 +6,10 @@ const CourseRegister = require("../../models/CourseRegister");
 const CourseWireReport = require("../../models/CourseWireReport");
 const jwt = require("jsonwebtoken");
 const sgMail = require("@sendgrid/mail");
+const CONFIG = require("../../config/course");
+
 router.get("/test", async (req, res) => {
+  console.log(CONFIG.cclist);
   res.json({ msg: "oh hi there" });
 });
 
@@ -397,7 +400,7 @@ const sendMailRegister = (record) => {
 
   const mailContent = {
     to: record.email,
-    bcc: require("../../config/course")[courseConfig].cclist.map((email) => ({
+    bcc: CONFIG.cclist.map((email) => ({
       email,
     })),
     from: process.env.CONTACT_MAIL_COURSE,
@@ -462,7 +465,7 @@ const sendMailConfirmed = (record) => {
 
   const mailContent = {
     to: record.email,
-    bcc: require("../../config/course")[courseConfig].cclist.map((email) => ({
+    bcc: CONFIG.cclist.map((email) => ({
       email,
     })),
     from: process.env.CONTACT_MAIL_COURSE,
