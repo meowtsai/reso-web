@@ -306,7 +306,7 @@ const validateFormInput = (formData) => {
   }
   if (validator.isEmpty(rank)) {
     errors.rank = "位階必填";
-  } else if (!validator.isInt(rank, { min: 1, max: 6 })) {
+  } else if (!validator.isInt(rank, { min: 1, max: 7 })) {
     errors.rank = "位階不是數字或在錯誤範圍";
   }
 
