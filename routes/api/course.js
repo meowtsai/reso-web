@@ -35,10 +35,30 @@ router.get("/allRegisterData", async (req, res) => {
 
 router.post("/updateRegister", async (req, res) => {
   const criteria = req.body;
+
+  const bearerHeader = req.headers["authorization"];
+  if (bearerHeader) {
+    const bearer = bearerHeader.split(" ");
+    const bearerToken = bearer[1];
+    //console.log(bearerToken);
+    let decoded;
+    try {
+      decoded = jwt.verify(bearerToken, process.env.JWT_CODE);
+      //console.log(decoded);
+    } catch (err) {
+      return res.status(500).json({ msg: "not valid" });
+    }
+  } else {
+    // Forbidden
+    return res.sendStatus(403);
+  }
+
+  //變更狀態
   CourseRegister.findOne({ _id: criteria.id, status: 2 })
     .then((record) => {
       record.status = criteria.status;
       record.save();
+      sendMailConfirmed(record);
       res.json(record);
     })
     .catch((err) => res.status(500).json({ error: err.message }));
@@ -377,8 +397,11 @@ const sendMailRegister = (record) => {
 
   const mailContent = {
     to: record.email,
+    bcc: require("../../config/course").courseConfig.cclist.map((email) => ({
+      email,
+    })),
     from: process.env.CONTACT_MAIL_COURSE,
-    subject: `第五人格課程註冊成功通知`,
+    subject: `第五人格課程註冊預約成功通知`,
     html: html_template,
   };
 
@@ -386,6 +409,71 @@ const sendMailRegister = (record) => {
   sgMail.send(mailContent).then(
     (sendResult) => {
       //console.log("mail send result", sendResult);
+    },
+    (error) => {
+      console.error(error);
+
+      if (error.response) {
+        console.error(error.response.body);
+      }
+    }
+  );
+};
+
+const sendMailConfirmed = (record) => {
+  //console.log("sendMailConfirmed", record);
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+  const fs = require("fs");
+  let html_template = fs.readFileSync(__dirname + "/mail.html", "utf8");
+  const msg = `您已經成功報名西區教練的第五人格教學課程，以下為課程時間與資訊<br />
+    您的預約日期和時段: ${moment(record.registerDate)
+      .format("YYYY年MM月DD日")
+      .toString()}
+    ${record.timeSlot} <br />
+    discord帳號:${record.discordAccount}<br />
+    姓名:${record.name}<br />
+    手機:${record.phone}<br />
+    email:${record.email}<br /><br />
+    角色等級:${record.level}<br />
+    角色位階:${record.rank}<br />
+    
+    <hr />
+    課程${record.courseId}-${
+    courseConfig.courses.filter((c) => c.id === record.courseId)[0].name
+  }
+    <br />
+    提醒您，課前務必準備好：<br />
+    <br />
+    <ul> 
+    <li>請確保上課時手機/PC　裝置已安裝第五人格遊戲．</li>
+    <li>請確認您報名填寫的　Discord　帳號已成功加入「西區教練群」。</li>
+    <li>課程進行時，建議您將過程遊戲畫面都錄製下來，錄製完成後，可提供在西區教練群，西區將會依照您個人的遊戲操作進行細節建議。</li>
+    <li>課程將會語音進行溝通，請務必準備好耳麥。</li>
+    </ul>
+<br />
+最後，記得準時上課喔<br />
+<br />
+<br />
+西區教練<br />
+    `;
+
+  html_template = html_template.replace("{{msg}}", msg);
+
+  const mailContent = {
+    to: record.email,
+    bcc: require("../../config/course").courseConfig.cclist.map((email) => ({
+      email,
+    })),
+    from: process.env.CONTACT_MAIL_COURSE,
+    subject: `第五人格課程匯款確認及上課注意事項通知`,
+    html: html_template,
+  };
+
+  //console.log("mailContent", mailContent);
+  sgMail.send(mailContent).then(
+    (sendResult) => {
+      //console.log(" sendMailConfirmed mail send result", sendResult);
     },
     (error) => {
       console.error(error);

@@ -37,7 +37,16 @@ const RecordsList = () => {
     const confirmUpdate = window.confirm("確定要將這筆紀錄變更為已確認嗎?");
     if (confirmUpdate) {
       axios
-        .post("/api/course/updateRegister", { id: dataId, status: 4 })
+        .post(
+          "/api/course/updateRegister",
+          { id: dataId, status: 4 },
+          {
+            headers: {
+              Authorization:
+                "Bearer " + queryString.parse(location.search).token,
+            },
+          }
+        )
         .then((res) => {
           setData(
             data.map((d) => {
