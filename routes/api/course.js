@@ -4,7 +4,7 @@ const validator = require("validator");
 const moment = require("moment");
 const CourseRegister = require("../../models/CourseRegister");
 const CourseWireReport = require("../../models/CourseWireReport");
-
+const jwt = require("jsonwebtoken");
 const sgMail = require("@sendgrid/mail");
 router.get("/test", async (req, res) => {
   res.json({ msg: "oh hi there" });
@@ -16,6 +16,15 @@ router.get("/list", async (req, res) => {
 
 router.get("/allRegisterData", async (req, res) => {
   try {
+    const token = req.query.token;
+    //console.log(token);
+    let decoded;
+    try {
+      decoded = jwt.verify(token, process.env.JWT_CODE);
+    } catch (err) {
+      return res.status(500).json({ msg: "not valid" });
+    }
+
     const registers = await CourseRegister.find();
     const wires = await CourseWireReport.find();
     res.json({ registers, wires });

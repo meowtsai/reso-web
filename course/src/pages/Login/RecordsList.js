@@ -4,15 +4,21 @@ import { useTable } from "react-table";
 import axios from "axios";
 import Spinner from "./Spinner";
 import moment from "moment";
+import queryString from "query-string";
+import { useLocation } from "react-router-dom";
 const RecordsList = () => {
+  const location = useLocation();
   let [loading, setLoading] = useState(true);
   let [wireReports, setWireReports] = useState(true);
+
   let [data, setData] = useState([]);
 
   useEffect(() => {
+    const search_values = queryString.parse(location.search);
+
     //get data
     axios
-      .get("/api/course/allRegisterData")
+      .get(`/api/course/allRegisterData?token=${search_values.token}`)
       .then((records) => {
         //console.log(records.data);
         //res.json({ registers, wires });
@@ -21,8 +27,11 @@ const RecordsList = () => {
         setData(registers);
         setLoading(false);
       })
-      .catch((err) => console.log("error fetch", err.message));
-  }, [data]);
+      .catch((err) => {
+        setLoading(false);
+        console.log("error fetch", err.message);
+      });
+  }, [location.search]);
 
   const updateStatus = (dataId) => {
     const confirmUpdate = window.confirm("確定要將這筆紀錄變更為已確認嗎?");
@@ -72,7 +81,7 @@ const DataTable = ({ records, onChangeStatus, wireReports }) => {
         date: moment(record.date).format("YYYY-MM-DD HH:mm:ss"),
         statusText: statusConfig[record.status],
       })),
-    []
+    [records, statusConfig]
   );
 
   const columns = React.useMemo(
@@ -130,7 +139,6 @@ const DataTable = ({ records, onChangeStatus, wireReports }) => {
   } = useTable({ columns, data });
 
   const renderReportData = (rowId) => {
-    // {"_id":"5f5f1938abf06430e890d9e7","checkId":"XGELUL","ip":"127.0.0.1","bankName":"123","wireName":"蔡湜梵","bankCode":"1232","date":"2020-09-14T07:18:16.997Z","registerId":"5f5f1928abf06430e890d9e6","__v":0}
     const report = wireReports.filter((rw) => rw.registerId === rowId);
     if (report.length > 0) {
       return (
