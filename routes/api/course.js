@@ -397,7 +397,7 @@ const sendMailRegister = (record) => {
 
   const mailContent = {
     to: record.email,
-    bcc: require("../../config/course").courseConfig.cclist.map((email) => ({
+    bcc: require("../../config/course")[courseConfig].cclist.map((email) => ({
       email,
     })),
     from: process.env.CONTACT_MAIL_COURSE,
@@ -462,7 +462,7 @@ const sendMailConfirmed = (record) => {
 
   const mailContent = {
     to: record.email,
-    bcc: require("../../config/course").courseConfig.cclist.map((email) => ({
+    bcc: require("../../config/course")[courseConfig].cclist.map((email) => ({
       email,
     })),
     from: process.env.CONTACT_MAIL_COURSE,
