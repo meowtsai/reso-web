@@ -191,11 +191,13 @@ router.post("/wirereport", async (req, res) => {
     bankCode: data.bankCode,
   });
 
-  CourseRegister.findOne({ checkId: data.checkId })
+  CourseRegister.findOne({ checkId: data.checkId, status: 1 })
     .then((registerRecord) => {
       //console.log("registerRecord", registerRecord);
       if (registerRecord) {
         newWireReport.registerId = registerRecord._id;
+      } else {
+        return res.status(500).json({ msg: "預約代碼不存在或是該筆已經確認" });
       }
 
       registerRecord.status = 2; //改為已經確認
