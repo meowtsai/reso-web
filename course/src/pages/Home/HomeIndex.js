@@ -157,7 +157,7 @@ const HomeIndex = () => {
                 {" "}
                 <img
                   className="mx-auto rounded-circle"
-                  src="/course/assets/img/team/1.png"
+                  src="/course/assets/img/team/CQI.jpg"
                   alt=""
                 />
                 <h4>Cqi西區</h4>
