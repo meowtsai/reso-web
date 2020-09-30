@@ -18,7 +18,7 @@ router.get("/test", async (req, res) => {
 
 router.post("/form_submit", async (req, res) => {
   const record = req.body;
-  console.log("form_submit", record);
+  //console.log("form_submit", record);
   const checkErrors = validateTeamForm(record);
 
   if (!checkErrors.isValid) {
@@ -34,7 +34,7 @@ router.post("/form_submit", async (req, res) => {
     { isValid: true }
   );
 
-  console.log(existRecord);
+  //console.log(existRecord);
   if (!existRecord) {
     return res.status(500).json({
       code: "驗證碼不正確, 請確認您填寫的mail信箱中有收到我們寄發的驗證碼",
@@ -206,13 +206,15 @@ router.post("/getcode", async (req, res) => {
       .duration(moment().diff(moment(existRecord.date)))
       .asHours();
     //重新發送
+    //console.log("duration", duration);
     if (duration > 24) {
       try {
         sendMailVerifyCode({ email, code });
-        EmailVerify.findByIdAndUpdate(
+        const updateresult = await EmailVerify.findOneAndUpdate(
           { _id: existRecord._id },
           { code, isVerified: false, date: new Date() }
         );
+        console.log("updateresult", updateresult);
       } catch (err) {
         return res.status(500).json({ email: err.message });
       }
@@ -344,19 +346,17 @@ const sendMailSuccessRegistered = (record) => {
   //console.log("mailContent", mailContent);
   sgMail.send(mailContent).then(
     (sendResult) => {
-      console.log("mail send result", sendResult);
-      console.log("mail send statusCode", sendResult.statusCode);
-
-      if (sendResult[0].response.statusCode === "202") {
-        return true;
-      }
+      // console.log("mail send result", sendResult);
+      // console.log("mail send statusCode", sendResult.statusCode);
+      // if (sendResult[0].response.statusCode === "202") {
+      //   return true;
+      // }
     },
     (error) => {
-      console.error(error);
-
-      if (error.response) {
-        console.error(error.response.body);
-      }
+      //console.error(error);
+      // if (error.response) {
+      //   console.error(error.response.body);
+      // }
     }
   );
 };

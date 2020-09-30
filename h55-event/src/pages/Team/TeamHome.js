@@ -11,7 +11,7 @@ const TeamHome = () => {
   const [error, setError] = useState(null);
   const [hint, setHint] = useState(null);
   const [loading, setLoading] = useState(false);
-  console.log("TeamHome error", error);
+
   useEffect(() => {
     const stylelink = document.createElement("link");
     stylelink.rel = "stylesheet";

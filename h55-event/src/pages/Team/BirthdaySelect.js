@@ -5,7 +5,7 @@ const BirthdaySelect = ({ birthday, setBirthdayValue }) => {
   const now = DateTime.local();
   const endYear = useMemo(
     () => now.minus(Duration.fromObject({ years: 15 })).year,
-    []
+    [now]
   );
 
   const [year, setYear] = useState("");
@@ -19,7 +19,7 @@ const BirthdaySelect = ({ birthday, setBirthdayValue }) => {
       );
       //const dt2 = DateTime.fromISO("2017-5-15");
       //console.log(`${year}-${month}-${day}`);
-      console.log(dt.isValid);
+      //console.log(dt.isValid);
       if (!dt.isValid) {
         setDay("");
       } else {
@@ -28,7 +28,7 @@ const BirthdaySelect = ({ birthday, setBirthdayValue }) => {
         );
       }
     }
-  }, [year, month, day]);
+  }, [year, month, day, setBirthdayValue]);
 
   const birthDayYYYY = [];
 

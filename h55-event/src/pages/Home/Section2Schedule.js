@@ -3,7 +3,9 @@ import React, { Fragment } from "react";
 const Section2Schedule = () => {
   return (
     <Fragment>
-      <a id="schedule" name="schedule"></a>
+      <a id="schedule" name="schedule" href="!#">
+        {" "}
+      </a>
       <section className="sec2">
         <p className="sec-title"></p>
         <div className="schedule-box">
@@ -18,9 +20,7 @@ const Section2Schedule = () => {
               <p>10月22日 </p>
               <p>
                 {" "}
-                <a href="#" target="_blank">
-                  於官網上公布<span style={{ color: "#c31717" }}>賽程表</span>
-                </a>{" "}
+                於官網上公布<span style={{ color: "#c31717" }}>賽程表</span>
               </p>
             </li>
           </ul>

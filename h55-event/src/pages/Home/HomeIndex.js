@@ -13,7 +13,9 @@ const HomeIndex = () => {
         ishow="冠軍獎金40萬"
         href="/idvtwcampus/team"
         target="_blank"
-      ></a>
+      >
+        {" "}
+      </a>
       <Section1Live />
       <Section2Schedule />
       <Section3Rule />

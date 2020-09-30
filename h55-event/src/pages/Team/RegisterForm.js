@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 import { useForm, FormProvider } from "react-hook-form";
@@ -26,8 +26,10 @@ const RegisterForm = ({ setError, setHint, setLoading }) => {
   methods.register({ name: "captain_upload2" }, { required: "請上傳反面圖檔" });
   const phoneCodeArray = ["+886", "+852", "+853"];
   useEffect(() => {
-    console.log("useEffect", methods.errors);
-    setError(methods.errors);
+    //console.log("useEffect", methods.errors);
+    if (methods.errors) {
+      setError(methods.errors);
+    }
   }, [methods.errors]);
 
   const onSubmit = (registerData) => {

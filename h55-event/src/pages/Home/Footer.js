@@ -25,6 +25,7 @@ const Footer = () => {
                 className="text-orange"
                 href="//support.longeplay.com.tw/service_quick?param_game_id=h55naxx2tw"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 {" "}
                 https://game.longeplay.com.tw/service_quick

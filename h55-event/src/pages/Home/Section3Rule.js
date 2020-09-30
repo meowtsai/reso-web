@@ -3,7 +3,9 @@ import React, { Fragment } from "react";
 const Section3Rule = () => {
   return (
     <Fragment>
-      <a name="rule"></a>
+      <a name="rule" href="!#">
+        {" "}
+      </a>
       <section className="sec3">
         <p className="sec-title"></p>
         <div className="rule-box">
@@ -277,7 +279,9 @@ const Section3Rule = () => {
             </p>
           </div>
         </div>
-        <a className="match1" href="/idvtwcampus/team" target="_blank"></a>{" "}
+        <a className="match1" href="/idvtwcampus/team" target="_blank">
+          {" "}
+        </a>{" "}
       </section>
     </Fragment>
   );
