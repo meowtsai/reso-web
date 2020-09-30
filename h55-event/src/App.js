@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 const HomeIndex = React.lazy(() => import("./pages/Home/HomeIndex"));
 const TeamHome = React.lazy(() => import("./pages/Team/TeamHome"));
 const SubmitResult = React.lazy(() => import("./pages/Team/SubmitResult"));
+const MatchHome = React.lazy(() => import("./pages/Match/MatchHome"));
+
 function App() {
   return (
     <Router>
@@ -21,6 +23,10 @@ function App() {
             <Route exact path="/idvtwcampus/team">
               <TeamHome />
             </Route>
+            <Route exact path="/idvtwcampus/match">
+              <MatchHome />
+            </Route>
+
             <Route exact path="/idvtwcampus/team/result">
               <SubmitResult />
             </Route>

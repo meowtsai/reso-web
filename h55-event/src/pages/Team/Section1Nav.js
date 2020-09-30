@@ -5,7 +5,7 @@ const Section1Nav = () => {
     <section className="sec1">
       <div className="sec1-box">
         <a href="./team"> </a>
-        <a href="./user"> </a>
+        <a href="./match"> </a>
       </div>
     </section>
   );
