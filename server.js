@@ -41,6 +41,7 @@ app.use(
         "https://stackpath.bootstrapcdn.com/",
         "https://www.googletagmanager.com/",
         "https://www.google-analytics.com/",
+        "https://ajax.googleapis.com/",
       ],
       connectSrc: ["'self'", "https://www.google-analytics.com/"],
       mediaSrc: ["'self'", "https://assets.mixkit.co"],
