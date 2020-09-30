@@ -1,0 +1,346 @@
+html, body {
+  width: 100%;
+  min-width: 1260px;
+  font-family: "Arial", "sans-serif,思源黑體", "微軟正黑體";
+}
+.main {
+  width: 100%;
+  background-color: #020205;
+  overflow-x: hidden;
+}
+.main .sec-title {
+  width: 100%;
+  height: 72px;
+}
+.main .sec1 {
+  height: 210px;
+  background-size: cover;
+  box-sizing: border-box;
+}
+.main .sec1 .sec1-box {
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.main .sec1 .sec1-box a {
+  display: inline-block;
+  width: 423px;
+  height: 163px;
+  background: url("../image/btn-team.png") center;
+  margin: 0 30px;
+}
+.main .sec1 .sec1-box a:nth-of-type(2) {
+  background: url("../image/btn-person.png") no-repeat center;
+}
+.main .sec2 {
+  width: 100%;
+  padding-bottom: 63px;
+}
+.main .sec2 .sec-title {
+  background: url("../image/title-attention.png") no-repeat center;
+  margin-bottom: 37px;
+}
+.main .sec2 .attention-box {
+  width: 1160px;
+  background: #dab523;
+  padding: 65px 0 47px 100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.main .sec2 .attention-box p {
+  font-size: 27px;
+  text-align: left;
+  color: #fff;
+  line-height: 38px;
+  letter-spacing: 1px;
+  position: relative;
+}
+.main .sec2 .attention-box p span {
+  width: 12px;
+  height: 12px;
+  background: url("../image/icon-tip.png") no-repeat center;
+  position: absolute;
+  top: 13px;
+  left: -25px;
+}
+.main .sec2 .attention-box p strong {
+  font-weight: bold;
+}
+.main .sec2 .attention-box p:nth-of-type(1) {
+  margin-bottom: 34px;
+}
+.main .sec3 {
+  padding-bottom: 80px;
+}
+.main .sec3 .sec-title {
+  background: url("../image/title-sec5.png") no-repeat center;
+  margin-bottom: 60px;
+}
+.main .sec3 .process-box {
+  width: 1260px;
+  height: 300px;
+  margin: 0 auto;
+  padding-top: 50px;
+  box-sizing: border-box;
+  background: url("../image/bg-process.png") no-repeat center;
+  background-size: contain;
+}
+.main .sec3 .process-box ul {
+  width: 100%;
+}
+.main .sec3 .process-box ul li {
+  width: 267px;
+  height: 160px;
+  float: left;
+  margin-left: 30px;
+  margin-right: 10px;
+  margin-top: 25px;
+  text-align: center;
+}
+.main .sec3 .process-box ul li p:nth-of-type(1) {
+  line-height: 76px;
+  color: #860707;
+  font-size: 30px;
+  font-weight: bold;
+}
+.main .sec3 .process-box ul li p:nth-of-type(2) {
+  line-height: 25px;
+  color: #4d3a2f;
+  font-size: 18px;
+}
+.main .sec3 .process-box ul li:nth-of-type(4) {
+  margin-right: 0;
+}
+.main .sec4 {
+  padding-bottom: 100px;
+}
+.main .sec4 .sec-title {
+  background: url("../image/title-userSign.png") no-repeat center;
+  margin-bottom: 20px;
+}
+.main .sec4 .sec-title2 {
+  color: #dab523;
+  font-size: 25px;
+  width: 100%;
+  text-align: center;
+  letter-spacing: 5px;
+  margin-bottom: 40px;
+}
+.main .sec4 .userSign-box {
+  width: 1184px;
+  height: 825px;
+  background: url("../image/bg-captain.jpg") no-repeat center;
+  margin: 0 auto;
+  padding-top: 44px;
+  box-sizing: border-box;
+  box-shadow: 0 0px 30px 0px rgba(0, 0, 0, 0.5);
+  margin-bottom: 60px;
+}
+.main .sec4 .userSign-box .userSign-title {
+  width: 100%;
+  height: 60px;
+  background: url("../image/title-contact.png") no-repeat center;
+  margin-bottom: 48px;
+}
+.main .sec4 .userSign-box > div {
+  width: 100%;
+  height: 70px;
+  padding-left: 225px;
+  box-sizing: border-box;
+  position: relative;
+}
+.main .sec4 .userSign-box > div > label {
+  display: inline-block;
+  width: 200px;
+  height: 53px;
+  line-height: 53px;
+  background: #020205;
+  color: #fff;
+  font-size: 22px;
+  text-align: center;
+  margin-right: 16px;
+}
+.main .sec4 .userSign-box > div > div {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -5px;
+  position: relative;
+}
+.main .sec4 .userSign-box > div > div .form1-con1, .main .sec4 .userSign-box > div > div .form1-con2 {
+  position: relative;
+  float: left;
+}
+.main .sec4 .userSign-box > div > div .form1-con1 label, .main .sec4 .userSign-box > div > div .form1-con2 label {
+  display: inline-block;
+  width: 90px;
+  height: 53px;
+  line-height: 53px;
+  color: #544848;
+  font-size: 22px;
+  text-align: center;
+}
+.main .sec4 .userSign-box > div > div .form1-con1 input, .main .sec4 .userSign-box > div > div .form1-con2 input {
+  width: 100px;
+  height: 53px;
+  display: inline-block;
+  border: 2px solid #020205;
+  background: #c3c3c3;
+  text-align: center;
+  line-height: 48px;
+  font-size: 28px;
+  color: #fff;
+  box-sizing: border-box;
+}
+.main .sec4 .userSign-box > div > div .form1-con1 i, .main .sec4 .userSign-box > div > div .form1-con2 i {
+  display: block;
+  width: 21px;
+  height: 12px;
+  background: url(../image/icon-select.png) no-repeat center;
+  position: absolute;
+  top: 25px;
+  left: 210px;
+}
+.main .sec4 .userSign-box > div > div .form1-con1 label:nth-of-type(2), .main .sec4 .userSign-box > div > div .form1-con2 label:nth-of-type(2) {
+  width: 50px;
+}
+.main .sec4 .userSign-box > div > div .form1-con2 {
+  float: right;
+  margin-left: 23px;
+}
+.main .sec4 .userSign-box > div > div input[type=text] {
+  display: inline-block;
+  width: 520px;
+  height: 53px;
+  color: #fff;
+  box-sizing: border-box;
+  border: 2px solid #020205;
+  background: #c3c3c3;
+  font-size: 22px;
+  padding-left: 20px;
+  margin-top: -6px;
+  letter-spacing: 1px;
+}
+.main .sec4 .userSign-box > div > div input[type=text]::-webkit-input-placeholder {
+  color: #fff;
+}
+.main .sec4 .userSign-box > div > div input[type=text]::-moz-placeholder {
+  color: #fff;
+}
+.main .sec4 .userSign-box > div > div input[type=text]::-moz-placeholder {
+  color: #fff;
+}
+.main .sec4 .userSign-box > div > div input[type=text]::-ms-input-placeholder {
+  color: #fff;
+}
+.main .sec4 .userSign-box > div > div .getCode {
+  display: inline-block;
+  width: 152px;
+  height: 53px;
+  background: #b51c1c;
+  color: #fff;
+  font-size: 22px;
+  line-height: 48px;
+  text-align: center;
+  margin-left: 12px;
+  cursor: pointer;
+  border: 2px solid #594931;
+  box-sizing: border-box;
+}
+.main .sec4 .userSign-box > div .upload-text {
+  color: #544848;
+  font-size: 22px;
+  cursor: pointer;
+  margin-top: -14px;
+}
+.main .sec4 .userSign-box > div:nth-of-type(4) input[type=text] {
+  width: 345px;
+}
+.main .sec4 .userSign-box > div:nth-of-type(13) label {
+  width: 350px;
+  margin-right: 40px;
+}
+.main .sec4 .userSign-box > div:nth-of-type(5), .main .sec4 .userSign-box > div:nth-of-type(6), .main .sec4 .userSign-box > div:nth-of-type(8), .main .sec4 .userSign-box > div:nth-of-type(9) {
+  position: relative;
+}
+.main .sec4 .userSign-box > div:nth-of-type(5) label, .main .sec4 .userSign-box > div:nth-of-type(6) label, .main .sec4 .userSign-box > div:nth-of-type(8) label, .main .sec4 .userSign-box > div:nth-of-type(9) label {
+  line-height: 45px;
+}
+.main .sec4 .userSign-box > div:nth-of-type(5) i, .main .sec4 .userSign-box > div:nth-of-type(6) i, .main .sec4 .userSign-box > div:nth-of-type(8) i, .main .sec4 .userSign-box > div:nth-of-type(9) i {
+  display: block;
+  width: 200px;
+  height: 20px;
+  line-height: 20px;
+  position: absolute;
+  top: 33px;
+  left: 225px;
+  color: #fff;
+  font-size: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+.main .sec4 .userSign-box > div:nth-of-type(5) > div, .main .sec4 .userSign-box > div:nth-of-type(6) > div, .main .sec4 .userSign-box > div:nth-of-type(8) > div, .main .sec4 .userSign-box > div:nth-of-type(9) > div {
+  margin-top: 2px;
+}
+.main .sec4 .userSign-box .old {
+  cursor: inherit !important;
+}
+.main .sec4 .userSign-box > div:nth-of-type(8) label, .main .sec4 .userSign-box > div:nth-of-type(9) label {
+  font-size: 20px;
+}
+.main .sec4 button {
+  display: block;
+  width: 346px;
+  height: 127px;
+  background: url("../image/icon-send.png") no-repeat center;
+  margin: 0 auto;
+}
+.regionCode {
+  width: 150px;
+  height: 53px;
+  border: 2px solid #020205;
+  box-sizing: border-box;
+  background: #c3c3c3;
+  margin-right: 20px;
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+}
+.regionCode span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 48px;
+  color: #020205;
+  font-size: 26px;
+}
+.regionCode i {
+  display: block;
+  width: 13px;
+  height: 8px;
+  background: url("../image/icon-select.png") no-repeat center;
+  position: absolute;
+  top: 24px;
+  right: 10px;
+  background-size: cover;
+  cursor: pointer;
+}
+.regionCode ul {
+  width: 100%;
+  border-right: 2px solid #020205;
+  border-left: 2px solid #020205;
+  position: absolute;
+  left: -2px;
+  top: 51px;
+  z-index: 2;
+}
+.regionCode ul li {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 48px;
+  background: #c3c3c3;
+  border-bottom: 2px solid #020205;
+  font-size: 28px;
+  cursor: pointer;
+}

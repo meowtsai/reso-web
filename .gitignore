@@ -3,6 +3,7 @@
 # dependencies
 /client/node_modules
 /course/node_modules
+/h55-event/node_modules
 /node_modules
 /.pnp
 .pnp.js
@@ -15,6 +16,7 @@
 /build
 /client/build
 /course/build
+/h55-event/build
 # misc
 .DS_Store
 .env

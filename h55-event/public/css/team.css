@@ -1,0 +1,555 @@
+html,
+body {
+  width: 100%;
+  min-width: 1260px;
+  font-family: "Arial", "sans-serif,思源黑體", "微軟正黑體";
+}
+.main {
+  width: 100%;
+  background-color: #020205;
+  overflow-x: hidden;
+}
+.main .sec1 {
+  height: 210px;
+  background-size: cover;
+  box-sizing: border-box;
+}
+.main .sec1 .sec1-box {
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.main .sec1 .sec1-box a {
+  display: inline-block;
+  width: 423px;
+  height: 163px;
+  background: url(/idvtwcampus/image/btn-team.png) no-repeat center;
+  margin: 0 30px;
+}
+.main .sec1 .sec1-box a:nth-of-type(2) {
+  background: url(/idvtwcampus/image/btn-person.png) no-repeat center;
+}
+
+.main .sec {
+  width: 100%;
+  padding-bottom: 63px;
+}
+.main .sec .sec-title {
+  background: url("/idvtwcampus/image/title-attention.png") no-repeat center !important;
+  margin-bottom: 37px;
+}
+.main .sec .attention-box {
+  width: 1160px;
+  background: #dab523;
+  padding: 65px 0 47px 100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.main .sec .attention-box p {
+  font-size: 24px;
+  text-align: left;
+  color: #fff;
+  line-height: 38px;
+  letter-spacing: 1px;
+  position: relative;
+  width: 90%;
+}
+
+.main .sec2 > section {
+  box-shadow: 0 0px 30px 0px rgba(0, 0, 0, 0.5);
+}
+
+.main .sec2,
+.main .summoner-box {
+  width: 100%;
+  height: 1612px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.main .sec2 .sec-title,
+.main .summoner-box .sec-title {
+  width: 100%;
+  height: 81px;
+  background: url(/idvtwcampus/image/title-sec4.png) no-repeat center;
+  margin-bottom: 63px;
+}
+.main .sec2 section,
+.main .summoner-box section {
+  width: 1184px;
+  height: 1384px;
+  background: url(/idvtwcampus/image/bg-captain.jpg) no-repeat center;
+  margin: 0 auto;
+  padding-top: 120px;
+  box-sizing: border-box;
+}
+.main .sec2 section .captain-title,
+.main .summoner-box section .captain-title {
+  width: 100%;
+  height: 52px;
+  background: url(/idvtwcampus/image/title-captain.png) no-repeat center;
+  margin-bottom: 48px;
+}
+.main .sec2 section > div,
+.main .summoner-box section > div {
+  width: 100%;
+  height: 70px;
+  padding-left: 225px;
+  box-sizing: border-box;
+}
+.main .sec2 section > div > label,
+.main .summoner-box section > div > label {
+  display: inline-block;
+  width: 200px;
+  height: 53px;
+  line-height: 53px;
+  background: #020205;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  margin-right: 16px;
+}
+.main .sec2 section > div > div,
+.main .summoner-box section > div > div {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 0;
+  position: relative;
+}
+.main .sec2 section > div > div input[type="text"],
+.main .summoner-box section > div > div input[type="text"] {
+  display: inline-block;
+  width: 520px;
+  height: 53px;
+  color: #fff;
+  box-sizing: border-box;
+  border: 2px solid #020205;
+  background: #c3c3c3;
+  font-size: 22px;
+  padding-left: 20px;
+  margin-top: -6px;
+  letter-spacing: 1px;
+  font-family: "Arial", "sans-serif,思源黑體", "微軟正黑體";
+}
+.main .sec2 section > div > div select,
+.main .summoner-box section > div > div select {
+  width: 166px;
+  height: 53px;
+  color: #020205;
+  box-sizing: border-box;
+  border: 2px solid #020205;
+  background: #c3c3c3;
+  font-size: 26px;
+  padding-left: 10px;
+  margin-top: -6px;
+  margin-left: 4px;
+  letter-spacing: 1px;
+  font-family: "Arial", "sans-serif,思源黑體", "微軟正黑體";
+}
+.main .sec2 section > div > div input[type="text"]::-webkit-input-placeholder,
+.main
+  .summoner-box
+  section
+  > div
+  > div
+  input[type="text"]::-webkit-input-placeholder {
+  color: #fff;
+}
+.main .sec2 section > div > div input[type="text"]::-moz-placeholder,
+.main .summoner-box section > div > div input[type="text"]::-moz-placeholder {
+  color: #fff;
+}
+.main .sec2 section > div > div input[type="text"]::-moz-placeholder,
+.main .summoner-box section > div > div input[type="text"]::-moz-placeholder {
+  color: #fff;
+}
+.main .sec2 section > div > div input[type="text"]::-ms-input-placeholder,
+.main
+  .summoner-box
+  section
+  > div
+  > div
+  input[type="text"]::-ms-input-placeholder {
+  color: #fff;
+}
+.main .sec2 section > div > div .getCode,
+.main .summoner-box section > div > div .getCode {
+  display: inline-block;
+  width: 152px;
+  height: 53px;
+  background: #b51c1c;
+  color: #fff;
+  font-size: 22px;
+  line-height: 48px;
+  text-align: center;
+  margin-left: 12px;
+  cursor: pointer;
+  border: 2px solid #020205;
+  box-sizing: border-box;
+}
+.main .sec2 section > div > div .input-radio,
+.main .summoner-box section > div > div .input-radio {
+  font-size: 22px;
+  margin-right: 50px;
+  float: left;
+  cursor: pointer;
+}
+.main .sec2 section > div > div .input-radio input[type="radio"],
+.main .summoner-box section > div > div .input-radio input[type="radio"] {
+  width: 14px;
+  height: 14px;
+  margin-top: 6px;
+  vertical-align: inherit;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.main .sec2 section > div .upload-text,
+.main .summoner-box section > div .upload-text {
+  font-size: 22px;
+  cursor: pointer;
+  margin-top: -14px;
+}
+.main .sec2 section > div article,
+.main .summoner-box section > div article {
+  width: 350px;
+  height: 235px;
+  display: inline-block;
+  position: relative;
+}
+.main .sec2 section > div article .captain-upload1,
+.main .summoner-box section > div article .captain-upload1,
+.main .sec2 section > div article .captain-upload2,
+.main .summoner-box section > div article .captain-upload2 {
+  width: 350px;
+  height: 235px;
+  line-height: 235px;
+  box-sizing: border-box;
+  border: 2px solid #594931;
+  background: #c3c3c3;
+  overflow: hidden;
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  opacity: 60%;
+}
+.main .sec2 section > div article .captain-upload1 img,
+.main .summoner-box section > div article .captain-upload1 img,
+.main .sec2 section > div article .captain-upload2 img,
+.main .summoner-box section > div article .captain-upload2 img {
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.main .sec2 section > div article .layui-upload-file,
+.main .summoner-box section > div article .layui-upload-file {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.main .sec2 section > div article:nth-of-type(1),
+.main .summoner-box section > div article:nth-of-type(1) {
+  margin-right: 35px;
+}
+.main .sec2 section > div .old,
+.main .summoner-box section > div .old {
+  cursor: initial !important;
+}
+.main .sec2 section .empty,
+.main .summoner-box section .empty {
+  width: 100%;
+  height: 130px;
+}
+.main .sec2 section .more,
+.main .summoner-box section .more,
+.main .sec2 section .close,
+.main .summoner-box section .close {
+  width: 100%;
+  height: 100px;
+  margin-top: 220px;
+  cursor: pointer;
+  text-align: center;
+  color: #fff;
+}
+.main .sec2 section .more,
+.main .summoner-box section .more {
+  background: url(/idvtwcampus/image/icon-more.png) no-repeat center;
+}
+.main .sec2 section .close,
+.main .summoner-box section .close {
+  background: url(/idvtwcampus/image/icon-hide.png) no-repeat center;
+}
+.main .sec2 #captain > div:nth-of-type(7) input[type="text"],
+.main .summoner-box #captain > div:nth-of-type(7) input[type="text"] {
+  width: 350px;
+}
+.main .sec2 #captain > div:nth-of-type(4) input[type="text"],
+.main .summoner-box #captain > div:nth-of-type(4) input[type="text"] {
+  width: 345px;
+}
+.main .sec2 #captain > div:nth-of-type(13) label,
+.main .summoner-box #captain > div:nth-of-type(13) label {
+  width: 350px;
+  margin-right: 40px;
+}
+.main .sec2 #captain > div:nth-of-type(5),
+.main .summoner-box #captain > div:nth-of-type(5),
+.main .sec2 #captain > div:nth-of-type(6),
+.main .summoner-box #captain > div:nth-of-type(6),
+.main .sec2 #captain > div:nth-of-type(9),
+.main .summoner-box #captain > div:nth-of-type(9),
+.main .sec2 #captain > div:nth-of-type(10),
+.main .summoner-box #captain > div:nth-of-type(10) {
+  position: relative;
+}
+.main .sec2 #captain > div:nth-of-type(5) label,
+.main .summoner-box #captain > div:nth-of-type(5) label,
+.main .sec2 #captain > div:nth-of-type(6) label,
+.main .summoner-box #captain > div:nth-of-type(6) label,
+.main .sec2 #captain > div:nth-of-type(9) label,
+.main .summoner-box #captain > div:nth-of-type(9) label,
+.main .sec2 #captain > div:nth-of-type(10) label,
+.main .summoner-box #captain > div:nth-of-type(10) label {
+  line-height: 45px;
+}
+.main .sec2 #captain > div:nth-of-type(5) i,
+.main .summoner-box #captain > div:nth-of-type(5) i,
+.main .sec2 #captain > div:nth-of-type(6) i,
+.main .summoner-box #captain > div:nth-of-type(6) i,
+.main .sec2 #captain > div:nth-of-type(9) i,
+.main .summoner-box #captain > div:nth-of-type(9) i,
+.main .sec2 #captain > div:nth-of-type(10) i,
+.main .summoner-box #captain > div:nth-of-type(10) i {
+  display: block;
+  width: 200px;
+  height: 20px;
+  line-height: 20px;
+  position: absolute;
+  top: 33px;
+  left: 225px;
+  color: #fff;
+  font-size: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+.main .sec2 #captain > div:nth-of-type(5) > div,
+.main .summoner-box #captain > div:nth-of-type(5) > div,
+.main .sec2 #captain > div:nth-of-type(6) > div,
+.main .summoner-box #captain > div:nth-of-type(6) > div,
+.main .sec2 #captain > div:nth-of-type(9) > div,
+.main .summoner-box #captain > div:nth-of-type(9) > div,
+.main .sec2 #captain > div:nth-of-type(10) > div,
+.main .summoner-box #captain > div:nth-of-type(10) > div {
+  margin-top: 2px;
+}
+.main .summoner-box {
+  background-size: cover;
+  height: auto;
+  padding-bottom: 70px;
+}
+.main .summoner-box > div {
+  width: 1184px;
+  height: auto;
+  background: url(/idvtwcampus/image/bg-captain.jpg) center 0;
+  margin: 0 auto;
+  padding-top: 44px;
+  box-sizing: border-box;
+  box-shadow: 0 0px 30px 0px rgba(0, 0, 0, 0.5);
+}
+.main .summoner-box > div .summoner-title {
+  width: 100%;
+  height: 52px;
+  background: url(/idvtwcampus/image/title-summoner.png) no-repeat center;
+  margin-bottom: 48px;
+  margin-top: 48px;
+}
+.main .summoner-box > div > section {
+  background: none;
+  height: auto;
+}
+
+.main .summoner-box > div > .section_1 {
+  padding-top: 0;
+}
+.main .summoner-box > div > section > div {
+  position: relative;
+}
+.main .summoner-box > div > section i {
+  display: block;
+  width: 200px;
+  height: 20px;
+  line-height: 20px;
+  position: absolute;
+  top: 33px;
+  left: 225px;
+  color: #fff;
+  font-size: 10px;
+  text-align: center;
+}
+.main .summoner-box > div > section > div:nth-of-type(7) label {
+  width: 350px;
+  margin-right: 40px;
+}
+.main .summoner-box > div > section > div:nth-of-type(8) {
+  height: auto;
+}
+.main .summoner-box > div > section article {
+  width: 350px;
+  height: 235px;
+  display: inline-block;
+  position: relative;
+}
+.main .summoner-box > div > section article .summoner-upload1,
+.main .summoner-box > div > section article .summoner-upload2 {
+  width: 350px;
+  height: 235px;
+  line-height: 35px;
+  box-sizing: border-box;
+  border: 2px solid #020205;
+  background: #c3c3c3;
+  overflow: hidden;
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  padding-top: 70px;
+  opacity: 60%;
+}
+.main .summoner-box > div > section article .summoner-upload1 img,
+.main .summoner-box > div > section article .summoner-upload2 img {
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.main .summoner-box > div > section article .layui-upload-file {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.main .summoner-box > div > section article:nth-of-type(1) {
+  margin-right: 35px;
+}
+.main .summoner-box > div .section_5,
+.main .summoner-box > div .section_6 {
+  display: none;
+}
+.main .sec4 {
+  padding-bottom: 100px;
+}
+.main .sec4 .signUp {
+  display: block;
+  width: 346px;
+  height: 127px;
+  margin: 0 auto;
+  background: url(/idvtwcampus/image/btn-signUp.png) no-repeat center;
+  cursor: pointer;
+}
+.main .sec4 .agree-con {
+  width: 100%;
+  text-align: center;
+}
+.main .sec4 .agree-con input[type="checkbox"] {
+  visibility: hidden;
+}
+.main .sec4 .agree-con .information,
+.main .sec4 .agree-con .Policy {
+  text-align: center;
+  font-size: 22px;
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.main .sec4 .agree-con #information + label,
+.main .sec4 .agree-con #Policy + label {
+  display: block;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  position: absolute;
+  top: 6px;
+  border: 1px solid #fff;
+  background: transparent;
+}
+.main .sec4 .agree-con #information:checked + label::before,
+.main .sec4 .agree-con #Policy:checked + label::before {
+  display: block;
+  content: "\2713";
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  position: absolute;
+  top: -9px;
+}
+.main .sec4 .agree-con .information .tips,
+.main .sec4 .agree-con .Policy .tips {
+  color: #fff;
+}
+.main .sec4 .agree-con a {
+  color: #fff;
+}
+.regionCode {
+  width: 150px;
+  height: 53px;
+  border: 2px solid #020205;
+  box-sizing: border-box;
+  background: #c3c3c3;
+  margin-right: 20px;
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+}
+.regionCode span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 48px;
+  font-size: 26px;
+}
+.regionCode i {
+  display: block;
+  width: 13px;
+  height: 8px;
+  background: url(/idvtwcampus/image/icon-select.png) no-repeat center;
+  position: absolute;
+  top: 24px;
+  right: 10px;
+  background-size: cover;
+  cursor: pointer;
+}
+.regionCode ul {
+  width: 100%;
+  border-right: 2px solid #020205;
+  border-left: 2px solid #020205;
+  position: absolute;
+  left: -2px;
+  top: 51px;
+  z-index: 2;
+}
+.regionCode ul li {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 48px;
+  background: #c3c3c3;
+  border-bottom: 2px solid #020205;
+  font-size: 28px;
+  cursor: pointer;
+}

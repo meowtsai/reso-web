@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const rfs = require("rotating-file-stream");
 const path = require("path");
+const fileUpload = require("express-fileupload");
 require("dotenv").config();
 
 const app = express();
@@ -49,18 +50,39 @@ app.use(
   })
 );
 
+app.use(
+  fileUpload({
+    limits: { fileSize: 50 * 1024 * 1024 },
+    abortOnLimit: true,
+    responseOnLimit: "檔案太大",
+    limitHandler: function (req, res, next) {
+      //console.log("hi");
+      return res.status(413).send({ file01: "檔案太大" });
+    },
+  })
+);
+
 app.use(express.json());
 app.use("/api/contactus", require("./routes/api/contactus"));
 app.use("/api/service-request", require("./routes/api/service-request"));
 app.use("/api/course", require("./routes/api/course"));
+app.use("/api/idvtwcampus", require("./routes/api/idvtwcampus"));
+
 //serve static assets if in production
 if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {
   //set a static folder
   app.use("/course", express.static(path.join(__dirname, "course/build")));
+  app.use(
+    "/idvtwcampus",
+    express.static(path.join(__dirname, "idvtwcampus/build"))
+  );
   app.use(express.static("client/build"));
   //set a route for anything else not list above
   app.get("/course/*", (req, res) => {
     res.sendFile(path.join(__dirname + "/course/build/index.html"));
+  });
+  app.get("/idvtwcampus/*", (req, res) => {
+    res.sendFile(path.join(__dirname + "/idvtwcampus/build/index.html"));
   });
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));

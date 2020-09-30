@@ -1,0 +1,208 @@
+html,
+body {
+  width: 100%;
+  min-width: 1260px;
+  font-family: "Arial", "sans-serif,思源黑體", "微軟正黑體";
+}
+.main {
+  width: 100%;
+  background-color: #030306;
+  overflow-x: hidden;
+}
+.main section {
+  width: 100%;
+  padding-top: 100px;
+  box-sizing: border-box;
+}
+.main section .sec-title {
+  width: 100%;
+  height: 81px;
+}
+.main .sec1 {
+  height: 969px;
+  background-color: #030306;
+}
+.main .sec1 .sec-title {
+  background: url(/idvtwcampus/image/title-sec1.png) no-repeat center;
+  margin-bottom: 79px;
+}
+.main .sec1 .video-box {
+  width: 1164px;
+  height: 654px;
+  background: #000;
+  margin: 0 auto;
+}
+.main .sec1 .video-box a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url(/idvtwcampus/image/img-live-new1.jpg) no-repeat center;
+  background-size: cover;
+}
+
+.main .sec2 .sec-title {
+  background: url(/idvtwcampus/image/title-sec2.png) no-repeat center;
+  margin-bottom: 40px;
+}
+.main .sec2 .schedule-box {
+  width: 1172px;
+  height: 600px;
+  background: url(/idvtwcampus/image/bg-schedule.png) no-repeat center;
+  margin: 0 auto;
+  padding-top: 47px;
+  box-sizing: border-box;
+}
+.main .sec2 .schedule-box .schedule-up {
+  text-align: center;
+  margin-bottom: 100px;
+  margin-top: 50px;
+}
+.main .sec2 .schedule-box .schedule-up li {
+  width: 387px;
+  margin: 0 17px;
+  display: inline-block;
+}
+.main .sec2 .schedule-box .schedule-up li p:nth-of-type(1) {
+  font-size: 31px;
+  line-height: 60px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.main .sec2 .schedule-box .schedule-up li p:nth-of-type(2) {
+  font-size: 39px;
+  line-height: 66px;
+  font-weight: bold;
+}
+.main .sec2 .schedule-box .schedule-up li p:nth-of-type(3) {
+  font-size: 23px;
+  line-height: 53px;
+  font-weight: bold;
+}
+.main .sec2 .schedule-box .schedule-up li p:nth-of-type(3) a {
+  font-size: 23px;
+  line-height: 53px;
+  font-weight: bold;
+  color: #000;
+}
+.main .sec2 .schedule-box .schedule-down {
+  text-align: center;
+}
+.main .sec2 .schedule-box .schedule-down li {
+  width: 255px;
+  height: 133px;
+  margin: 0px 3px;
+  display: inline-block;
+  font-weight: bold;
+}
+.main .sec2 .schedule-box .schedule-down li p:nth-of-type(1) {
+  font-size: 26px;
+  line-height: 38px;
+}
+.main .sec2 .schedule-box .schedule-down li p:nth-of-type(2) {
+  font-size: 31px;
+  line-height: 48px;
+}
+.main .sec2 .schedule-box .schedule-down li p:nth-of-type(3) {
+  font-size: 13px;
+  line-height: 20px;
+  margin-top: 2px;
+}
+.main .sec3 {
+  height: 1250px;
+  background: url(/idvtwcampus/image/bg-sec3.jpg) no-repeat center;
+}
+.main .sec3 .sec-title {
+  background: url(/idvtwcampus/image/title-sec3.png) no-repeat center;
+  margin-bottom: 78px;
+}
+.main .sec3 .rule-box {
+  width: 1196px;
+  height: 745px;
+  background: url(/idvtwcampus/image/bg-rule.png) no-repeat center;
+  margin: 0 auto;
+  padding: 35px 46px 49px 50px;
+  box-sizing: border-box;
+}
+.main .sec3 .rule-box .rule-con {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+.main .sec3 .rule-box .rule-con p {
+  font-size: 1rem;
+  line-height: 30px;
+  color: #b8b9b9;
+}
+.main .sec3 .rule-box .rule-con .rule-title {
+  font-size: 28px;
+  line-height: 40px;
+  color: #fff;
+}
+.main .sec3 .rule-box .rule-con .match-rule {
+  width: 100%;
+  height: 90px;
+  line-height: 90px;
+  color: #d84245;
+  font-size: 30px;
+  ffont-family: "Arial", "sans-serif,思源黑體", "微軟正黑體";
+  text-align: center;
+}
+.main .sec3 .rule-box .rule-con::-webkit-scrollbar {
+  width: 18px;
+}
+.main .sec3 .rule-box .rule-con::-webkit-scrollbar-track {
+  background-color: #251f14;
+  border-radius: 18px;
+  border-radius: 0;
+}
+.main .sec3 .rule-box .rule-con::-webkit-scrollbar-thumb {
+  background-color: #ffe74f;
+  border: 6px solid rgba(0, 0, 0, 0);
+}
+.main .sec3 .rule-box .rule-con::-webkit-scrollbar-corner {
+  display: none;
+}
+
+.main .sec3 .match {
+  display: block;
+  width: 346px;
+  height: 127px;
+  margin: 0 auto;
+  background: url(/idvtwcampus/image/btn-match.png) no-repeat center;
+  cursor: pointer;
+}
+
+.main .sec3 .match1 {
+  display: block;
+  width: 346px;
+  height: 127px;
+  margin: 0 auto;
+  background: url(/idvtwcampus/image/btn-match.png) no-repeat center;
+  cursor: pointer;
+}
+.main .match {
+  display: block;
+  width: 346px;
+  height: 175px;
+  margin: 0 auto;
+  background: url(/idvtwcampus/image/btn-match-1.png) no-repeat center;
+  cursor: pointer;
+  /*transform:scale(1,1);
+  transition: all 1s ease-out;*/
+}
+
+/*.match:hover{transform:scale(1.2,1.2);}
+.match:hover:after{
+    top:-40px;
+    color: #ffcb00;
+    content: attr(ishow);
+    left: 20%;
+    padding: 10px 10px;
+    position: absolute;
+    z-index: 9999;
+    width: 180px;
+	text-align: center;
+	font-weight: 700;
+	font-size: 1rem;
+	border: 2px solid #ffcb00;
+}*/

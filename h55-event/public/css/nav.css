@@ -1,0 +1,214 @@
+header {
+  width: 100%;
+  height: 1000px;
+  background: url(../image/bg-header-img.jpg) no-repeat center;
+  position: relative;
+    font-family: "Arial", "sans-serif,思源黑體", "微軟正黑體";
+}
+header .logo {
+  width: 350px;
+  height: 156px;
+  background: url(../image/logo.png) no-repeat center;
+  position: absolute;
+  top: 45px;
+  left: 50%;
+  transform: translateX(-630px);
+}
+header .logo a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+header ul {
+  width: 65%;
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-220px);
+}
+header ul li {
+  padding: 0 25px;
+  float: left;
+  cursor: pointer;
+}
+header ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+header ul li a p:nth-of-type(1) {
+  color: #fff;
+  font-size: 1.8rem;
+  line-height: 40px;
+  text-align: center;
+}
+header ul li a p:nth-of-type(2) {
+  color: #6f6f6f;
+  font-size: 19px;
+  line-height: 30px;
+  text-align: center;
+  text-transform: uppercase;
+}
+header ul li:nth-of-type(5) {
+  border-right: none;
+}
+header ul li:hover p:nth-of-type(1) {
+  color: #dab523;
+}
+header ul .active-li {
+  color: #dab523;
+}
+.wrap {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 999999999;
+}
+.wrap .wrap-con {
+  width: 813px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.wrap .wrap-con > p {
+  width: 100%;
+  height: 62px;
+  line-height: 62px;
+  background: #bfbfbf;
+  font-size: 28px;
+  color: #000;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+.wrap .wrap-con i {
+  width: 33px;
+  height: 33px;
+  display: block;
+  background: url(../image/icon-close.png) no-repeat center;
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  cursor: pointer;
+}
+.wrap .wrap-con .meg {
+  width: 100%;
+  padding: 75px 90px 28px 90px;
+  background: #281103;
+  box-sizing: border-box;
+  border-right: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+}
+.wrap .wrap-con .meg p {
+  width: 100%;
+  line-height: 50px;
+  font-size: 40px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 54px;
+}
+.wrap .wrap-con .meg button {
+  display: block;
+  width: 160px;
+  height: 50px;
+  line-height: 50px;
+  background: #bfbfbf;
+  color: #000;
+  font-size: 28px;
+  margin: 0 auto;
+}
+#wrap_game_id .wrap-con {
+  width: 1000px;
+}
+#wrap_game_id .meg {
+  width: 100%;
+  height: 460px;
+  background: url("../image/img-game-id.jpg")no-repeat center;
+  background-size: contain;
+}
+#wrap_game_name .wrap-con {
+  width: 1000px;
+}
+#wrap_game_name .meg {
+  width: 100%;
+  height: 460px;
+  background: url("../image/img-game-name.jpg") no-repeat center;
+  background-size: cover;
+}
+#wrap_line_id .wrap-con {
+  width: 838px;
+}
+#wrap_line_id .meg {
+  width: 100%;
+  height: 600px;
+  padding: 0;
+}
+#wrap_line_id .meg img {
+  height: 100%;
+}
+#wrap_line_id .meg::-webkit-scrollbar {
+  width: 10px;
+}
+#wrap_line_id .meg::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 10px;
+}
+#wrap_line_id .meg::-webkit-scrollbar-thumb {
+  background-color: #2d3c44;
+  border-radius: 10px;
+  border: 6px solid rgba(0, 0, 0, 0);
+  box-shadow: 8px 0 0 #A5ADB7 inset;
+}
+#wrap_line_id .meg::-webkit-scrollbar-corner {
+  display: none;
+}
+.loading {
+  width: 38px;
+  height: 38px;
+  background: url(../image/loading-circle.png) no-repeat center;
+  animation: loading 0.8s linear infinite;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-left: -19px;
+  margin-top: -19px;
+}
+@keyframes loading {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes loading {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes loading {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes loading {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.layui-laydate {
+  z-index: 3;
+}
