@@ -74,7 +74,7 @@ if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {
   app.use("/course", express.static(path.join(__dirname, "course/build")));
   app.use(
     "/idvtwcampus",
-    express.static(path.join(__dirname, "idvtwcampus/build"))
+    express.static(path.join(__dirname, "h55-event/build"))
   );
   app.use(express.static("client/build"));
   //set a route for anything else not list above
@@ -82,7 +82,7 @@ if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {
     res.sendFile(path.join(__dirname + "/course/build/index.html"));
   });
   app.get("/idvtwcampus/*", (req, res) => {
-    res.sendFile(path.join(__dirname + "/idvtwcampus/build/index.html"));
+    res.sendFile(path.join(__dirname + "/h55-event/build/index.html"));
   });
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
