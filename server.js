@@ -68,7 +68,7 @@ app.use("/api/contactus", require("./routes/api/contactus"));
 app.use("/api/service-request", require("./routes/api/service-request"));
 app.use("/api/course", require("./routes/api/course"));
 app.use("/api/idvtwcampus", require("./routes/api/idvtwcampus"));
-
+app.use("/uploads/h55", express.static("uploads/h55"));
 //serve static assets if in production
 if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {
   //set a static folder
@@ -77,6 +77,7 @@ if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {
     "/idvtwcampus",
     express.static(path.join(__dirname, "h55-event/build"))
   );
+
   app.use(express.static("client/build"));
   //set a route for anything else not list above
   app.get("/course/*", (req, res) => {
