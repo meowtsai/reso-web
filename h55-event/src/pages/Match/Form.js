@@ -60,8 +60,8 @@ const Form = ({ setHint, setWrapError, setLoading }) => {
       .post("/api/idvtwcampus/match_form_submit", registerData)
       .then((res) => {
         setLoading(false);
-        console.log("match_form_submit result", res.data);
-        history.push("/idvtwcampus/team/result");
+        //console.log("match_form_submit result", res.data);
+        history.push("/idvtwcampus/match/result");
         //setRegisterResult(res.data.CourseRegister);
       })
       .catch((err) => {
