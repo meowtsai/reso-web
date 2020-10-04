@@ -2,7 +2,7 @@ import React from "react";
 
 const ErrorAlert = ({ error, clearError }) => {
   const itemKey0 = Object.keys(error)[0];
-  console.log(itemKey0);
+  //console.log(itemKey0);
   return (
     <div className="wrap" id="notic_wrap">
       <div className="wrap-con">

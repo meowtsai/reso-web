@@ -1,7 +1,9 @@
 import React, { Fragment, useEffect } from "react";
 import Header from "../Home/Header";
-
+import { useLocation } from "react-router-dom";
 const SubmitResult = () => {
+  let location = useLocation();
+
   useEffect(() => {
     const stylelink = document.createElement("link");
     stylelink.rel = "stylesheet";
@@ -15,10 +17,13 @@ const SubmitResult = () => {
   return (
     <Fragment>
       <Header />
-      <section className="sec">
+      <section className="sec" style={{ marginTop: 5 }}>
         <div className="attention-box">
           <p>
-            ※報名表已經送出, 感謝您，我們會再審核之後於預定日期公布賽程表。
+            ※
+            {location.pathname.indexOf("match") > -1
+              ? "媒合報名表已經送出，感謝您，請耐心等候我們發送符合您需求的媒合名單。"
+              : "報名表已經送出,感謝您，我們會再審核之後於預定日期公布賽程表。"}
             <br />
             若有任何疑問或是更新也會透過mail通知您
             <br />

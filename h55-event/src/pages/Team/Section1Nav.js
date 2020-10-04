@@ -4,8 +4,8 @@ const Section1Nav = () => {
   return (
     <section className="sec1">
       <div className="sec1-box">
-        <a href="./team"> </a>
-        <a href="./match"> </a>
+        <a href="./team#form"> </a>
+        <a href="./match#form"> </a>
       </div>
     </section>
   );

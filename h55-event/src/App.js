@@ -30,6 +30,9 @@ function App() {
             <Route exact path="/idvtwcampus/team/result">
               <SubmitResult />
             </Route>
+            <Route exact path="/idvtwcampus/match/result">
+              <SubmitResult />
+            </Route>
           </Switch>
         </Suspense>
         <div id="gotop">^</div>

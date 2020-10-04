@@ -1,11 +1,11 @@
 import React, { useState, Fragment, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-
+import axios from "axios";
 import { useForm, FormProvider } from "react-hook-form";
 import BirthdaySelect from "./BirthdaySelect";
 import FileUploader from "../../components/FileUploader";
 import MemberForm from "./MemberForm";
-import axios from "axios";
+
 const RegisterForm = ({ setError, setHint, setLoading }) => {
   let history = useHistory();
   const [showTelCode, setShowTelCode] = useState(false);
@@ -33,7 +33,7 @@ const RegisterForm = ({ setError, setHint, setLoading }) => {
   }, [methods.errors]);
 
   const onSubmit = (registerData) => {
-    console.log(registerData);
+    //console.log(registerData);
 
     let formData = new FormData();
     let roleHunter = 0;
@@ -46,8 +46,8 @@ const RegisterForm = ({ setError, setHint, setLoading }) => {
       formData.append(itemKey, registerData[itemKey]);
     });
 
-    console.log("roleHunter", roleHunter);
-    console.log("roleSurvivor", roleSurvivor);
+    // console.log("roleHunter", roleHunter);
+    // console.log("roleSurvivor", roleSurvivor);
 
     if (roleHunter < 1) {
       methods.setError("role", {
@@ -63,7 +63,7 @@ const RegisterForm = ({ setError, setHint, setLoading }) => {
       });
       return;
     }
-    console.log("formData", formData);
+    //console.log("formData", formData);
     setLoading(true);
     axios
       .post("/api/idvtwcampus/form_submit", formData)
@@ -134,6 +134,9 @@ const RegisterForm = ({ setError, setHint, setLoading }) => {
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)}>
         <section className="sec2">
+          <a name="form" href="!#">
+            {" "}
+          </a>
           <p className="sec-title"></p>
           <section id="captain" className="captain-box">
             <p className="captain-title"></p>

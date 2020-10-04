@@ -3,9 +3,12 @@ const router = express.Router();
 const moment = require("moment");
 const validator = require("validator");
 const validateTeamForm = require("../../validator/h55form");
+const validateMatchForm = require("../../validator/h55matchform");
 const helper = require("../../helpers/");
 const EmailVerify = require("../../models/EmailVerify");
 const H55eventForm = require("../../models/H55eventForm");
+const H55MatchForm = require("../../models/H55MatchForm");
+
 const sgMail = require("@sendgrid/mail");
 
 const image_path = process.env.IMAGE_PATH;
@@ -14,6 +17,30 @@ const path = require("path");
 // api/idvtwcampus
 router.get("/test", async (req, res) => {
   res.json({ msg: "oh hi there" });
+});
+
+//媒合
+router.post("/match_form_submit", async (req, res) => {
+  const record = req.body;
+
+  const checkErrors = validateMatchForm(record);
+  if (!checkErrors.isValid) {
+    return res.status(500).send(checkErrors.errors);
+  }
+
+  //email 或是手機已經重複則提醒
+
+  const newForm = new H55MatchForm(record);
+
+  try {
+    const savedResult = await newForm.save();
+    sendMailMatchReceipt(savedResult);
+    res.json(savedResult);
+  } catch (err) {
+    return res.status(500).json({ save: err.message });
+  }
+
+  //res.json({ msg: checkErrors });
 });
 
 router.post("/form_submit", async (req, res) => {
@@ -354,6 +381,78 @@ const sendMailSuccessRegistered = (record) => {
     },
     (error) => {
       //console.error(error);
+      // if (error.response) {
+      //   console.error(error.response.body);
+      // }
+    }
+  );
+};
+
+const sendMailMatchReceipt = (record) => {
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+  const fs = require("fs");
+  let html_template = fs.readFileSync(__dirname + "/mail.html", "utf8");
+
+  const msg = `我們已經收到您所送出的《第五人格萬聖狂歡盃》未滿五人的媒合報名表，<br />
+  感謝您的支持，<br />
+  我們會在近期送出適合您需求的媒合名單，<br />
+  請您耐心等候．<br />
+  <br />
+  <hr />
+  <h3>聯絡人資料</h3>
+  <hr />
+
+
+
+  <table>
+  <tr>
+  <th>我們已經有</th><td>${record.own_hunter}名監管者,${
+    record.own_survivor
+  }名求生者 </td></tr>
+  <tr><th>我們需要</th><td>${record.need_hunter}名監管者,${
+    record.need_survivor
+  }名求生者 </td></tr>
+  <tr><th>聯絡人姓名</th><td>${record.name}</td></tr>
+  <tr><th>手機號碼</th><td>${record.phone_code}${record.phone}</td></tr>
+  <tr><th>LINE ID</th><td>${record.line_id}</td></tr>
+  <tr><th>出生日期</th><td> ${moment(record.birthday).format(
+    "YYYY-MM-DD"
+  )}</td></tr>
+  <tr><th>電子信箱</th><td>${record.email}</td></tr>
+  <tr><th>Game ID</th><td>${record.game_id}</td></tr>
+  <tr><th>Game Name</th><td>${record.game_name}</td> </tr>
+  </table>
+  
+
+  <br /> 
+  <hr />
+  <br /> 
+  <br /> 
+  第五人格遊戲團隊
+  `;
+
+  html_template = html_template.replace("{{msg}}", msg);
+
+  const mailContent = {
+    to: record.email,
+    //bcc: "呼聲數位<hi@resound.global>",
+    bcc: "呼聲數位<sophie_tsai@resound.global>",
+    from: "呼聲數位<hi@resound.global>",
+    subject: `《第五人格萬聖狂歡盃》未滿五人媒合報名表填寫完成通知`,
+    html: html_template,
+  };
+
+  //console.log("mailContent", mailContent);
+  sgMail.send(mailContent).then(
+    (sendResult) => {
+      //console.log("mail send result", sendResult);
+      // console.log("mail send statusCode", sendResult.statusCode);
+      // if (sendResult[0].response.statusCode === "202") {
+      //   return true;
+      // }
+    },
+    (error) => {
+      // console.error(error);
       // if (error.response) {
       //   console.error(error.response.body);
       // }

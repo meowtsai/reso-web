@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   width: 100%;
   min-width: 1260px;
   font-family: "Arial", "sans-serif,思源黑體", "微軟正黑體";
@@ -166,11 +167,13 @@ html, body {
   margin-top: -5px;
   position: relative;
 }
-.main .sec4 .userSign-box > div > div .form1-con1, .main .sec4 .userSign-box > div > div .form1-con2 {
+.main .sec4 .userSign-box > div > div .form1-con1,
+.main .sec4 .userSign-box > div > div .form1-con2 {
   position: relative;
   float: left;
 }
-.main .sec4 .userSign-box > div > div .form1-con1 label, .main .sec4 .userSign-box > div > div .form1-con2 label {
+.main .sec4 .userSign-box > div > div .form1-con1 label,
+.main .sec4 .userSign-box > div > div .form1-con2 label {
   display: inline-block;
   width: 90px;
   height: 53px;
@@ -179,7 +182,8 @@ html, body {
   font-size: 22px;
   text-align: center;
 }
-.main .sec4 .userSign-box > div > div .form1-con1 input, .main .sec4 .userSign-box > div > div .form1-con2 input {
+.main .sec4 .userSign-box > div > div .form1-con1 input,
+.main .sec4 .userSign-box > div > div .form1-con2 input {
   width: 100px;
   height: 53px;
   display: inline-block;
@@ -191,7 +195,8 @@ html, body {
   color: #fff;
   box-sizing: border-box;
 }
-.main .sec4 .userSign-box > div > div .form1-con1 i, .main .sec4 .userSign-box > div > div .form1-con2 i {
+.main .sec4 .userSign-box > div > div .form1-con1 i,
+.main .sec4 .userSign-box > div > div .form1-con2 i {
   display: block;
   width: 21px;
   height: 12px;
@@ -200,14 +205,15 @@ html, body {
   top: 25px;
   left: 210px;
 }
-.main .sec4 .userSign-box > div > div .form1-con1 label:nth-of-type(2), .main .sec4 .userSign-box > div > div .form1-con2 label:nth-of-type(2) {
+.main .sec4 .userSign-box > div > div .form1-con1 label:nth-of-type(2),
+.main .sec4 .userSign-box > div > div .form1-con2 label:nth-of-type(2) {
   width: 50px;
 }
 .main .sec4 .userSign-box > div > div .form1-con2 {
   float: right;
   margin-left: 23px;
 }
-.main .sec4 .userSign-box > div > div input[type=text] {
+.main .sec4 .userSign-box > div > div input[type="text"] {
   display: inline-block;
   width: 520px;
   height: 53px;
@@ -220,16 +226,40 @@ html, body {
   margin-top: -6px;
   letter-spacing: 1px;
 }
-.main .sec4 .userSign-box > div > div input[type=text]::-webkit-input-placeholder {
+.main .sec4 .userSign-box > div > div select {
+  width: 166px;
+  height: 53px;
+  color: #020205;
+  box-sizing: border-box;
+  border: 2px solid #020205;
+  background: #c3c3c3;
+  font-size: 26px;
+  padding-left: 10px;
+  margin-top: -6px;
+  margin-left: 4px;
+  letter-spacing: 1px;
+  font-family: "Arial", "sans-serif,思源黑體", "微軟正黑體";
+}
+.main
+  .sec4
+  .userSign-box
+  > div
+  > div
+  input[type="text"]::-webkit-input-placeholder {
   color: #fff;
 }
-.main .sec4 .userSign-box > div > div input[type=text]::-moz-placeholder {
+.main .sec4 .userSign-box > div > div input[type="text"]::-moz-placeholder {
   color: #fff;
 }
-.main .sec4 .userSign-box > div > div input[type=text]::-moz-placeholder {
+.main .sec4 .userSign-box > div > div input[type="text"]::-moz-placeholder {
   color: #fff;
 }
-.main .sec4 .userSign-box > div > div input[type=text]::-ms-input-placeholder {
+.main
+  .sec4
+  .userSign-box
+  > div
+  > div
+  input[type="text"]::-ms-input-placeholder {
   color: #fff;
 }
 .main .sec4 .userSign-box > div > div .getCode {
@@ -252,20 +282,29 @@ html, body {
   cursor: pointer;
   margin-top: -14px;
 }
-.main .sec4 .userSign-box > div:nth-of-type(4) input[type=text] {
+.main .sec4 .userSign-box > div:nth-of-type(4) input[type="text"] {
   width: 345px;
 }
 .main .sec4 .userSign-box > div:nth-of-type(13) label {
   width: 350px;
   margin-right: 40px;
 }
-.main .sec4 .userSign-box > div:nth-of-type(5), .main .sec4 .userSign-box > div:nth-of-type(6), .main .sec4 .userSign-box > div:nth-of-type(8), .main .sec4 .userSign-box > div:nth-of-type(9) {
+.main .sec4 .userSign-box > div:nth-of-type(5),
+.main .sec4 .userSign-box > div:nth-of-type(6),
+.main .sec4 .userSign-box > div:nth-of-type(8),
+.main .sec4 .userSign-box > div:nth-of-type(9) {
   position: relative;
 }
-.main .sec4 .userSign-box > div:nth-of-type(5) label, .main .sec4 .userSign-box > div:nth-of-type(6) label, .main .sec4 .userSign-box > div:nth-of-type(8) label, .main .sec4 .userSign-box > div:nth-of-type(9) label {
+.main .sec4 .userSign-box > div:nth-of-type(5) label,
+.main .sec4 .userSign-box > div:nth-of-type(6) label,
+.main .sec4 .userSign-box > div:nth-of-type(8) label,
+.main .sec4 .userSign-box > div:nth-of-type(9) label {
   line-height: 45px;
 }
-.main .sec4 .userSign-box > div:nth-of-type(5) i, .main .sec4 .userSign-box > div:nth-of-type(6) i, .main .sec4 .userSign-box > div:nth-of-type(8) i, .main .sec4 .userSign-box > div:nth-of-type(9) i {
+.main .sec4 .userSign-box > div:nth-of-type(5) i,
+.main .sec4 .userSign-box > div:nth-of-type(6) i,
+.main .sec4 .userSign-box > div:nth-of-type(8) i,
+.main .sec4 .userSign-box > div:nth-of-type(9) i {
   display: block;
   width: 200px;
   height: 20px;
@@ -278,13 +317,17 @@ html, body {
   cursor: pointer;
   text-align: center;
 }
-.main .sec4 .userSign-box > div:nth-of-type(5) > div, .main .sec4 .userSign-box > div:nth-of-type(6) > div, .main .sec4 .userSign-box > div:nth-of-type(8) > div, .main .sec4 .userSign-box > div:nth-of-type(9) > div {
+.main .sec4 .userSign-box > div:nth-of-type(5) > div,
+.main .sec4 .userSign-box > div:nth-of-type(6) > div,
+.main .sec4 .userSign-box > div:nth-of-type(8) > div,
+.main .sec4 .userSign-box > div:nth-of-type(9) > div {
   margin-top: 2px;
 }
 .main .sec4 .userSign-box .old {
   cursor: inherit !important;
 }
-.main .sec4 .userSign-box > div:nth-of-type(8) label, .main .sec4 .userSign-box > div:nth-of-type(9) label {
+.main .sec4 .userSign-box > div:nth-of-type(8) label,
+.main .sec4 .userSign-box > div:nth-of-type(9) label {
   font-size: 20px;
 }
 .main .sec4 button {
