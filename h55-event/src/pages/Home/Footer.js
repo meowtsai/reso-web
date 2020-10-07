@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="img-box">
           <div>
             {" "}
-            <img src="idvtwcampus/image/icon-footer-img1.png" alt="" />{" "}
+            <img src="/idvtwcampus/image/icon-footer-img1.png" alt="" />{" "}
           </div>
           <div>
             {" "}
@@ -15,7 +15,7 @@ const Footer = () => {
           </div>
           <div>
             {" "}
-            <img src="idvtwcampus/image/icon-footer-img3.png" alt=" " />
+            <img src="/idvtwcampus/image/icon-footer-img3.png" alt=" " />
             <p className="text-white">
               {" "}
               台灣遊戲代理：龍邑股份有限公司
