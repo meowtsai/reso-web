@@ -11,7 +11,7 @@ const Footer = () => {
           </div>
           <div>
             {" "}
-            <img src="idvtwcampus/image/icon-footer-img2.png" alt="" />{" "}
+            <img src="/idvtwcampus/image/icon-footer-img2.png" alt="" />{" "}
           </div>
           <div>
             {" "}
