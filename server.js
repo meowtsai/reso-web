@@ -69,7 +69,7 @@ app.use("/api/service-request", require("./routes/api/service-request"));
 app.use("/api/course", require("./routes/api/course"));
 app.use("/api/idvtwcampus", require("./routes/api/idvtwcampus"));
 app.use("/uploads/h55", express.static("uploads/h55"));
-app.use("/public", express.static("public"));
+// app.use("/public", express.static("public"));
 //serve static assets if in production
 if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {
   //set a static folder
