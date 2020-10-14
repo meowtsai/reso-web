@@ -87,7 +87,6 @@ const UserForm = ({ setRegisterResult, courseId, setError }) => {
                 required: "請選擇日期．",
               })}
               min={moment(registerMinDate).format("YYYY-MM-DD").toString()}
-              max="2020-10-31"
               className="form-control"
               id="datepicker"
               placeholder="請選擇預約的日期"

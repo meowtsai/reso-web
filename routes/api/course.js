@@ -94,7 +94,9 @@ router.post("/seatsByDate", async (req, res) => {
             timeSlot: ts,
             available:
               slotStatus[0]._id.courseId === criteria.courseId
-                ? 4 - slotStatus[0].count
+                ? criteria.courseId === "A"
+                  ? 0
+                  : 4 - slotStatus[0].count
                 : 0,
             reason:
               slotStatus[0]._id.courseId !== criteria.courseId
