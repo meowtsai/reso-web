@@ -445,7 +445,7 @@ const RegisterForm = ({ setError, setHint, setLoading }) => {
               showMore={showMore}
               moreMember={(sn) => moreMember(sn)}
             />
-            {showMore === 5 && (
+            {showMore >= 5 && (
               <Fragment>
                 <MemberForm
                   formLabel="隊員 5"

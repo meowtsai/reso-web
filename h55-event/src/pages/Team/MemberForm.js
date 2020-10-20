@@ -3,7 +3,7 @@ import { useFormContext } from "react-hook-form";
 import BirthdaySelect from "./BirthdaySelect";
 import FileUploader from "../../components/FileUploader";
 const MemberForm = ({ formLabel, sn, moreMember, showMore }) => {
-  const { register, setValue } = useFormContext();
+  const { register, setValue } = useFormContext({ shouldUnregister: true });
 
   register(
     { name: `birthday${sn}` },
