@@ -153,13 +153,13 @@ const MemberForm = ({ formLabel, sn, moreMember, showMore }) => {
       </div>
       <p
         className={
-          sn === 4 && showMore === false
+          sn >= 4 && sn < 6 && showMore === sn
             ? "more"
-            : sn === 6 && showMore === true
+            : sn === 6 && showMore === sn
             ? "close"
             : "empty"
         }
-        onClick={moreMember}
+        onClick={() => moreMember(sn)}
       ></p>
     </section>
   );

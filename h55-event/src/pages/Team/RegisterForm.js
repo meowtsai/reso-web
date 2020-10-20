@@ -9,7 +9,7 @@ import MemberForm from "./MemberForm";
 const RegisterForm = ({ setError, setHint, setLoading }) => {
   let history = useHistory();
   const [showTelCode, setShowTelCode] = useState(false);
-  const [showMore, setShowMore] = useState(false);
+  const [showMore, setShowMore] = useState(4);
   // const {
   //   register,
   //   handleSubmit,
@@ -90,10 +90,10 @@ const RegisterForm = ({ setError, setHint, setLoading }) => {
     methods.setValue("birthday", birthday);
   };
 
-  const moreMember = () => {
+  const moreMember = (sn) => {
     //console.log("clciked");
     setError(null);
-    setShowMore(!showMore);
+    setShowMore(sn === 6 ? showMore - 2 : showMore + 1);
   };
 
   const Sendverify = async () => {
@@ -443,21 +443,25 @@ const RegisterForm = ({ setError, setHint, setLoading }) => {
               formLabel="隊員 4"
               sn={4}
               showMore={showMore}
-              moreMember={() => moreMember()}
+              moreMember={(sn) => moreMember(sn)}
             />
-            {showMore === true && (
+            {showMore === 5 && (
               <Fragment>
                 <MemberForm
                   formLabel="隊員 5"
                   sn={5}
                   showMore={showMore}
-                  moreMember={() => moreMember()}
+                  moreMember={(sn) => moreMember(sn)}
                 />
+              </Fragment>
+            )}
+            {showMore === 6 && (
+              <Fragment>
                 <MemberForm
                   formLabel="隊員 6"
                   sn={6}
                   showMore={showMore}
-                  moreMember={() => moreMember()}
+                  moreMember={(sn) => moreMember(sn)}
                 />
               </Fragment>
             )}
