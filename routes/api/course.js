@@ -69,7 +69,15 @@ router.post("/updateRegister", async (req, res) => {
 router.post("/seatsByDate", async (req, res) => {
   //const criteria = { courseId: 'A', date: '2020-09-19' };
   const criteria = req.body;
-  const nono_dates = ["2020-10-31", "2020-11-01"];
+  const nono_dates = [
+    "2020-10-26",
+    "2020-10-27",
+    "2020-10-28",
+    "2020-10-29",
+    "2020-10-30",
+    "2020-10-31",
+    "2020-11-01",
+  ];
   console.log(
     "nono_dates.indexOf(criteria.date)",
     nono_dates.indexOf(criteria.date)

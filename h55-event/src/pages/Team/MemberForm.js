@@ -1,22 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useFormContext } from "react-hook-form";
 import BirthdaySelect from "./BirthdaySelect";
 import FileUploader from "../../components/FileUploader";
 const MemberForm = ({ formLabel, sn, moreMember, showMore }) => {
-  const { register, setValue } = useFormContext({ shouldUnregister: true });
+  const { register, setValue, unregister } = useFormContext();
 
-  register(
-    { name: `birthday${sn}` },
-    { required: `請正確選擇${formLabel}的出生年月日` }
-  );
-  register(
-    { name: `member${sn}_upload1` },
-    { required: `請上傳${formLabel}的正面圖檔` }
-  );
-  register(
-    { name: `member${sn}_upload2` },
-    { required: `請上傳${formLabel}的反面圖檔` }
-  );
+  useEffect(() => {
+    register(
+      { name: `birthday${sn}` },
+      { required: `請正確選擇${formLabel}的出生年月日` }
+    );
+    register(
+      { name: `member${sn}_upload1` },
+      { required: `請上傳${formLabel}的正面圖檔` }
+    );
+    register(
+      { name: `member${sn}_upload2` },
+      { required: `請上傳${formLabel}的反面圖檔` }
+    );
+
+    return () => {
+      unregister([
+        `birthday${sn}`,
+        `member${sn}_upload1`,
+        `member${sn}_upload2`,
+      ]);
+    };
+  }, [register]);
 
   const setBirthdayValue = (bday) => {
     setValue(`birthday${sn}`, bday);
