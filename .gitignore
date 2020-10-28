@@ -4,6 +4,7 @@
 /client/node_modules
 /course/node_modules
 /h55-event/node_modules
+/mentors/node_modules
 /node_modules
 /.pnp
 .pnp.js
@@ -32,3 +33,6 @@ yarn-error.log*
 
 /config
 /uploads
+source/
+
+.vscode/

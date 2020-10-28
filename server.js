@@ -67,6 +67,7 @@ app.use(express.json());
 app.use("/api/contactus", require("./routes/api/contactus"));
 app.use("/api/service-request", require("./routes/api/service-request"));
 app.use("/api/course", require("./routes/api/course"));
+app.use("/api/mentor", require("./routes/api/mentor"));
 app.use("/api/idvtwcampus", require("./routes/api/idvtwcampus"));
 app.use("/uploads/h55", express.static("uploads/h55"));
 // app.use("/public", express.static("public"));
@@ -79,6 +80,8 @@ if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {
     express.static(path.join(__dirname, "h55-event/build"))
   );
 
+  app.use("/mentors", express.static(path.join(__dirname, "mentors/build")));
+
   app.use(express.static("client/build"));
   //set a route for anything else not list above
   app.get("/course/*", (req, res) => {
@@ -86,6 +89,9 @@ if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {
   });
   app.get("/idvtwcampus/*", (req, res) => {
     res.sendFile(path.join(__dirname + "/h55-event/build/index.html"));
+  });
+  app.get("/mentors/*", (req, res) => {
+    res.sendFile(path.join(__dirname + "/mentors/build/index.html"));
   });
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));

@@ -224,7 +224,7 @@ router.post("/getcode", async (req, res) => {
   const code = helper.getRandomString(6);
 
   const existRecord = await EmailVerify.findOne({ email });
-  console.log("existRecord", existRecord);
+  //console.log("existRecord", existRecord);
 
   if (existRecord) {
     //資料已經存在 檢查日期
@@ -308,7 +308,7 @@ const sendMailVerifyCode = (record) => {
 };
 
 const sendMailSuccessRegistered = (record) => {
-  console.log("sendMailSuccessRegistered", record);
+  //console.log("sendMailSuccessRegis//tered", record);
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
   const fs = require("fs");

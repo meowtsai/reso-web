@@ -7,13 +7,15 @@
     "start": "NODE_ENV=production node server.js",
     "stage": "NODE_ENV=stage node server.js",
     "devstart": "NODE_ENV=development nodemon -L server.js",
-    "winstart": "set NODE_ENV=development && nodemon server.js"
+    "winstart": "set NODE_ENV=development && nodemon server.js",
+    "data:import": "node seeder"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@sendgrid/mail": "^7.2.4",
+    "colors": "^1.4.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-fileupload": "^1.2.0",
