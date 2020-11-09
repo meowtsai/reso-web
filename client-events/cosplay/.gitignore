@@ -1,27 +1,18 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/client/node_modules
-/course/node_modules
-/h55-event/node_modules
-/mentors/node_modules
 /node_modules
-node_modules/
 /.pnp
 .pnp.js
 
 # testing
 /coverage
-/test
 
 # production
 /build
-/client/build
-/course/build
-/h55-event/build
+
 # misc
 .DS_Store
-.env
 .env.local
 .env.development.local
 .env.test.local
@@ -30,10 +21,3 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-/log
-
-/config
-/uploads
-source/
-
-.vscode/

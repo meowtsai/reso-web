@@ -1,0 +1,295 @@
+html,
+body {
+  width: 100%;
+  min-width: 1260px;
+  font-family: "Arial", "sans-serif,思源黑體", "微軟正黑體";
+}
+.typePage {
+  width: 1200px;
+  position: relative;
+  left: 50%;
+  margin-left: -600px;
+}
+.userSign-box {
+  padding: 20px 0 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  height: 1200px;
+}
+.sec-title_pg {
+  background: url("../image/title-sec4-pg.png") no-repeat left;
+  height: 80px;
+  width: auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.sec-title_cg {
+  background: url("../image/title-sec4-cg.png") no-repeat left;
+  height: 80px;
+  width: auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.sec-title_h3 {
+  position: relative;
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  padding: 31px 0 10px;
+  text-indent: 14px;
+}
+.sec-title_h3::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 32px;
+  background: #d5ba1e;
+  top: 30px;
+  left: 0;
+}
+.sec-title_key {
+  display: inline-block;
+  color: #cdd7ff;
+  font-weight: 700;
+  vertical-align: top;
+  padding: 10px 0px;
+  font-size: 16px;
+}
+.sec-title_key span {
+  vertical-align: top;
+}
+.sec-title_key label {
+  vertical-align: top;
+}
+.essential_icon {
+  color: #f03c3c;
+  vertical-align: middle;
+  font-size: 18px;
+}
+.sec-title_val {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(123, 233, 255, 0.2);
+  padding: 7px;
+  height: 24px;
+  font-size: 16px;
+  width: 300px;
+  display: inline-block;
+  color: #fff;
+  vertical-align: middle;
+  resize: none;
+  margin-left: 5px;
+}
+
+.sec-title_va2 {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(123, 233, 255, 0.2);
+  padding: 7px;
+  height: 24px;
+  font-size: 16px;
+  width: 745px;
+  display: inline-block;
+  color: #fff;
+  vertical-align: middle;
+  resize: none;
+  margin-left: 5px;
+}
+.sec-title_va3 {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(123, 233, 255, 0.2);
+  padding: 7px;
+  height: 24px;
+  font-size: 16px;
+  width: 745px;
+  height: 250px;
+  display: inline-block;
+  color: #fff;
+  vertical-align: middle;
+  resize: none;
+  margin-left: 5px;
+  vertical-align: top;
+}
+.invalid {
+  border: 1px solid #f03c3c;
+}
+.sec-title_form {
+  float: left;
+  width: 870px;
+  margin-top: -30px;
+}
+.sec-title_rule {
+  background: rgba(0, 0, 0, 0.3);
+  float: right;
+  width: 250px;
+  padding: 20px;
+  font-size: 1rem;
+  color: #fff;
+  text-align: center;
+  margin-top: 48px;
+}
+.sec-title_rule dt span {
+  display: inline-block;
+  position: relative;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #d5ba1e;
+  margin: 10px;
+}
+.sec-title_rule dd {
+  text-align: left;
+  padding-left: 15px;
+  line-height: 27px;
+  padding-bottom: 20px;
+  position: relative;
+}
+.file {
+  box-sizing: border-box;
+  border: 1px solid rgba(123, 233, 255, 0.2);
+  background: rgba(0, 0, 0, 0.5);
+  width: 326px;
+  padding: 60px;
+  height: 230px;
+  margin-left: 3px;
+}
+label span {
+  margin-left: 12px;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1.5rem;
+}
+.sec-title_checkbox {
+  display: block;
+  color: #cdd7ff;
+  vertical-align: top;
+  padding: 10px 0px;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 10px;
+}
+.sec-title_checkbox a {
+  color: #d5ba1e;
+}
+/*-------------------------------*/
+.main .sec4 {
+  height: 1700px;
+  padding-bottom: 100px;
+  background: url("../image/bg-sec4.jpg") no-repeat center;
+}
+.main .sec4 .sec-title {
+  margin-bottom: 20px;
+}
+.main .sec4 .sec-title2 {
+  color: #d5ba1e;
+  font-size: 0.95rem;
+  font-weight: 600;
+  width: 100%;
+  text-align: left;
+  margin: 20px 0px;
+}
+.main .sec4 .userSign-box .userSign-title {
+  width: 100%;
+  height: 60px;
+  margin-bottom: 48px;
+}
+.main .sec4 .userSign-box > div {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.cover,
+.works {
+  height: auto;
+  position: relative;
+  width: 300px;
+  text-align: center;
+}
+.cover ul li p,
+.works ul li p {
+  font-size: 1rem;
+  color: #7b7b7b;
+  line-height: 25px;
+  width: 100%;
+  margin: 75px auto 0;
+  font-weight: 500;
+}
+.cover ul li:nth-last-child(1),
+.works ul li:nth-last-child(1) {
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.5) url("../image/Upload.png") no-repeat center
+    21px;
+  border: 1px solid rgba(123, 233, 255, 0.2);
+  margin: -20px 0 26px 103px;
+  width: 300px;
+  padding: 20px 0;
+}
+.cover img,
+.works img {
+  cursor: pointer;
+  width: 300px;
+}
+.p1 {
+  margin: -15px 10px 15px 79px;
+  position: relative;
+  font-size: 1rem;
+  color: #d5ba1e;
+}
+/*按鈕*/
+.button {
+  border: none;
+  padding: 15px 65px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 40px 0;
+  transition-duration: 0.4s;
+  position: relative;
+  left: 50%;
+  margin-left: -90px;
+}
+.button1 {
+  background-color: #101421;
+  border: 1px solid rgba(123, 233, 255, 0.2);
+  border-radius: 1px;
+  color: #fff;
+}
+.button1 a,
+.button2 a {
+  color: #fff;
+}
+.button1:hover {
+  background-color: #212842;
+  color: #fff;
+  border: 1px solid #fff;
+}
+.button2 {
+  margin-bottom: 15px;
+  padding: 12px 23px;
+  font-size: 0.9rem;
+  position: relative;
+  background-color: #101421;
+  color: white;
+  border: 1px solid rgba(123, 233, 255, 0.2);
+  border-radius: 1px;
+}
+.button2:hover {
+  background-color: #212842;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+#gotop {
+  display: none;
+  position: fixed;
+  right: 20px;
+  bottom: 200px;
+  cursor: pointer;
+  z-index: 999;
+}
+.nav {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: url("image/nav_bg.png") center top;
+  z-index: 99;
+}

@@ -1,0 +1,133 @@
+#gotop {
+  display: none;
+  position: fixed;
+  right: 20px;
+  bottom: 200px;
+  cursor: pointer;
+  z-index: 999;
+}
+.nav {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: url("/cosplay/image/nav_bg.png") center top;
+  z-index: 99;
+}
+.apply_nav,
+.shortlist_nav {
+  height: 898px;
+  position: relative;
+  overflow-x: hidden;
+  margin-top: -100px;
+}
+.apply_nav .hover_area,
+.shortlist_nav .hover_area {
+  height: 447px;
+  position: absolute;
+  width: 50%;
+  left: -2px;
+  bottom: 168px;
+}
+.apply_nav_item,
+.shortlist_nav_item {
+  position: absolute;
+  right: -3px;
+  bottom: 0;
+  width: 1132px;
+  height: 731px;
+  background: url("/cosplay/image/nav_p.png") right top no-repeat;
+
+  transition: 0.4s;
+  -ms-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -webkit-transition: 0.4s;
+  pointer-events: none;
+}
+.apply_nav .hover_area_t,
+.shortlist_nav .hover_area_t {
+  left: auto;
+  right: 0;
+}
+.apply_nav_item_t,
+.shortlist_nav_item_t {
+  background: url("/cosplay/image/nav_t.png") right top no-repeat;
+  left: -172px;
+  right: auto;
+  bottom: 0px;
+}
+.sec2 .swiper-container {
+  width: 1200px;
+  height: 80%;
+}
+.sec2 .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.go_apply_btn1 {
+  position: absolute;
+  width: 271px;
+  height: 88px;
+  background-position: 0 0;
+  right: 85px;
+  bottom: 340px;
+  pointer-events: auto;
+  transition: 0.4s;
+  -ms-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -webkit-transition: 0.4s;
+}
+.go_apply_btn2 {
+  position: absolute;
+  width: 271px;
+  height: 88px;
+  background-position: 0 0;
+  right: 600px;
+  bottom: 340px;
+  pointer-events: auto;
+  transition: 0.4s;
+  -ms-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -webkit-transition: 0.4s;
+}
+.apply_icons {
+  background: url("/cosplay/image/btn.png") 0 0 no-repeat;
+  background-position-x: 0px;
+  background-position-y: 0px;
+  display: inline-block;
+}
+.main .sec1-1 .sec-box {
+  position: relative;
+  left: 50%;
+  margin-left: -440px;
+  width: 900px;
+  margin-top: 90px;
+}
+.sec1-1 .match {
+  font-size: 1.5rem;
+  color: #eccd18;
+  margin: 25px 0 5px;
+  font-weight: 600;
+}
+.sec1-1 .sec1-title {
+  font-size: 1rem;
+  line-height: 25px;
+  color: #fff;
+}
+.main .sec1-1 .sec-box .b {
+  color: #ef4346;
+  font-weight: 600;
+}

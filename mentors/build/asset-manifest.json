@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/mentors/static/css/main.bdd96d42.chunk.css",
+    "main.js": "/mentors/static/js/main.14ec586f.chunk.js",
+    "main.js.map": "/mentors/static/js/main.14ec586f.chunk.js.map",
+    "runtime-main.js": "/mentors/static/js/runtime-main.e3570e9d.js",
+    "runtime-main.js.map": "/mentors/static/js/runtime-main.e3570e9d.js.map",
+    "static/css/2.e6ac38db.chunk.css": "/mentors/static/css/2.e6ac38db.chunk.css",
+    "static/js/2.4adb0ca0.chunk.js": "/mentors/static/js/2.4adb0ca0.chunk.js",
+    "static/js/2.4adb0ca0.chunk.js.map": "/mentors/static/js/2.4adb0ca0.chunk.js.map",
+    "index.html": "/mentors/index.html",
+    "precache-manifest.e9a3b4620c63bbfc0c9bfd0135ef4a03.js": "/mentors/precache-manifest.e9a3b4620c63bbfc0c9bfd0135ef4a03.js",
+    "service-worker.js": "/mentors/service-worker.js",
+    "static/css/2.e6ac38db.chunk.css.map": "/mentors/static/css/2.e6ac38db.chunk.css.map",
+    "static/css/main.bdd96d42.chunk.css.map": "/mentors/static/css/main.bdd96d42.chunk.css.map",
+    "static/js/2.4adb0ca0.chunk.js.LICENSE.txt": "/mentors/static/js/2.4adb0ca0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e3570e9d.js",
+    "static/css/2.e6ac38db.chunk.css",
+    "static/js/2.4adb0ca0.chunk.js",
+    "static/css/main.bdd96d42.chunk.css",
+    "static/js/main.14ec586f.chunk.js"
+  ]
+}
