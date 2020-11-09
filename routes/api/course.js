@@ -106,7 +106,8 @@ router.post("/seatsByDate", async (req, res) => {
     },
   ])
     .then((records) => {
-      const timeSlots = ["15:00~16:00", "21:30~22:30"];
+      //const timeSlots = ["15:00~16:00", "21:30~22:30"];
+      const timeSlots = ["15:00~16:00"];
       const seatsAvailable = timeSlots.map((ts) => {
         const slotStatus = records.filter((r) => r._id.timeSlot === ts);
         if (slotStatus.length === 0) {
