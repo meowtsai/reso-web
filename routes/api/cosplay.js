@@ -45,8 +45,7 @@ router.post("/", async (req, res) => {
   //check if email or citizen id duplicate
 
   const checkDuplicated = await CosplayApply.findOne({
-    coser_email,
-    coser_citizen_id,
+    $or: [{ coser_email }, { coser_citizen_id }],
   });
 
   //console.log("checkDuplicated", checkDuplicated);

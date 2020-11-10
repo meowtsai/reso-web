@@ -298,6 +298,7 @@ label span {
 .text-danger {
   color: #f03c3c;
   font-size: 0.65rem;
+  text-align: center;
 }
 
 .aside1 {

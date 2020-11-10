@@ -54,7 +54,7 @@ const FormPG = () => {
     return () => {
       setRegisterResult(null);
     };
-  }, [registerResult]);
+  }, [registerResult, history]);
   return (
     <section className="sec4">
       {registerResult?._id ? (
@@ -132,7 +132,7 @@ const FormPG = () => {
                     ref={register({
                       required: "請輸入E-mail",
                       pattern: {
-                        value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                        value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
                         message: "E-mail格式不符合",
                       },
                     })}
@@ -235,7 +235,7 @@ const FormPG = () => {
                   {errors["agree_policy"] && errors["agree_policy"].message}
                 </span>
               </div>
-
+              <p className="text-danger">{error && error.msg}</p>
               {loading === false ? (
                 <button type="submit" className="button button1">
                   送出報名
