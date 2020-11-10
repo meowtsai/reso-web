@@ -31,9 +31,14 @@ const CosplayApplySchema = new mongoose.Schema(
       required: true,
     },
     imgs: { type: Array, default: [] },
+    category: {
+      type: String,
+      required: true,
+    },
     status: {
       type: String,
       enum: ["SUBMITTED", "VERIFIED", "DISQUALIFIED"],
+      default: "SUBMITTED",
     },
   },
   {

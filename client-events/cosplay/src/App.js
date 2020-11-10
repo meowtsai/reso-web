@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import HomeScreen from "./pages/HomeScreen";
-import SignUpPgScreen from "./pages/SignUpPgScreen";
+import SignUpScreen from "./pages/SignUpScreen";
 
 function App() {
   return (
@@ -9,7 +9,11 @@ function App() {
       <Fragment>
         <Route path="/cosplay/" component={HomeScreen} exact />
 
-        <Route path="/cosplay/signup-pg" component={SignUpPgScreen} exact />
+        <Route
+          path="/cosplay/signup/:category"
+          component={SignUpScreen}
+          exact
+        />
         <div id="gotop">
           <img src="image/top.png" width="150px;" alt="回到頁首" />
         </div>

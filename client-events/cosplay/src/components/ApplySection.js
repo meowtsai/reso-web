@@ -8,7 +8,7 @@ const ApplySection = () => {
           <div className="hover_area hover_area_p">
             <div className="apply_nav_item">
               <Link
-                to="/cosplay/signup-pg"
+                to="/cosplay/signup/pg"
                 className="go_apply_btn1 apply_icons"
               >
                 {" "}
@@ -18,7 +18,7 @@ const ApplySection = () => {
           <div className="hover_area hover_area_t">
             <div className="apply_nav_item apply_nav_item_t">
               <Link
-                to="/cosplay/signup-cg"
+                to="/cosplay/signup/cg"
                 className="go_apply_btn2 apply_icons"
               >
                 {" "}

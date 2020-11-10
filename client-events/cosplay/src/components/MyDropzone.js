@@ -1,64 +1,37 @@
 import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
-const MyDropzone = ({ filesCount, title, setFile }) => {
+const MyDropzone = ({ filesCount, title, setFile, fileSize = 4000000 }) => {
   //const [dataUrl, setDataUrl] = useState(null);
   const [files, setFiles] = useState([]);
-  const [error, setError] = useState(null);
-
-  const thumbsContainer = {
-    // display: "flex",
-    // flexDirection: "row",
-    // flexWrap: "wrap",
-    // marginTop: 16,
-    display: "inline-flex",
-    width: "100px",
-    height: "188px",
-    padding: "4px",
-    boxSizing: "border-box",
-    margin: "-215px 104px 10px",
-    minWidth: "300px",
-  };
-  const thumb = {
-    display: "inline-flex",
-    borderRadius: 2,
-    border: "1px solid #eaeaea",
-    marginBottom: 8,
-    marginRight: 8,
-    width: 100,
-    height: 100,
-    padding: 4,
-    boxSizing: "border-box",
-  };
-
-  const thumbInner = {
-    display: "flex",
-    minWidth: 0,
-    overflow: "hidden",
-  };
-
-  const img = {
-    display: "block",
-    width: "auto",
-    height: "100%",
-  };
+  const [errors, setErrors] = useState(null);
 
   const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
     // Do something with the files
-    console.log("acceptedFiles", acceptedFiles);
-    console.log("rejectedFiles", rejectedFiles);
+    setErrors(null);
+    // console.log("acceptedFiles", acceptedFiles);
+    // console.log("rejectedFiles", rejectedFiles);
 
     if (acceptedFiles.length > 0) {
-      console.log("acceptedFiles", acceptedFiles);
-      setFile(acceptedFiles);
-      setFiles(
-        acceptedFiles.map((file) =>
-          Object.assign(file, {
-            preview: URL.createObjectURL(file),
-          })
-        )
-      );
+      for (let index = 0; index < acceptedFiles.length; index++) {
+        const file = acceptedFiles[index];
+        //console.log("file.size", file.size);
+        if (file.size > fileSize) {
+          setErrors("檔案大小請控制在規定範圍");
+          acceptedFiles = [];
+        }
+      }
 
-      console.log("acceptedFiles", acceptedFiles);
+      if (!errors) {
+        setFile(acceptedFiles);
+        setFiles(
+          acceptedFiles.map((file) =>
+            Object.assign(file, {
+              preview: URL.createObjectURL(file),
+            })
+          )
+        );
+      }
+
       // const mainFile = acceptedFiles[0];
       // if (mainFile.size < 2000000) {
       //   const reader = new FileReader();
@@ -73,20 +46,31 @@ const MyDropzone = ({ filesCount, title, setFile }) => {
       //   reader.readAsDataURL(acceptedFiles[0]);
     } else {
       // setError("請將檔案大小控制在 2mb 以內");
+      setErrors("最多只能上傳" + filesCount + "個檔案");
     }
   }, []);
 
-  const thumbs = files.map((file) => (
-    <div style={thumb} key={file.name}>
-      <div style={thumbInner}>
-        <img src={file.preview} style={img} />
+  const thumbs =
+    files.length > 1 ? (
+      files.map((file) => (
+        <div className="imgs">
+          <div style={{ display: "flex", minWidth: "0px", overflow: "hidden" }}>
+            <img src={file.preview} />
+          </div>
+        </div>
+      ))
+    ) : files.length > 0 ? (
+      <div style={{ display: "contents", boxSizing: "border-box" }}>
+        <div style={{ display: "flex", minWidth: "0px", overflow: "hidden" }}>
+          <img src={files[0].preview} />
+        </div>
       </div>
-    </div>
-  ));
+    ) : null;
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: "image/jpeg, image/png",
+    maxFiles: filesCount,
   });
   return (
     <>
@@ -108,12 +92,14 @@ const MyDropzone = ({ filesCount, title, setFile }) => {
                 （jpg、jpeg、png）
                 <br />
                 最多上傳{filesCount}張
+                {errors ? <span className="text-danger">{errors}</span> : null}
               </p>
             </li>
           </ul>
         )}
       </div>
-      <aside style={thumbsContainer}>{thumbs}</aside>
+
+      <aside className={files.length > 1 ? "aside2" : "aside1"}>{thumbs}</aside>
     </>
   );
 };
