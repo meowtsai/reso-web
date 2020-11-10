@@ -1,11 +1,13 @@
-import React, { Fragment, useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import classnames from "classnames";
+import axios from "axios";
 import { useForm } from "react-hook-form";
 import MyDropzone from "./MyDropzone";
 
 const FormPG = () => {
   const [loading, setLoading] = useState(false);
-
+  const [error, setError] = useState(null);
+  const [registerResult, setRegisterResult] = useState(null);
   const {
     register,
     handleSubmit,
@@ -15,29 +17,37 @@ const FormPG = () => {
     setValue,
   } = useForm(); // initialise
 
-  register({ name: "cover_upload" }, { required: "請上傳封面圖檔" });
-  register({ name: "works_upload" }, { required: "請上傳作品圖檔" });
+  console.log("errors", errors);
+  register({ name: "cover_img" }, { required: "請上傳封面圖檔" });
+  register({ name: "imgs" }, { required: "請上傳作品圖檔" });
 
   const onSubmit = (registerData) => {
-    console.log(registerData);
-    // setLoading(true);
-    // axios
-    //   .post("/api/mentor/register", registerData)
-    //   .then((res) => {
-    //     setLoading(false);
+    console.log("registerData", registerData);
+    setLoading(true);
+    let formData = new FormData();
+    Object.keys(registerData).forEach((itemKey) => {
+      formData.append(itemKey, registerData[itemKey]);
+    });
 
-    //     setRegisterResult(res.data.CourseRegister);
-    //   })
-    //   .catch((err) => {
-    //     setLoading(false);
-    //     setError(err.response.data);
-    //   });
+    axios
+      .post("/api/cosplay", formData, {
+        headers: { "Content-type": "multipart/form-data" },
+      })
+      .then((res) => {
+        setLoading(false);
+        console.log(res.data.CourseRegister);
+        setRegisterResult(res.data.CourseRegister);
+      })
+      .catch((err) => {
+        setLoading(false);
+        setError(err.response.data);
+      });
   };
   return (
     <section className="sec4">
       <div className="typePage">
         <div className="sec-title_form">
-          <div className="sec-title_pg"></div>
+          <div className="sec-title_pg">{error && error.msg}</div>
 
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="userSign-box">
@@ -49,10 +59,10 @@ const FormPG = () => {
                 <input
                   type="text"
                   className={classnames("sec-title_val", {
-                    invalid: errors.name,
+                    invalid: errors.coser_name,
                   })}
-                  id="inputname"
-                  name="name"
+                  id="coser_name"
+                  name="coser_name"
                   placeholder="請輸入姓名"
                   ref={register({
                     required: "姓名必填．",
@@ -64,10 +74,10 @@ const FormPG = () => {
                 <input
                   type="text"
                   className={classnames("sec-title_val", {
-                    invalid: errors.id_number,
+                    invalid: errors.coser_citizen_id,
                   })}
-                  id="inputname"
-                  name="id_number"
+                  id="coser_citizen_id"
+                  name="coser_citizen_id"
                   placeholder="請輸入身分證字號"
                   ref={register({
                     required: "請輸入身分證字號",
@@ -82,10 +92,10 @@ const FormPG = () => {
                 <input
                   type="phone"
                   className={classnames("sec-title_val", {
-                    invalid: errors.phone,
+                    invalid: errors.coser_phone,
                   })}
-                  id="inputphone"
-                  name="phone"
+                  id="coser_phone"
+                  name="coser_phone"
                   placeholder="請填寫你的手機號碼"
                   ref={register({
                     required: "手機號碼必填．",
@@ -97,10 +107,10 @@ const FormPG = () => {
                 <input
                   type="email"
                   className={classnames("sec-title_val", {
-                    invalid: errors.email,
+                    invalid: errors.coser_email,
                   })}
-                  id="inputEmail"
-                  name="email"
+                  id="coser_email"
+                  name="coser_email"
                   placeholder="請輸入E-mail"
                   ref={register({
                     required: "請輸入E-mail",
@@ -125,10 +135,10 @@ const FormPG = () => {
                 <input
                   type="text"
                   className={classnames("sec-title_va2", {
-                    invalid: errors.title,
+                    invalid: errors.work_subject,
                   })}
-                  id="title"
-                  name="title"
+                  id="work_subject"
+                  name="work_subject"
                   placeholder="請輸入作品標題(20字符以內)"
                   ref={register({
                     required: "請輸入作品標題(20字符以內)",
@@ -145,9 +155,9 @@ const FormPG = () => {
                     required: "*必填，您需要什麼樣的服務或是有任何建議呢？",
                   })}
                   className={classnames("sec-title_va3", {
-                    invalid: errors.ideas,
+                    invalid: errors.work_desc,
                   })}
-                  name="ideas"
+                  name="work_desc"
                   rows="6"
                   cols="16"
                   placeholder="請簡述Cos的角色名稱及創作理念(300字符以內)"
@@ -163,7 +173,7 @@ const FormPG = () => {
                     title={"封面圖"}
                     setFile={(value) => {
                       console.log("cover file set", value);
-                      setValue("cover_upload", value);
+                      setValue("cover_img", value);
                     }}
                   />
                   <p className="p1">※照片大小需小於4MB</p>
@@ -174,7 +184,7 @@ const FormPG = () => {
                   <MyDropzone
                     filesCount={9}
                     title={"作品集"}
-                    setFile={(value) => setValue("works_upload", value)}
+                    setFile={(value) => setValue("imgs", value)}
                   />
 
                   <p className="p1">※照片大小需小於4MB</p>
@@ -182,7 +192,17 @@ const FormPG = () => {
               </div>
             </div>
             <div className="sec-title_checkbox ">
-              <input type="checkbox" />
+              <br />
+              <br />
+              <br />
+              <input
+                type="checkbox"
+                name="agree_policy"
+                id="agree_policy"
+                ref={register({
+                  required: "請勾選同意賽事規則",
+                })}
+              />
               我已詳閱
               <a href="/cosplay/#note" target="_blank">
                 <font>參賽注意事項</font>

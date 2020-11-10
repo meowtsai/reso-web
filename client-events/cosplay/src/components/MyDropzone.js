@@ -6,10 +6,17 @@ const MyDropzone = ({ filesCount, title, setFile }) => {
   const [error, setError] = useState(null);
 
   const thumbsContainer = {
-    display: "flex",
-    flexDirection: "row",
-    flexWrap: "wrap",
-    marginTop: 16,
+    // display: "flex",
+    // flexDirection: "row",
+    // flexWrap: "wrap",
+    // marginTop: 16,
+    display: "inline-flex",
+    width: "100px",
+    height: "188px",
+    padding: "4px",
+    boxSizing: "border-box",
+    margin: "-215px 104px 10px",
+    minWidth: "300px",
   };
   const thumb = {
     display: "inline-flex",
@@ -41,6 +48,8 @@ const MyDropzone = ({ filesCount, title, setFile }) => {
     console.log("rejectedFiles", rejectedFiles);
 
     if (acceptedFiles.length > 0) {
+      console.log("acceptedFiles", acceptedFiles);
+      setFile(acceptedFiles);
       setFiles(
         acceptedFiles.map((file) =>
           Object.assign(file, {
@@ -49,6 +58,7 @@ const MyDropzone = ({ filesCount, title, setFile }) => {
         )
       );
 
+      console.log("acceptedFiles", acceptedFiles);
       // const mainFile = acceptedFiles[0];
       // if (mainFile.size < 2000000) {
       //   const reader = new FileReader();

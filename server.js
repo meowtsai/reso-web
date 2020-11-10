@@ -45,7 +45,7 @@ app.use(
       ],
       connectSrc: ["'self'", "https://www.google-analytics.com/"],
       mediaSrc: ["'self'", "https://assets.mixkit.co"],
-      imgSrc: ["'self'", "data:", "https://www.google-analytics.com/"],
+      imgSrc: ["'self'", "data:", "https://www.google-analytics.com/", "blob:"],
       fontSrc: ["'self'", "data:"],
     },
   })
@@ -69,7 +69,9 @@ app.use("/api/service-request", require("./routes/api/service-request"));
 app.use("/api/course", require("./routes/api/course"));
 app.use("/api/mentor", require("./routes/api/mentor"));
 app.use("/api/idvtwcampus", require("./routes/api/idvtwcampus"));
+app.use("/api/cosplay", require("./routes/api/cosplay"));
 app.use("/uploads/h55", express.static("uploads/h55"));
+app.use("/uploads/cosplay", express.static("uploads/cosplay"));
 // app.use("/public", express.static("public"));
 //serve static assets if in production
 if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {
