@@ -85,7 +85,7 @@ if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {
   app.use("/mentors", express.static(path.join(__dirname, "mentors/build")));
   app.use(
     "/cosplay",
-    express.static(path.join(__dirname, "client-events/cosplay/build"))
+    express.static(path.join(__dirname, "client-events/cosplay/live"))
   );
 
   app.use(express.static("client/build"));
@@ -101,7 +101,7 @@ if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {
   });
   app.get("/cosplay/*", (req, res) => {
     res.sendFile(
-      path.join(__dirname + "/client-events/cosplay/build/index.html")
+      path.join(__dirname + "/client-events/cosplay/live/index.html")
     );
   });
   app.get("*", (req, res) => {

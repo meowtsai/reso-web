@@ -19,6 +19,8 @@ node_modules/
 /client/build
 /course/build
 /h55-event/build
+build/
+live/
 # misc
 .DS_Store
 .env

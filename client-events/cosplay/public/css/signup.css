@@ -55,9 +55,9 @@ body {
 .sec-title_key span {
   vertical-align: top;
 }
-.sec-title_key label {
+/* .sec-title_key label {
   vertical-align: top;
-}
+} */
 .essential_icon {
   color: #f03c3c;
   vertical-align: middle;
