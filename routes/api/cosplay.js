@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
   //validation
 
   const record = req.body;
-  console.log("req.body", req.body);
+  //console.log("req.body", req.body);
 
   const checkErrors = validateCosplayApplyForm(record);
   if (!checkErrors.isValid) {

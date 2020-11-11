@@ -222,8 +222,16 @@ label span {
 }
 .cover img,
 .works img {
-  cursor: pointer;
-  width: 300px;
+  /* cursor: pointer;
+  width: 300px; */
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 .p1 {
   margin: -200px 10px 15px 79px;
