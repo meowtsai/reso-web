@@ -164,6 +164,7 @@ const ApplyForm = ({ category, filesize, filesCount }) => {
                     })}
                   />
                   &nbsp;&nbsp;&nbsp;
+                  <span className="essential_icon">*</span>
                   <span className="essential_icon"></span>
                   <label>投 稿 暱 稱:</label>
                   <input

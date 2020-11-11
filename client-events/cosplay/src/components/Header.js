@@ -3,6 +3,12 @@ import React from "react";
 const Header = () => {
   return (
     <header>
+      <a href="/cosplay">
+        <img
+          src="/cosplay/image/link.png"
+          style={{ position: "relative", left: "48%", top: "100px" }}
+        />{" "}
+      </a>
       <nav className="nav">
         <ul>
           <li className="open">
