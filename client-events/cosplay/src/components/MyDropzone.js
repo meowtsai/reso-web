@@ -5,50 +5,35 @@ const MyDropzone = ({ filesCount, title, setFile, fileSize = 4000000 }) => {
   const [files, setFiles] = useState([]);
   const [errors, setErrors] = useState(null);
 
-  const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
-    // Do something with the files
-    setErrors(null);
-    // console.log("acceptedFiles", acceptedFiles);
-    // console.log("rejectedFiles", rejectedFiles);
-
-    if (acceptedFiles.length > 0) {
-      for (let index = 0; index < acceptedFiles.length; index++) {
-        const file = acceptedFiles[index];
-        //console.log("file.size", file.size);
-        if (file.size > fileSize) {
-          setErrors("檔案大小請控制在規定範圍");
-          acceptedFiles = [];
+  const onDrop = useCallback(
+    (acceptedFiles, rejectedFiles) => {
+      setErrors(null);
+      if (acceptedFiles.length > 0) {
+        for (let index = 0; index < acceptedFiles.length; index++) {
+          const file = acceptedFiles[index];
+          //console.log("file.size", file.size);
+          if (file.size > fileSize) {
+            setErrors("檔案大小請控制在規定範圍");
+            acceptedFiles = [];
+          }
         }
-      }
 
-      if (!errors) {
-        setFile(acceptedFiles);
-        setFiles(
-          acceptedFiles.map((file) =>
-            Object.assign(file, {
-              preview: URL.createObjectURL(file),
-            })
-          )
-        );
+        if (!errors) {
+          setFile(acceptedFiles);
+          setFiles(
+            acceptedFiles.map((file) =>
+              Object.assign(file, {
+                preview: URL.createObjectURL(file),
+              })
+            )
+          );
+        }
+      } else {
+        setErrors("最多只能上傳" + filesCount + "個檔案");
       }
-
-      // const mainFile = acceptedFiles[0];
-      // if (mainFile.size < 2000000) {
-      //   const reader = new FileReader();
-      //   //setError(null);
-      //   setFile(acceptedFiles[0]);
-      //   reader.onload = () => {
-      //     // Do whatever you want with the file contents
-      //     const urlStr = reader.result;
-      //     //console.log(urlStr);
-      //     setDataUrl(urlStr);
-      //   };
-      //   reader.readAsDataURL(acceptedFiles[0]);
-    } else {
-      // setError("請將檔案大小控制在 2mb 以內");
-      setErrors("最多只能上傳" + filesCount + "個檔案");
-    }
-  }, []);
+    },
+    [setFile, fileSize, errors, filesCount]
+  );
 
   const thumbs =
     files.length > 1 ? (

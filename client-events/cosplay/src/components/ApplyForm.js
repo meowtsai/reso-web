@@ -9,7 +9,7 @@ const ApplyForm = ({ category, filesize, filesCount }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [registerResult, setRegisterResult] = useState(null);
-  const { register, handleSubmit, errors, setValue, getValues } = useForm(); // initialise
+  const { register, handleSubmit, errors, setValue } = useForm(); // initialise
 
   register({ name: "cover_img" }, { required: "請上傳封面圖檔" });
   register({ name: "imgs" }, { required: "請上傳作品圖檔" });
@@ -228,12 +228,7 @@ const ApplyForm = ({ category, filesize, filesCount }) => {
                       setFile={(value) => setValue("imgs", value)}
                     />
 
-                    <p
-                      className="p1"
-                      style={
-                        getValues("imgs")?.length < 5 ? "margin:'-100'" : null
-                      }
-                    >
+                    <p className="p1">
                       ※照片大小需小於{filesize.toString().substring(0, 1)}MB{" "}
                     </p>
                     <span className="text-danger">
