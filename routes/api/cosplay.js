@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
   //validation
 
   const record = req.body;
-  //console.log("req.body", req.body);
+  console.log("req.body", req.body);
 
   const checkErrors = validateCosplayApplyForm(record);
   if (!checkErrors.isValid) {
@@ -41,6 +41,7 @@ router.post("/", async (req, res) => {
     work_subject,
     work_desc,
     category,
+    nickname,
   } = record;
   //check if email or citizen id duplicate
 
@@ -104,6 +105,7 @@ router.post("/", async (req, res) => {
         cover_img: record.cover_img,
         imgs: record.imgs,
         category,
+        nickname,
       });
 
       try {

@@ -18,6 +18,10 @@ const CosplayApplySchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    nickname: {
+      type: String,
+      required: true,
+    },
     work_subject: {
       type: String,
       required: true,

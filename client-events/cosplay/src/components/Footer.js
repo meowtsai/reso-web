@@ -28,7 +28,7 @@ const Footer = () => {
                 target="_blank"
               >
                 {" "}
-                https://game.longeplay.com.tw/service_quick /question?site=h55n{" "}
+                https://support.longeplay.com.tw/service_quick?param_game_id=h55naxx2tw
               </a>{" "}
             </p>
           </div>

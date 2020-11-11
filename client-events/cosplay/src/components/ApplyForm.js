@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import MyDropzone from "./MyDropzone";
 import { useHistory } from "react-router-dom";
 
-const FormPG = () => {
+const ApplyForm = ({ category, filesize, filesCount }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [registerResult, setRegisterResult] = useState(null);
@@ -28,7 +28,7 @@ const FormPG = () => {
       }
     });
 
-    formData.append("category", "PG");
+    formData.append("category", category.toUpperCase());
 
     axios
       .post("/api/cosplay", formData, {
@@ -62,7 +62,7 @@ const FormPG = () => {
       ) : (
         <div className="typePage">
           <div className="sec-title_form">
-            <div className="sec-title_pg"></div>
+            <div className={`sec-title_${category}`}></div>
 
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="userSign-box">
@@ -143,7 +143,9 @@ const FormPG = () => {
                   STEP 2 請填寫參賽作品資料
                 </p>
                 <p className="sec-title2">
-                  每位參賽者可上傳至多10張照片(包含封面圖)，需以副檔名*.jpg,*.jpeg,*.png格式上傳，每張照片檔案大小需小於4MB。
+                  每位參賽者可上傳至多{filesCount + 1}
+                  張照片(包含封面圖)，需以副檔名*.jpg,*.jpeg,*.png格式上傳，每張照片檔案大小需小於
+                  {filesize.toString().substring(0, 1)}MB。
                 </p>
                 <div className="sec-title_key">
                   <span className="essential_icon">*</span>
@@ -210,7 +212,9 @@ const FormPG = () => {
                         setValue("cover_img", value[0]);
                       }}
                     />
-                    <p className="p1">※照片大小需小於4MB </p>{" "}
+                    <p className="p1">
+                      ※照片大小需小於{filesize.toString().substring(0, 1)}MB{" "}
+                    </p>{" "}
                     <span className="text-danger">
                       {errors["cover_img"] && errors["cover_img"].message}
                     </span>
@@ -219,12 +223,14 @@ const FormPG = () => {
                   <label>其他作品圖:</label>
                   <div className="works">
                     <MyDropzone
-                      filesCount={9}
+                      filesCount={filesCount}
                       title={"作品集"}
                       setFile={(value) => setValue("imgs", value)}
                     />
 
-                    <p className="p1">※照片大小需小於4MB </p>
+                    <p className="p1">
+                      ※照片大小需小於{filesize.toString().substring(0, 1)}MB{" "}
+                    </p>
                     <span className="text-danger">
                       {errors["imgs"] && errors["imgs"].message}
                     </span>
@@ -268,19 +274,37 @@ const FormPG = () => {
             <dt className="title">
               <span>注意事項</span>
             </dt>
-            <dl>
-              <dd>
-                1.不限任何Cosplay技法，需完整呈現遊戲中的角色人物設定，並透過個人創意設計合適的場景、道具及構圖。
-              </dd>
-              <dd>
-                2.不限制單人或團體形式創作作品。若為多人、團隊之作品只需代表人投稿參賽即可。切勿以相同作品重覆投稿，否則視為參賽資格不符。
-              </dd>
-              <dd>
-                3.作品資訊僅有一次上傳機會，上傳後無法修改，請確認無誤後再送出！
-              </dd>
-            </dl>
+            {category === "pg" ? (
+              <dl>
+                <dd>
+                  1.不限任何Cosplay技法，需完整呈現遊戲中的角色人物設定，並透過個人創意設計合適的場景、道具及構圖。
+                </dd>
+                <dd>
+                  2.不限制單人或團體形式創作作品。若為多人、團隊之作品只需代表人投稿參賽即可。切勿以相同作品重覆投稿，否則視為參賽資格不符。
+                </dd>
+                <dd>
+                  3.作品資訊僅有一次上傳機會，上傳後無法修改，請確認無誤後再送出！
+                </dd>
+              </dl>
+            ) : (
+              <dl>
+                <dd>
+                  1.以創意、低成本、DIY手工製作為主要呈現方式進行角色Cosplay。
+                </dd>
+                <dd>2.僅限個人投稿參賽，不接受團體創作之作品。</dd>
+                <dd>
+                  3.投稿作品時，上傳圖檔中必須至少含有一張原始角色與Cosplay對比圖。
+                </dd>
+                <dd>
+                  4.作品資訊僅有一次上傳機會，上傳後無法修改，請確認無誤後再送出！
+                </dd>
+              </dl>
+            )}
+
             <button className="button2">
-              <a href="/cosplay/signup/cg">報名創意組</a>
+              <a
+                href={`/cosplay/signup/${category === "pg" ? "cg" : "pg"}`}
+              >{`報名${category === "pg" ? "創意組" : "專業組"}`}</a>
             </button>
             <button className="button2">
               <a href="/cosplay/">返回首頁</a>
@@ -292,4 +316,4 @@ const FormPG = () => {
   );
 };
 
-export default FormPG;
+export default ApplyForm;

@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import FormPG from "../components/FormPG";
+import ApplyForm from "../components/ApplyForm";
 import FormCG from "../components/FormCG";
 const SignUpScreen = ({ match }) => {
   return (
@@ -13,7 +13,11 @@ const SignUpScreen = ({ match }) => {
 
       <Header />
 
-      {match.params.category.toLowerCase() === "pg" ? <FormPG /> : <FormCG />}
+      {match.params.category.toLowerCase() === "pg" ? (
+        <ApplyForm category={"pg"} filesize={4000000} filesCount={9} />
+      ) : (
+        <ApplyForm category={"cg"} filesize={2000000} filesCount={4} />
+      )}
 
       <Footer />
     </>

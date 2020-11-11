@@ -3,7 +3,9 @@ import React from "react";
 const NotesSection = () => {
   return (
     <>
-      <a id="rule" name="rule"></a>
+      <a id="rule" name="rule" href="!#">
+        {" "}
+      </a>
 
       <section className="sec3">
         <p className="sec-title"></p>
@@ -16,137 +18,141 @@ const NotesSection = () => {
               <br />
               2. 作品規格
               <br />
-              <text>
+              <span className="text">
                 ❖專業組：每位參賽者可上傳至多10張照片，需以副檔名*.jpg,*.jpeg,*.png格式上傳，每張照片檔案大小需小於4MB。
-              </text>
+              </span>
               <br />
-              <text>
+              <span className="text">
                 ❖創意組：每位參賽者可上傳至多5張照片，需以副檔名*.jpg,*.jpeg,*.png格式上傳，每張照片檔案大小需小於2MB。
                 <br />
                 上傳圖檔中需至少含有一張原始角色與Cosplay對比圖。
-              </text>
+              </span>
               <br />
               3.
               請參賽者詳閱賽事規則，一旦送出資料完成報名即表示同意本賽事所有相關規範。{" "}
             </p>
             <p className="match-rule">活動獎勵</p>
-            <p className="rule-title">
+            <div className="rule-title">
               <table>
-                <tr className="a">
-                  <td>組別</td>
-                  <td>名次</td>
-                  <td>周邊獎勵</td>
-                  <td>其他獎勵</td>
-                </tr>
-                <tr>
-                  <td rowspan="11">專業組</td>
-                  <td rowspan="4">金賞</td>
-                  <td>第五人格Q版靜態人偶-傑克</td>
-                  <td rowspan="4">
-                    大賽特製獎座
-                    <br />
-                    精選作品無框畫
-                  </td>
-                </tr>
-                <tr>
-                  <td>第五人格換裝公仔</td>
-                </tr>
-                <tr>
-                  <td>第五人格隨從掛件</td>
-                </tr>
-                <tr>
-                  <td>第五人格鑰匙扣系列-學生卡</td>
-                </tr>
-                <tr>
-                  <td rowspan="3">銀賞</td>
-                  <td>第五人格Q版靜態人偶-傑克</td>
-                  <td rowspan="7">精選作品無框畫</td>
-                </tr>
-                <tr>
-                  <td>第五人格換裝公仔</td>
-                </tr>
-                <tr>
-                  <td>第五人格隨從掛件</td>
-                </tr>
-                <tr>
-                  <td rowspan="2">銅賞</td>
-                  <td>第五人格Q版靜態人偶-傑克</td>
-                </tr>
-                <tr>
-                  <td>第五人格換裝公仔</td>
-                </tr>
-                <tr>
-                  <td rowspan="2">人氣賞</td>
-                  <td>第五人格隨從掛件</td>
-                </tr>
-                <tr>
-                  <td>第五人格鑰匙扣系列-學生卡</td>
-                </tr>
-                <tr>
-                  <td rowspan="9">創意組</td>
-                  <td rowspan="3">金賞</td>
-                  <td>第五人格換裝公仔</td>
-                  <td rowspan="9">無</td>
-                </tr>
-                <tr>
-                  <td>第五人格包包系列-隨從零錢包</td>
-                </tr>
-                <tr>
-                  <td>第五人格鑰匙扣系列-學生卡</td>
-                </tr>
-                <tr>
-                  <td rowspan="2">銀賞</td>
-                  <td>第五人格換裝公仔</td>
-                </tr>
-                <tr>
-                  <td>第五人格包包系列-隨從零錢包</td>
-                </tr>
-                <tr>
-                  <td rowspan="2">銅賞</td>
-                  <td>第五人格換裝公仔</td>
-                </tr>
-                <tr>
-                  <td>第五人格包包系列-隨從零錢包</td>
-                </tr>
-                <tr>
-                  <td rowspan="2">人氣賞</td>
-                  <td>第五人格換裝公仔</td>
-                </tr>
-                <tr>
-                  <td>第五人格鑰匙扣系列-學生卡</td>
-                </tr>
+                <tbody>
+                  <tr className="a">
+                    <td>組別</td>
+                    <td>名次</td>
+                    <td>周邊獎勵</td>
+                    <td>其他獎勵</td>
+                  </tr>
+                  <tr>
+                    <td rowSpan="11">專業組</td>
+                    <td rowSpan="4">金賞</td>
+                    <td>第五人格Q版靜態人偶-傑克</td>
+                    <td rowSpan="4">
+                      獎金NT10,000元整
+                      <br />
+                      精選作品無框畫
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>第五人格換裝公仔</td>
+                  </tr>
+                  <tr>
+                    <td>第五人格隨從掛件</td>
+                  </tr>
+                  <tr>
+                    <td>第五人格鑰匙扣系列-學生卡</td>
+                  </tr>
+                  <tr>
+                    <td rowSpan="3">銀賞</td>
+                    <td>第五人格Q版靜態人偶-傑克</td>
+                    <td rowSpan="7">精選作品無框畫</td>
+                  </tr>
+                  <tr>
+                    <td>第五人格換裝公仔</td>
+                  </tr>
+                  <tr>
+                    <td>第五人格隨從掛件</td>
+                  </tr>
+                  <tr>
+                    <td rowSpan="2">銅賞</td>
+                    <td>第五人格Q版靜態人偶-傑克</td>
+                  </tr>
+                  <tr>
+                    <td>第五人格換裝公仔</td>
+                  </tr>
+                  <tr>
+                    <td rowSpan="2">人氣賞</td>
+                    <td>第五人格隨從掛件</td>
+                  </tr>
+                  <tr>
+                    <td>第五人格鑰匙扣系列-學生卡</td>
+                  </tr>
+                  <tr>
+                    <td rowSpan="9">創意組</td>
+                    <td rowSpan="3">金賞</td>
+                    <td>第五人格換裝公仔</td>
+                    <td rowSpan="9">無</td>
+                  </tr>
+                  <tr>
+                    <td>第五人格包包系列-隨從零錢包</td>
+                  </tr>
+                  <tr>
+                    <td>第五人格鑰匙扣系列-學生卡</td>
+                  </tr>
+                  <tr>
+                    <td rowSpan="2">銀賞</td>
+                    <td>第五人格換裝公仔</td>
+                  </tr>
+                  <tr>
+                    <td>第五人格包包系列-隨從零錢包</td>
+                  </tr>
+                  <tr>
+                    <td rowSpan="2">銅賞</td>
+                    <td>第五人格換裝公仔</td>
+                  </tr>
+                  <tr>
+                    <td>第五人格包包系列-隨從零錢包</td>
+                  </tr>
+                  <tr>
+                    <td rowSpan="2">人氣賞</td>
+                    <td>第五人格換裝公仔</td>
+                  </tr>
+                  <tr>
+                    <td>第五人格鑰匙扣系列-學生卡</td>
+                  </tr>
+                </tbody>
               </table>
-            </p>
+            </div>
             <p className="match-rule">評選方式</p>
             <p className="rule-title">
               人氣賞：依據作品於投票階段獲得的投票總數評定，以獲得投票數最高之作品獲獎。
             </p>
             <table>
-              <tr className="a">
-                <td>評分項目</td>
-                <td>說明</td>
-                <td>占比</td>
-              </tr>
-              <tr>
-                <td>角色表現</td>
-                <td>角色完整度、細節呈現方式</td>
-                <td>40%</td>
-              </tr>
-              <tr>
-                <td>主題創意</td>
-                <td>創作主題、表現手法、具新意與創造性</td>
-                <td>35%</td>
-              </tr>
-              <tr>
-                <td>畫面呈現</td>
-                <td>拍攝、構圖手法、後制效果氛圍</td>
-                <td>20%</td>
-              </tr>
-              <tr>
-                <td>網路投票</td>
-                <td>網路投票票數</td>
-                <td>5%</td>
-              </tr>
+              <tbody>
+                <tr className="a">
+                  <td>評分項目</td>
+                  <td>說明</td>
+                  <td>占比</td>
+                </tr>
+                <tr>
+                  <td>角色表現</td>
+                  <td>角色完整度、細節呈現方式</td>
+                  <td>40%</td>
+                </tr>
+                <tr>
+                  <td>主題創意</td>
+                  <td>創作主題、表現手法、具新意與創造性</td>
+                  <td>35%</td>
+                </tr>
+                <tr>
+                  <td>畫面呈現</td>
+                  <td>拍攝、構圖手法、後制效果氛圍</td>
+                  <td>20%</td>
+                </tr>
+                <tr>
+                  <td>網路投票</td>
+                  <td>網路投票票數</td>
+                  <td>5%</td>
+                </tr>
+              </tbody>
             </table>
             <p className="match-rule">投票辦法</p>
             <p className="rule-title">

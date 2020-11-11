@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   width: 100%;
   min-width: 1260px;
   font-family: "Arial", "sans-serif,思源黑體", "微軟正黑體";
@@ -21,9 +22,9 @@ html, body {
   height: 447px;
   background: url(../image/bg-sec1.jpg) no-repeat center;
 }
-.main .sec1-1{
-	height: 1000px;
-	 background: url(../image/bg-sec1-1.jpg) no-repeat center;
+.main .sec1-1 {
+  height: 1000px;
+  background: url(../image/bg-sec1-1.jpg) no-repeat center;
 }
 .main .sec1-1 .sec-title {
   background: url(../image/title-sec1.png) no-repeat center;
@@ -32,19 +33,19 @@ html, body {
   height: 100px;
 }
 
-.main .sec1-1 .sec1-img-c img{
-	position: relative;
-    left: 50%;
-    top: -470px;
-    z-index: 1;
-    margin-left: -774px;
+.main .sec1-1 .sec1-img-c img {
+  position: relative;
+  left: 50%;
+  top: -470px;
+  z-index: 1;
+  margin-left: -774px;
 }
-.main .sec1-1 .sec1-img-d img{
-    position: relative;
-    left: 50%;
-    top: -686px;
-    z-index: 1;
-    margin-left: 531px;
+.main .sec1-1 .sec1-img-d img {
+  position: relative;
+  left: 50%;
+  top: -686px;
+  z-index: 1;
+  margin-left: 531px;
 }
 .main .sec2 {
   height: 1000px;
@@ -64,43 +65,43 @@ html, body {
   padding-top: 47px;
   box-sizing: border-box;
 }
-.main .sec2 .sec2-review{
-	position: relative;
-    display: flex;
-    left: 50%;
-	margin-left: -525px;
+.main .sec2 .sec2-review {
+  position: relative;
+  display: flex;
+  left: 50%;
+  margin-left: -525px;
 }
-.main .sec2 .sec2-review img{
-	border-radius:20px;
+.main .sec2 .sec2-review img {
+  border-radius: 20px;
 }
-.main .sec2 .sec2-review p{
-	font-size: 2rem;
-	color: #1c2239;
-	font-weight: 600;
-	line-height: 50px;
+.main .sec2 .sec2-review p {
+  font-size: 2rem;
+  color: #1c2239;
+  font-weight: 600;
+  line-height: 50px;
 }
-.main .sec2 .sec2-review span{
-	font-size: 1.2rem;
-	line-height: 30px;
-	color: #1c2239;
+.main .sec2 .sec2-review span {
+  font-size: 1.2rem;
+  line-height: 30px;
+  color: #1c2239;
 }
-.main .sec2 .sec2-img2{
-	border-radius:20px;
-	margin-left: 35px;
+.main .sec2 .sec2-img2 {
+  border-radius: 20px;
+  margin-left: 35px;
 }
-.main .sec2 .sec2-img-a img{
-    position: relative;
-    left: 50%;
-    top: -78px;
-    z-index: 1;
-    margin-left: -841px;
+.main .sec2 .sec2-img-a img {
+  position: relative;
+  left: 50%;
+  top: -78px;
+  z-index: 1;
+  margin-left: -841px;
 }
-.main .sec2 .sec2-img-b img{
-position: relative;
-    left: 50%;
-    top: -706px;
-    z-index: 1;
-    margin-left: 631px;
+.main .sec2 .sec2-img-b img {
+  position: relative;
+  left: 50%;
+  top: -706px;
+  z-index: 1;
+  margin-left: 631px;
 }
 .main .sec3 {
   height: 1355px;
@@ -124,7 +125,7 @@ position: relative;
   width: 100%;
   height: 100%;
   overflow-y: scroll;
-  padding-right:30px;
+  padding-right: 30px;
 }
 .main .sec3 .rule-box .rule-con p {
   font-size: 1rem;
@@ -144,7 +145,7 @@ position: relative;
   line-height: 45px;
   font-weight: 700;
   padding-left: 28px;
-  border-left:10px solid #502111;
+  border-left: 10px solid #502111;
 }
 /*卷軸顏色*/
 .main .sec3 .rule-box .rule-con::-webkit-scrollbar {
@@ -164,67 +165,67 @@ position: relative;
 }
 
 /*表格*/
-table{
-	width: 65%;
-	text-align: center;
-	color: #502111;
-	margin-left:38px;
-	margin-bottom: 45px;
-	margin-top: -15px;
-	font-size: 1rem
+table {
+  width: 65%;
+  text-align: center;
+  color: #502111;
+  margin-left: 38px;
+  margin-bottom: 45px;
+  margin-top: 5px;
+  font-size: 1rem;
 }
 
-table .a{
-	background-color: #240e07;
-	color: #fff;
-	font-weight: 500;
+table .a {
+  background-color: #240e07;
+  color: #fff;
+  font-weight: 500;
 }
-table tr td{
-	border: 1px solid #5b4943;
-	padding: 10px;
-	line-height: 1.2rem;
+table tr td {
+  border: 1px solid #5b4943;
+  padding: 10px;
+  line-height: 1.2rem;
 }
-text{
-	font-weight: 700; 
-	color: #c32f14;
-	font-size: 1.1rem;
+.rule-title .text {
+  font-weight: 700;
+  color: #c32f14;
+  font-size: 1.1rem;
 }
 /*輪播*/
 .swiper-container {
-	width: 100%;
-	height: 100%;
-	background: #000;
+  width: 100%;
+  height: 100%;
+  background: #000;
 }
 .swiper-slide {
-	font-size: 18px;
-	color: #fff;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	padding: 40px 60px;
+  font-size: 18px;
+  color: #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 40px 60px;
 }
 .parallax-bg {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 750px;
-	-webkit-background-size: cover;
-	background-size: cover;
-	background-position: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 750px;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
 }
 .swiper-slide .title {
-	font-size: 2.8rem;
-    font-weight: 600;
-    padding-right: 20px;
-	margin-top: -555px;
+  font-size: 2.8rem;
+  font-weight: 600;
+  padding-right: 20px;
+  margin-top: -555px;
 }
 .swiper-slide .text {
-	font-size: 1.1rem;
-    line-height: 1.8;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 15px 30px;
-    text-align: left;
-    margin-top: 400px;
-    margin-left: 390px;
-    width: 390px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 15px 30px;
+  text-align: left;
+  margin-top: 400px;
+  margin-left: 390px;
+  width: 390px;
 }
