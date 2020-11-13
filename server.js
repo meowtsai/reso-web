@@ -82,7 +82,7 @@ if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {
     express.static(path.join(__dirname, "h55-event/build"))
   );
 
-  app.use("/mentors", express.static(path.join(__dirname, "mentors/build")));
+  app.use("/mentors", express.static(path.join(__dirname, "mentors/live")));
   app.use(
     "/cosplay",
     express.static(path.join(__dirname, "client-events/cosplay/live"))
@@ -97,7 +97,7 @@ if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {
     res.sendFile(path.join(__dirname + "/h55-event/build/index.html"));
   });
   app.get("/mentors/*", (req, res) => {
-    res.sendFile(path.join(__dirname + "/mentors/build/index.html"));
+    res.sendFile(path.join(__dirname + "/mentors/live/index.html"));
   });
   app.get("/cosplay/*", (req, res) => {
     res.sendFile(

@@ -67,7 +67,7 @@ router.post("/seatsByDate", async (req, res) => {
 
   //const criteria = { mentorId:"5f964424fdce7e2f", courseId: '5f964424fdce7e2fc4350798', date: '2020-11-08' };
   const criteria = req.body;
-  console.log("criteria", criteria);
+  //console.log("criteria", criteria);
   //get nono_dates
   //db.mentors.find(ObjectId("5f964424fdce7e2fc43507ac"), {periods:1})
 
@@ -251,6 +251,7 @@ router.post("/register", async (req, res) => {
   }
 
   const mentorFull = await Mentor.findById(data.mentor, {
+    name: 1,
     email: 1,
     wireInfo: 1,
   });
@@ -415,10 +416,12 @@ const sendMailRegister = (record) => {
 
 
     <hr />
-    以下是您的課程匯款明細:<br />
+    以下是您的課程明細和匯款資訊:<br />
     課程: ${record.courseFull.title}-${record.courseFull.desc}
     <br />
+    導師: ${record.mentorFull.name}<br />
     費用合計: $${record.courseFull.fee}元<br />
+    
     <p className="amount">
     已為您保留預約資格，請於3天內匯款費用至
     <br />
@@ -436,12 +439,12 @@ const sendMailRegister = (record) => {
   html_template = html_template.replace("{{msg}}", msg);
 
   const mailContent = {
-    to: record.email,
+    to: `${record.name}<${record.email}>`,
     bcc: CONFIG.cclist.map((email) => ({
       email,
     })),
-    from: record.mentorFull.email,
-    subject: `${record.gameName}課程註冊預約成功通知`,
+    from: `${record.mentorFull.name}<${record.mentorFull.email}>`,
+    subject: `${record.gameName} ~ ${record.mentorFull.name}帶練課程註冊預約成功通知`,
     html: html_template,
   };
 
