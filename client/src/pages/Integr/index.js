@@ -65,25 +65,36 @@ const IntegrIndex = () => {
             </div>
           </div>
           <div className="row text">
-            <div className="col-sm-4 service-box1 wow fadeInUp">
+            <div className="col-sm-3 service-box1 wow fadeInUp">
               <div className="service-box-icon">
                 <i className="fa fa-user"></i>
               </div>
               <h3>代言人/網紅洽談</h3>
               <p></p>
             </div>
-            <div className="col-sm-4 service-box1 wow fadeInDown">
+            <div className="col-sm-3 service-box1 wow fadeInDown">
               <div className="service-box-icon">
                 <i className="fa fa-thumbs-o-up"></i>{" "}
               </div>
               <h3>社群操作</h3>
               <p></p>
             </div>
-            <div className="col-sm-4 service-box1 wow fadeInUp">
+            <div className="col-sm-3 service-box1 wow fadeInUp">
               <div className="service-box-icon">
                 <i className="fa fa-envelope"></i>
               </div>
               <h3>異業合作接洽</h3>
+              <p></p>
+            </div>
+            <div className="col-sm-3 service-box1 wow fadeInUp">
+              <div className="service-box-icon">
+                <i className="fa fa-eye"></i>
+              </div>
+              <h3>
+                VR技術
+                <br />
+                Vtuber技術服務
+              </h3>
               <p></p>
             </div>
           </div>
@@ -96,7 +107,7 @@ const IntegrIndex = () => {
           <div className="row">
             <div className="col-sm-12 service section-description wow fadeIn">
               <h2 style={{ marginTop: "60px" }}>
-                <strong>營銷</strong> 聯繫
+                <strong>合作</strong> 聯繫
               </h2>
               <div className="divider-1 wow fadeInUp">
                 <span></span>
