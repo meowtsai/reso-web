@@ -50,7 +50,13 @@ app.use(
         "https://analytics.google.com/",
       ],
       mediaSrc: ["'self'", "https://assets.mixkit.co"],
-      imgSrc: ["'self'", "data:", "https://www.google-analytics.com/", "blob:"],
+      imgSrc: [
+        "'self'",
+        "data:",
+        "https://www.google-analytics.com/",
+        "blob:",
+        "https://www.google.com.tw/",
+      ],
       fontSrc: ["'self'", "data:"],
     },
   })
