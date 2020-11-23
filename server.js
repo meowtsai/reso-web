@@ -28,6 +28,7 @@ const accessLogStream = rfs.createStream("access.log", {
 
 app.use(morgan("combined", { stream: accessLogStream }));
 app.use(helmet());
+
 app.use(
   helmet.contentSecurityPolicy({
     directives: {
@@ -43,7 +44,11 @@ app.use(
         "https://www.google-analytics.com/",
         "https://ajax.googleapis.com/",
       ],
-      connectSrc: ["'self'", "https://www.google-analytics.com/"],
+      connectSrc: [
+        "'self'",
+        "https://www.google-analytics.com/",
+        "https://analytics.google.com/",
+      ],
       mediaSrc: ["'self'", "https://assets.mixkit.co"],
       imgSrc: ["'self'", "data:", "https://www.google-analytics.com/", "blob:"],
       fontSrc: ["'self'", "data:"],

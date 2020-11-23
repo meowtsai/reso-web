@@ -90,11 +90,12 @@ const IntegrIndex = () => {
               <div className="service-box-icon">
                 <i className="fa fa-eye"></i>
               </div>
-              <h3>
+              <h3 style="text-transform:capitalize">
                 VR技術
                 <br />
-                Vtuber技術服務
+                VTuber技術服務
               </h3>
+
               <p></p>
             </div>
           </div>
