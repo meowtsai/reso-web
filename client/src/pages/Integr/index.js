@@ -90,7 +90,7 @@ const IntegrIndex = () => {
               <div className="service-box-icon">
                 <i className="fa fa-eye"></i>
               </div>
-              <h3 style="text-transform:capitalize">
+              <h3 style={{ textTransform: "capitalize" }}>
                 VR技術
                 <br />
                 VTuber技術服務
