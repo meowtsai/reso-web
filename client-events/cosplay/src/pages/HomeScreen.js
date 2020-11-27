@@ -12,6 +12,7 @@ const HomeScreen = () => {
     <>
       <Helmet>
         <link rel="stylesheet" type="text/css" href="css/home.css" />
+        <script src="js/swiper_init.js"></script>
       </Helmet>
 
       <Header />

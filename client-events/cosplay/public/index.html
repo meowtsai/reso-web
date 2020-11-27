@@ -34,6 +34,23 @@
     <link rel="stylesheet" href="css/index.css" />
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+
+    <script>
+      window.fbAsyncInit = function () {
+        FB.init({
+          appId: "1702235999950689",
+          autoLogAppEvents: true,
+          xfbml: true,
+          version: "v9.0",
+        });
+      };
+    </script>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/en_US/sdk.js"
+    ></script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -85,22 +102,5 @@
         }
       });
     });
-  </script>
-  <!-- Initialize Swiper -->
-  <script>
-    setTimeout(function () {
-      var swiper = new Swiper(".swiper-container", {
-        speed: 600,
-        parallax: true,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      });
-    }, 2000);
   </script>
 </html>

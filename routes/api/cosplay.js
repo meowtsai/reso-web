@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
+const jwt = require("jsonwebtoken");
 const CosplayApply = require("../../models/CosplayApply");
+const EventUser = require("../../models/EventUser");
+const EventLog = require("../../models/EventLog");
 const helper = require("../../helpers/");
 const validateCosplayApplyForm = require("../../validator/cosplayform");
 const moment = require("moment");
@@ -13,10 +16,149 @@ router.get("/test", (req, res) => {
   res.json({ msg: "contactus API Route works" });
 });
 
-router.get("/message/:id", (req, res) => {
-  CosplayApply.findOne({ _id: req.params.id })
-    .then((msg) => res.json({ contactMessage: msg }))
-    .catch((err) => res.status(500).json({ msg: err.message }));
+router.get("/", async (req, res) => {
+  const list = await CosplayApply.find({}).select({
+    nickname: 1,
+    work_subject: 1,
+    cover_img: 1,
+    category: 1,
+  });
+
+  const voteResult = await EventLog.aggregate([
+    { $match: { action: "vote" } },
+    {
+      $group: {
+        _id: { coser_id: "$event" },
+        count: { $sum: 1 },
+      },
+    },
+  ]);
+
+  const aggrList = list.map((coser) => {
+    const coserVoteCnt = voteResult.filter(
+      (d) => coser._id.toString() === d._id.coser_id
+    );
+
+    //console.log("coserVoteCnt", coserVoteCnt);
+    return {
+      ...coser._doc,
+      voteCount: coserVoteCnt.length > 0 ? coserVoteCnt[0].count : 0,
+    };
+  });
+
+  console.log(aggrList);
+
+  res.json(aggrList);
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+    const contestant = await CosplayApply.findOne({ _id: req.params.id });
+    const voteResult = await EventLog.aggregate([
+      { $match: { action: "vote", event: req.params.id } },
+      {
+        $group: {
+          _id: null,
+          count: { $sum: 1 },
+        },
+      },
+    ]);
+
+    //console.log("voteResult", voteResult);
+
+    res.json({
+      ...contestant._doc,
+      voteCount: voteResult.length > 0 ? voteResult[0].count : 0,
+    });
+  } catch (err) {
+    return res.status(500).json({ msg: err.message });
+  }
+});
+
+router.post("/auth/user", async (req, res) => {
+  const { siteToken } = req.body;
+  //console.log(req.query);
+  //const { siteToken } = req.query;
+
+  try {
+    const decoded = jwt.verify(siteToken, process.env.JWT_CODE);
+    console.log("decoded", decoded);
+
+    const user = await EventUser.findById(decoded._id);
+    console.log("user", user);
+
+    if (user) {
+      res.json({
+        _id: user._id,
+        name: user.userName,
+        token: jwt.sign({ _id: user._id }, process.env.JWT_CODE, {
+          expiresIn: "1d",
+        }),
+      });
+    } else {
+      //throw new Error("User not exist");
+      return res.status(401).json({ error: "User not exist" });
+    }
+  } catch (error) {
+    //throw new Error("Invalid token");
+    return res.status(401).json({ error: "Invalid token" });
+  }
+});
+
+router.post("/event/vote", async (req, res) => {
+  const { coser_id, action } = req.body;
+  // console.log(req.body);
+  // console.log(req.headers.authorization);
+  //const { coser_id, action, token } = req.query;
+  //1. 檢查user 是否存在
+  let token;
+  let user;
+
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith("Bearer")
+  ) {
+    try {
+      token = req.headers.authorization.split(" ")[1];
+
+      const decoded = jwt.verify(token, process.env.JWT_CODE);
+
+      console.log(decoded);
+      user = await EventUser.findById(decoded._id);
+    } catch (error) {
+      console.error(error);
+      return res.status(401).json({ message: "Token驗證失敗" });
+      //throw new Error("Not authorized, token failed");
+    }
+  }
+
+  if (!token) {
+    return res.status(401).json({ message: "沒有Token" });
+    //throw new Error("Not authorized, no token");
+  }
+
+  //2. 檢查今天是否投票過 //moment().format("YYYY-MM-DD")
+  const today = moment().format("YYYY-MM-DD");
+  //console.log(moment().format("YYYY-MM-DD"));
+  const votes = await EventLog.find({
+    user: user._id,
+    createdAt: { $gte: new Date(today) },
+  });
+  //console.log("votes", votes);
+
+  if (votes.length <= 0) {
+    const newLog = new EventLog({
+      user: user._id,
+      event: coser_id,
+      action,
+    });
+
+    const saveResult = await newLog.save();
+
+    res.json(saveResult);
+  } else {
+    return res.status(418).json({ message: "您今天已經投票過了喔!" });
+  }
 });
 
 // url: /api/cosplay/
@@ -154,7 +296,6 @@ const sendMailSuccessApplied = (record) => {
 
   const mailContent = {
     to: `${record.coser_name}<${record.coser_email}>`,
-    bcc: "呼聲數位<sophie_tsai@resound.global>",
     from: "龍邑遊戲<no-reply@longeplay.com.tw>",
     subject: `【第五人格創意Cosplay大賽 - ${
       record.category === "PG" ? "專業組" : "創意組"

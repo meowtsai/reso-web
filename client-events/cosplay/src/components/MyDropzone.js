@@ -40,14 +40,14 @@ const MyDropzone = ({ filesCount, title, setFile, fileSize = 4000000 }) => {
       files.map((file) => (
         <div className="imgs">
           <div style={{ display: "flex", minWidth: "0px", overflow: "hidden" }}>
-            <img src={file.preview} />
+            <img alt="upload preview" src={file.preview} />
           </div>
         </div>
       ))
     ) : files.length > 0 ? (
       <div style={{ display: "contents", boxSizing: "border-box" }}>
         <div style={{ display: "flex", minWidth: "0px", overflow: "hidden" }}>
-          <img src={files[0].preview} />
+          <img alt="upload preview" src={files[0].preview} />
         </div>
       </div>
     ) : null;

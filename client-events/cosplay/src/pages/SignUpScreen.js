@@ -11,7 +11,7 @@ const SignUpScreen = ({ match }) => {
         <link rel="stylesheet" type="text/css" href="css/signup.css" />
       </Helmet>
 
-      <Header />
+      <Header match={match} />
 
       {match.params.category.toLowerCase() === "pg" ? (
         <ApplyForm category={"pg"} filesize={4000000} filesCount={9} />

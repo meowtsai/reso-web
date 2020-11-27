@@ -1,0 +1,47 @@
+#gotop {
+  display: none;
+  position: fixed;
+  right: 20px;
+  bottom: 200px;
+  cursor: pointer;
+  z-index: 999;
+}
+.main .sec4 {
+  height: 1550px;
+}
+.nav {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: url(../image/nav_bg.png) center top;
+  z-index: 99;
+}
+.swiper-container {
+  width: 100%;
+  height: 800px;
+  margin-top: 50px;
+}
+.swiper-slide {
+  background: #212842;
+  padding: 0;
+}
+.swiper-slide img {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.swiper-pagination-bullet {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
+  color: #c6c6c6;
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.5);
+}
+.swiper-pagination-bullet-active {
+  color: #fff;
+  background: #212842;
+}

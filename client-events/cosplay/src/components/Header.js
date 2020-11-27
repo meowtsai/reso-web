@@ -1,34 +1,36 @@
 import React from "react";
-
-const Header = () => {
+import { Link } from "react-router-dom";
+const Header = ({ match }) => {
+  console.log("header", match);
+  //{match.params.category.toLowerCase() === "pg" ? (
   return (
     <header>
-      <a href="/cosplay">
+      <Link to="/cosplay">
         <img
+          alt="報名"
           src="/cosplay/image/link.png"
           style={{ position: "relative", left: "48%", top: "100px" }}
         />{" "}
-      </a>
+      </Link>
       <nav className="nav">
         <ul>
-          <li className="open">
-            {" "}
-            <span>
-              <p>11/12-12/9</p>
-              <p>報名徵集階段</p>
-            </span>{" "}
+          <li className={match?.path.indexOf("signup") > -1 ? "open" : ""}>
+            <Link to="/cosplay" id="#tab1">
+              <span>
+                <p>11/12-12/9</p>
+                <p>報名徵集階段</p>
+              </span>
+            </Link>
           </li>
-          <li>
-            <span
-              onClick={() =>
-                window.alert("敬請期待，預計2020/12/11開放投票喔！")
-              }
-              id="#tab2"
-            >
-              <p>12/11-12/15</p>
-              <p>線上投票階段</p>
-            </span>
+          <li className={match?.path.indexOf("showcase") > -1 ? "open" : ""}>
+            <Link to="/cosplay/showcase" id="#tab2">
+              <span>
+                <p>12/11-12/15</p>
+                <p>線上投票階段</p>
+              </span>
+            </Link>
           </li>
+
           <li>
             <span
               onClick={() =>

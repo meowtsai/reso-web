@@ -83,6 +83,8 @@ app.use("/api/idvtwcampus", require("./routes/api/idvtwcampus"));
 app.use("/api/cosplay", require("./routes/api/cosplay"));
 app.use("/uploads/h55", express.static("uploads/h55"));
 app.use("/uploads/cosplay", express.static("uploads/cosplay"));
+
+app.use("/login/facebook", require("./routes/fb_login_result"));
 // app.use("/public", express.static("public"));
 //serve static assets if in production
 if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {
