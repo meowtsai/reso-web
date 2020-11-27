@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 const Header = ({ match }) => {
-  console.log("header", match);
+  //console.log("header", match);
   //{match.params.category.toLowerCase() === "pg" ? (
   return (
     <header>

@@ -43,7 +43,9 @@ app.use(
         "https://www.googletagmanager.com/",
         "https://www.google-analytics.com/",
         "https://ajax.googleapis.com/",
+        "https://connect.facebook.net/",
       ],
+
       connectSrc: [
         "'self'",
         "https://www.google-analytics.com/",
@@ -56,6 +58,7 @@ app.use(
         "https://www.google-analytics.com/",
         "blob:",
         "https://www.google.com.tw/",
+        "https://www.resound.global/",
       ],
       fontSrc: ["'self'", "data:"],
     },
