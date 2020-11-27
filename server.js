@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const rfs = require("rotating-file-stream");
 const path = require("path");
 const fileUpload = require("express-fileupload");
+const requestIp = require("request-ip");
 require("dotenv").config();
 
 const app = express();
@@ -78,6 +79,21 @@ app.use(
 );
 
 app.use(express.json());
+app.use(requestIp.mw());
+//check if ip is in whitelist
+app.use(function (req, res, next) {
+  const white_list = require("./config/cosplay").white_list;
+  const found = white_list.find((item) => item.ip === req.clientIp);
+
+  if (found) {
+    req.whitelisted = true;
+  } else {
+    req.whitelisted = false;
+  }
+  //console.log("req.whitelisted", req.clientIp);
+  next();
+});
+
 app.use("/api/contactus", require("./routes/api/contactus"));
 app.use("/api/service-request", require("./routes/api/service-request"));
 app.use("/api/course", require("./routes/api/course"));
@@ -99,10 +115,19 @@ if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {
   );
 
   app.use("/mentors", express.static(path.join(__dirname, "mentors/live")));
+
+  //
+
   app.use(
     "/cosplay",
-    express.static(path.join(__dirname, "client-events/cosplay/live"))
+    express.static(path.join(__dirname, `client-events/cosplay/live`))
   );
+
+  app.get("/cosplay/*", (req, res) => {
+    res.sendFile(
+      path.join(__dirname + "/client-events/cosplay/live/index.html")
+    );
+  });
 
   app.use(express.static("client/build"));
   //set a route for anything else not list above
@@ -115,11 +140,7 @@ if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {
   app.get("/mentors/*", (req, res) => {
     res.sendFile(path.join(__dirname + "/mentors/live/index.html"));
   });
-  app.get("/cosplay/*", (req, res) => {
-    res.sendFile(
-      path.join(__dirname + "/client-events/cosplay/live/index.html")
-    );
-  });
+
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });

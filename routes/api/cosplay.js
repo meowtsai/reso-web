@@ -17,6 +17,10 @@ router.get("/test", (req, res) => {
 });
 
 router.get("/", async (req, res) => {
+  if (!req.whitelisted) {
+    res.json([]);
+    return;
+  }
   const list = await CosplayApply.find({}).select({
     nickname: 1,
     work_subject: 1,
@@ -46,12 +50,14 @@ router.get("/", async (req, res) => {
     };
   });
 
-  console.log(aggrList);
-
   res.json(aggrList);
 });
 
 router.get("/:id", async (req, res) => {
+  if (!req.whitelisted) {
+    res.json({});
+    return;
+  }
   try {
     const contestant = await CosplayApply.findOne({ _id: req.params.id });
     const voteResult = await EventLog.aggregate([
@@ -82,10 +88,8 @@ router.post("/auth/user", async (req, res) => {
 
   try {
     const decoded = jwt.verify(siteToken, process.env.JWT_CODE);
-    console.log("decoded", decoded);
 
     const user = await EventUser.findById(decoded._id);
-    console.log("user", user);
 
     if (user) {
       res.json({
@@ -123,10 +127,8 @@ router.post("/event/vote", async (req, res) => {
 
       const decoded = jwt.verify(token, process.env.JWT_CODE);
 
-      console.log(decoded);
       user = await EventUser.findById(decoded._id);
     } catch (error) {
-      console.error(error);
       return res.status(401).json({ message: "Token驗證失敗" });
       //throw new Error("Not authorized, token failed");
     }

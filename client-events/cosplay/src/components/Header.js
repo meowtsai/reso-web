@@ -23,12 +23,16 @@ const Header = ({ match }) => {
             </Link>
           </li>
           <li className={match?.path.indexOf("showcase") > -1 ? "open" : ""}>
-            <Link to="/cosplay/showcase" id="#tab2">
-              <span>
-                <p>12/11-12/15</p>
-                <p>線上投票階段</p>
-              </span>
-            </Link>
+            {/* <Link to="" id="#tab2"> */}
+            <span
+              onClick={() =>
+                window.alert("敬請期待，預計2020/12/11開放投票喔！")
+              }
+              id="#tab3"
+            >
+              <p>12/11-12/15</p>
+              <p>線上投票階段</p>
+            </span>
           </li>
 
           <li>

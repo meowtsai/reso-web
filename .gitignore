@@ -21,6 +21,7 @@ node_modules/
 /h55-event/build
 build/
 live/
+/client-events/cosplay/stage/
 # misc
 .DS_Store
 .env

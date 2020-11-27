@@ -24,6 +24,7 @@ const ShowContestant = ({ id, userInfo }) => {
       axios
         .get(`/api/cosplay/${id}`)
         .then((res) => {
+          //console.log("res cosplay id", res.data);
           setLoading(false);
           if (res.data) {
             setContestant(res.data);
@@ -123,12 +124,16 @@ const ShowContestant = ({ id, userInfo }) => {
             }}
           >
             <SwiperSlide>
-              <img src={contestant.cover_img} />
+              <a href={contestant.cover_img} target="_blank" rel="noreferrer">
+                <img src={contestant.cover_img} alt="封面" />
+              </a>
             </SwiperSlide>
             {contestant.imgs.map((img, index) => (
               <SwiperSlide key={`${contestant._id}_img${index}`}>
                 {" "}
-                <img src={img} />
+                <a href={img} target="_blank" rel="noreferrer">
+                  <img src={img} alt="圖片" />
+                </a>
               </SwiperSlide>
             ))}
           </Swiper>
