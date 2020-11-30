@@ -24,7 +24,6 @@ const ShowCaseScreen = ({ match, location, history }) => {
         .post(`/api/cosplay/auth/user`, { siteToken })
         .then((res) => {
           if (res.data) {
-            console.log("verifyToken");
             //localStorage.setItem("userInfo", JSON.stringify(data));
             setLoggedInUser(JSON.stringify(res.data));
             setUserInfo(getLoggedInUser());

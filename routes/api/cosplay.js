@@ -129,7 +129,9 @@ router.post("/event/vote", async (req, res) => {
 
       user = await EventUser.findById(decoded._id);
     } catch (error) {
-      return res.status(401).json({ message: "Token驗證失敗" });
+      return res
+        .status(401)
+        .json({ message: "Token驗證失敗, 請登出後再登入試試" });
       //throw new Error("Not authorized, token failed");
     }
   }
@@ -148,18 +150,54 @@ router.post("/event/vote", async (req, res) => {
   });
   //console.log("votes", votes);
 
-  if (votes.length <= 0) {
+  let eligibleToVote = false;
+
+  if (votes.length >= 2) {
+    return res.status(418).json({
+      message:
+        "您今天的兩次投票機會都使用過了喔, 明天歡迎再來為您喜愛的coser投票!",
+    });
+  }
+
+  if (votes.length > 0) {
+    const votedCoser = await CosplayApply.find({
+      _id: { $in: votes.map((v) => v.event) },
+    }).select({
+      category: 1,
+    });
+    const coserToVote = await CosplayApply.findById(coser_id).select({
+      category: 1,
+    });
+
+    // console.log("votedCoser", votedCoser);
+    // console.log("coserToVote", coserToVote);
+    if (votedCoser.map((v) => v.category).indexOf(coserToVote.category) <= -1) {
+      eligibleToVote = true;
+    } else {
+      return res.status(418).json({
+        message: `您今天已經投過一次票給[${
+          coserToVote.category === "PG" ? "專業組" : "創意組"
+        }]參賽者了喔!`,
+      });
+    }
+  }
+
+  if (votes.length <= 0 || eligibleToVote === true) {
     const newLog = new EventLog({
       user: user._id,
       event: coser_id,
       action,
+      ip: req.clientIp,
     });
 
     const saveResult = await newLog.save();
 
     res.json(saveResult);
   } else {
-    return res.status(418).json({ message: "您今天已經投票過了喔!" });
+    return res.status(418).json({
+      message:
+        "您今天的兩次投票機會都使用過了喔, 明天歡迎再來為您喜愛的coser投票!",
+    });
   }
 });
 

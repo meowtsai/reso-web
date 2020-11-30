@@ -15,6 +15,9 @@ const EventLogSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    ip: {
+      type: String,
+    },
   },
   {
     timestamps: true,

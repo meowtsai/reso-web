@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import { getFbLoginUrl } from "../helpers/authUtils";
 import Spinner from "./Spinner";
 const ShowList = ({ userInfo, logout }) => {
   const [loading, setLoading] = useState(false);
@@ -63,6 +63,7 @@ const ShowList = ({ userInfo, logout }) => {
   const vote = (coser_id) => {
     if (!userInfo || !userInfo.token) {
       window.alert("請先登入喔!");
+      window.location.href = getFbLoginUrl();
       return;
     }
     const config = {
@@ -243,11 +244,7 @@ const ShowList = ({ userInfo, logout }) => {
           </select>
           <div className="btn1">
             {!userInfo ? (
-              <a
-                href={`https://www.facebook.com/v9.0/dialog/oauth?client_id=1702235999950689&redirect_uri=${window.location.origin}/login/facebook&state="{st=state123abc,ds=123456789}"`}
-              >
-                登入
-              </a>
+              <a href={getFbLoginUrl()}>登入</a>
             ) : (
               <>
                 <span>{userInfo.name} </span>
@@ -303,7 +300,12 @@ const ShowList = ({ userInfo, logout }) => {
               ))}
           </ul>
         </div>
-        <Pagination pageCount={Math.floor(workList.length / pageSize) + 1} />
+        <Pagination
+          pageCount={
+            Math.floor(workList.length / pageSize) +
+            (workList.length % pageSize === 0 ? 0 : 1)
+          }
+        />
       </div>
     </section>
   );

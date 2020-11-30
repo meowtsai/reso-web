@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+
 // import Swiper JS
 import SwiperCore, { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,40 +10,26 @@ import "swiper/swiper.scss";
 import "swiper/components/pagination/pagination.scss";
 //import "swiper/components/scrollbar/scrollbar.scss";
 import Spinner from "./Spinner";
+import { getFbLoginUrl } from "../helpers/authUtils";
 
 SwiperCore.use([Pagination]);
-const ShowContestant = ({ id, userInfo }) => {
-  const [loading, setLoading] = useState(false);
-  const [contestant, setContestant] = useState({});
+const ShowContestant = ({
+  id,
+  userInfo,
+  contestant = {},
+  setContestant,
+  loading,
+  setLoading,
+}) => {
+  // const [loading, setLoading] = useState(false);
+  // const [contestant, setContestant] = useState({});
 
   //console.log("contestant", contestant);
-
-  useEffect(() => {
-    const getList = async () => {
-      setLoading(true);
-
-      axios
-        .get(`/api/cosplay/${id}`)
-        .then((res) => {
-          //console.log("res cosplay id", res.data);
-          setLoading(false);
-          if (res.data) {
-            setContestant(res.data);
-          }
-        })
-        .catch((err) => {
-          setLoading(false);
-          //console.log(err.message);
-          //setError(err.message);
-        });
-    };
-    getList();
-    return () => {};
-  }, []);
 
   const vote = (coser_id) => {
     if (!userInfo || !userInfo.token) {
       window.alert("請先登入喔!");
+      window.location.href = getFbLoginUrl();
       return;
     }
     const config = {
