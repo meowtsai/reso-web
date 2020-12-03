@@ -9,7 +9,7 @@ const requestIp = require("request-ip");
 require("dotenv").config();
 
 const app = express();
-
+app.set("view engine", "pug");
 // DB Config
 const db = process.env.MongoURI;
 
@@ -104,6 +104,7 @@ app.use("/uploads/h55", express.static("uploads/h55"));
 app.use("/uploads/cosplay", express.static("uploads/cosplay"));
 
 app.use("/login/facebook", require("./routes/fb_login_result"));
+app.use("/fbshare", require("./routes/fb_share"));
 // app.use("/public", express.static("public"));
 //serve static assets if in production
 if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {
