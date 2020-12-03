@@ -102,7 +102,8 @@ const ShowList = ({ userInfo, logout }) => {
       {
         display: "popup",
         method: "share",
-        href: `https://www.resound.global//fbshare/${_id}`,
+        href: `https://www.resound.global/fbshare/${_id}`,
+        redirect_uri: `https://www.resound.global/showcase/${_id}`,
       },
       (response) => {
         console.log("share response", response);
