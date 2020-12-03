@@ -102,7 +102,7 @@ const ShowList = ({ userInfo, logout }) => {
       {
         display: "popup",
         method: "share",
-        href: `https://www.resound.global/cosplay/showcase/${_id}`,
+        href: `https://www.resound.global//fbshare/${_id}`,
       },
       (response) => {
         console.log("share response", response);
