@@ -7,10 +7,11 @@ const appConfig = require("../config/cosplay");
 
 router.get("/:id", async (req, res) => {
   const id = req.params.id;
+  console.log(req.headers["user-agent"]);
   //
   if (
     req.query.fbclid ||
-    req.headers["user-agent"] !== "facebookexternalhit/1.1"
+    req.headers["user-agent"].indexOf("facebookexternalhit") < 0
   ) {
     res.redirect(
       "https://www.resound.global/cosplay/showcase/" +
