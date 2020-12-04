@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
   //const fb_error = req.query.error;
   if (fb_code) {
     //2. 繼續取得存取權杖
-    console.log("fb_code", fb_code);
+    //console.log("fb_code", fb_code);
 
     const fb_app_id = appConfig.COSPLAY_EVENT_APP_ID;
     const redirect_uri = appConfig.COSPLAY_EVENT_REDIRECT_URL;
@@ -21,14 +21,14 @@ router.get("/", async (req, res) => {
 
     try {
       const getFbAccessToken = await axios.get(fb_graph_url);
-      console.log("getFbAccessToken", getFbAccessToken.data);
+      //console.log("getFbAccessToken", getFbAccessToken.data);
       const access_token = getFbAccessToken.data.access_token;
 
       const account_info = await axios.get(
         `https://graph.facebook.com/me?access_token=${access_token}`
       );
 
-      console.log("account_info data", account_info.data);
+      //console.log("account_info data", account_info.data);
 
       const { name, id } = account_info.data;
       let user = await EventUser.findOne({ channelUid: id });
@@ -62,7 +62,7 @@ router.get("/", async (req, res) => {
 
       res.redirect("/cosplay/showcase?site_token=" + siteToken);
     } catch (error) {
-      console.log("error ", error);
+      //console.log("error ", error);
       return res.status(500).json({ error: error });
     }
   } else {

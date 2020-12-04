@@ -50,13 +50,15 @@ const ShowContestant = ({
             });
           }
 
-          window.alert("投票成功");
+          window.alert(
+            "恭喜您，已完成投票!每人每天可投創意組和專業組各一票，投票截止時間為 12/15 23：59，把握時間為喜愛的作品投下神聖的一票吧！"
+          );
         }
       })
       .catch((err) => {
         setLoading(false);
 
-        window.alert("投票未完成:" + err.response.data.message);
+        window.alert("喔喔~" + err.response.data.message);
         console.log(err);
         //setError(err.message);
       });

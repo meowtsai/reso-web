@@ -12,72 +12,83 @@ const path = require("path");
 const image_path = process.env.IMAGE_PATH;
 const image_upload_dir = process.env.IMAGE_UPLOAD_DIR;
 
+const cosplay_config = require("../../config/cosplay");
+
 router.get("/test", (req, res) => {
   res.json({ msg: "contactus API Route works" });
 });
 
 router.get("/", async (req, res) => {
-  if (!req.whitelisted) {
-    res.json([]);
-    return;
-  }
-  const list = await CosplayApply.find({}).select({
-    nickname: 1,
-    work_subject: 1,
-    cover_img: 1,
-    category: 1,
-  });
+  //console.log(req.whitelisted);
+  if (
+    req.whitelisted ||
+    moment().format("YYYY-MM-DD") >= cosplay_config.VOTE_BEGIN
+  ) {
+    const list = await CosplayApply.find({ status: "VERIFIED" }).select({
+      nickname: 1,
+      work_subject: 1,
+      cover_img: 1,
+      category: 1,
+    });
 
-  const voteResult = await EventLog.aggregate([
-    { $match: { action: "vote" } },
-    {
-      $group: {
-        _id: { coser_id: "$event" },
-        count: { $sum: 1 },
-      },
-    },
-  ]);
-
-  const aggrList = list.map((coser) => {
-    const coserVoteCnt = voteResult.filter(
-      (d) => coser._id.toString() === d._id.coser_id
-    );
-
-    //console.log("coserVoteCnt", coserVoteCnt);
-    return {
-      ...coser._doc,
-      voteCount: coserVoteCnt.length > 0 ? coserVoteCnt[0].count : 0,
-    };
-  });
-
-  res.json(aggrList);
-});
-
-router.get("/:id", async (req, res) => {
-  if (!req.whitelisted) {
-    res.json({});
-    return;
-  }
-  try {
-    const contestant = await CosplayApply.findOne({ _id: req.params.id });
     const voteResult = await EventLog.aggregate([
-      { $match: { action: "vote", event: req.params.id } },
+      { $match: { action: "vote" } },
       {
         $group: {
-          _id: null,
+          _id: { coser_id: "$event" },
           count: { $sum: 1 },
         },
       },
     ]);
 
-    //console.log("voteResult", voteResult);
+    const aggrList = list.map((coser) => {
+      const coserVoteCnt = voteResult.filter(
+        (d) => coser._id.toString() === d._id.coser_id
+      );
 
-    res.json({
-      ...contestant._doc,
-      voteCount: voteResult.length > 0 ? voteResult[0].count : 0,
+      //console.log("coserVoteCnt", coserVoteCnt);
+      return {
+        ...coser._doc,
+        voteCount: coserVoteCnt.length > 0 ? coserVoteCnt[0].count : 0,
+      };
     });
-  } catch (err) {
-    return res.status(500).json({ msg: err.message });
+
+    res.json(aggrList);
+  } else {
+    res.json([]);
+    return;
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  if (
+    req.whitelisted ||
+    moment().format("YYYY-MM-DD") >= cosplay_config.VOTE_BEGIN
+  ) {
+    try {
+      const contestant = await CosplayApply.findOne({ _id: req.params.id });
+      const voteResult = await EventLog.aggregate([
+        { $match: { action: "vote", event: req.params.id } },
+        {
+          $group: {
+            _id: null,
+            count: { $sum: 1 },
+          },
+        },
+      ]);
+
+      //console.log("voteResult", voteResult);
+
+      res.json({
+        ...contestant._doc,
+        voteCount: voteResult.length > 0 ? voteResult[0].count : 0,
+      });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+  } else {
+    res.json({});
+    return;
   }
 });
 
@@ -111,6 +122,11 @@ router.post("/auth/user", async (req, res) => {
 
 router.post("/event/vote", async (req, res) => {
   const { coser_id, action } = req.body;
+  const today = moment().format("YYYY-MM-DD");
+
+  if (today > cosplay_config.VOTE_END) {
+    return res.status(401).json({ message: "非常抱歉，投票時間已經過了喔!" });
+  }
   // console.log(req.body);
   // console.log(req.headers.authorization);
   //const { coser_id, action, token } = req.query;
@@ -142,7 +158,7 @@ router.post("/event/vote", async (req, res) => {
   }
 
   //2. 檢查今天是否投票過 //moment().format("YYYY-MM-DD")
-  const today = moment().format("YYYY-MM-DD");
+
   //console.log(moment().format("YYYY-MM-DD"));
   const votes = await EventLog.find({
     user: user._id,
@@ -158,6 +174,8 @@ router.post("/event/vote", async (req, res) => {
         "您今天的兩次投票機會都使用過了喔, 明天歡迎再來為您喜愛的coser投票!",
     });
   }
+
+  //恭喜您，已完成投票!每人每天可投一票，投票截止時間為12/15 23：59，把握時間為喜愛的作品投下神聖的一票吧！
 
   if (votes.length > 0) {
     const votedCoser = await CosplayApply.find({
