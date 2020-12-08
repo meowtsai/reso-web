@@ -7,7 +7,7 @@ const appConfig = require("../config/cosplay");
 
 router.get("/:id", async (req, res) => {
   const id = req.params.id;
-  console.log(req.headers["user-agent"]);
+  //console.log(req.headers["user-agent"]);
   //
   if (
     req.query.fbclid ||
