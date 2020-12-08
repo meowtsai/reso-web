@@ -10,8 +10,8 @@ router.get("/:id", async (req, res) => {
   //console.log(req.headers["user-agent"]);
   //
   if (
-    req.query.fbclid
-    //|| req.headers["user-agent"].indexOf("facebookexternalhit") < 0
+    req.query.fbclid ||
+    req.headers["user-agent"].indexOf("facebookexternalhit") < 0
   ) {
     res.redirect(
       "https://www.resound.global/cosplay/showcase/" +
