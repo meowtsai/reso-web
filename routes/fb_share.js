@@ -10,8 +10,8 @@ router.get("/:id", async (req, res) => {
   //console.log(req.headers["user-agent"]);
   //
   if (
-    req.query.fbclid ||
-    req.headers["user-agent"].indexOf("facebookexternalhit") < 0
+    req.query.fbclid
+    //|| req.headers["user-agent"].indexOf("facebookexternalhit") < 0
   ) {
     res.redirect(
       "https://www.resound.global/cosplay/showcase/" +
@@ -27,6 +27,7 @@ router.get("/:id", async (req, res) => {
       title: coser.nickname + "-" + coser.work_subject,
       img: coser.cover_img,
       desc: coser.work_desc,
+      agent: req.headers["user-agent"],
     });
   }
   //console.log("Referrer ", req);
