@@ -27,10 +27,18 @@
   background: #212842;
   padding: 0;
 }
-.swiper-slide img {
+/* .swiper-slide img {
   width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.1);
+} */
+.swiper-slide img {
+  width: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  height: 100%;
+  max-width: 100%;
+  min-height: 100%;
 }
+
 .swiper-pagination-bullet {
   width: 20px;
   height: 20px;
