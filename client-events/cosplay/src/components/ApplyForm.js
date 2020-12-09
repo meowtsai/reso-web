@@ -16,6 +16,13 @@ const ApplyForm = ({ category, filesize, filesCount }) => {
 
   const onSubmit = (registerData) => {
     //console.log("registerData", registerData);
+    const deadline = new Date("2020-12-10");
+    const today = new Date();
+
+    if (today.getTime() > deadline.getTime()) {
+      window.alert("報名時間已過");
+      return;
+    }
     setLoading(true);
     let formData = new FormData();
     Object.keys(registerData).forEach((itemKey) => {
@@ -47,14 +54,24 @@ const ApplyForm = ({ category, filesize, filesCount }) => {
 
   let history = useHistory();
   useEffect(() => {
+    const deadline = new Date("2020-12-10");
+    const today = new Date();
+
+    if (today.getTime() > deadline.getTime()) {
+      window.alert("報名時間已過");
+      return;
+    }
     if (registerResult && registerResult?._id) {
       window.alert("報名成功!");
       history.push(`/cosplay`);
     }
+    if (error?.message) {
+      window.alert(error?.message);
+    }
     return () => {
       setRegisterResult(null);
     };
-  }, [registerResult, history]);
+  }, [registerResult, history, error]);
   return (
     <section className="sec4">
       {registerResult?._id ? (
@@ -209,7 +226,7 @@ const ApplyForm = ({ category, filesize, filesCount }) => {
                       filesCount={1}
                       title={"封面圖"}
                       setFile={(value) => {
-                        console.log("cover file set", value);
+                        //console.log("cover file set", value);
                         setValue("cover_img", value[0]);
                       }}
                     />
@@ -261,8 +278,14 @@ const ApplyForm = ({ category, filesize, filesCount }) => {
               </div>
               <p className="text-danger">{error && error.msg}</p>
               {loading === false ? (
-                <button type="submit" className="button button1">
-                  送出報名
+                <button
+                  type="submit"
+                  className="button button1"
+                  disabled={new Date() > new Date("2020-12-10") ? true : false}
+                >
+                  {new Date() > new Date("2020-12-10")
+                    ? "報名時間已過"
+                    : "送出報名"}
                 </button>
               ) : (
                 <button type="button" className="button button1" disabled>

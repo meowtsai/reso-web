@@ -225,6 +225,14 @@ router.post("/event/vote", async (req, res) => {
 router.post("/", async (req, res) => {
   //validation
 
+  const today = moment().format("YYYY-MM-DD");
+
+  if (today > cosplay_config.SUBMIT_END) {
+    return res
+      .status(401)
+      .json({ message: "非常抱歉，活動報名時間已經過了喔!" });
+  }
+
   const record = req.body;
   //console.log("req.body", req.body);
 
