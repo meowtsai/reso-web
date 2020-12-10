@@ -1,7 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 const Header = ({ match }) => {
+  let history = useHistory();
   //console.log("header", match);
+
   //{match.params.category.toLowerCase() === "pg" ? (
   return (
     <header>
@@ -25,9 +27,17 @@ const Header = ({ match }) => {
           <li className={match?.path.indexOf("showcase") > -1 ? "open" : ""}>
             {/* <Link to="" id="#tab2"> */}
             <span
-              onClick={() =>
-                window.alert("敬請期待，預計2020/12/11開放投票喔！")
-              }
+              onClick={() => {
+                const voteBegin = new Date("2020-12-10");
+                const today = new Date();
+
+                if (today.getTime() < voteBegin.getTime()) {
+                  window.alert("敬請期待，預計2020/12/11開放投票喔！");
+                  return;
+                } else {
+                  history.push("/cosplay/showcase/");
+                }
+              }}
               id="#tab3"
             >
               <p>12/11-12/15</p>
