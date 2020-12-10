@@ -28,7 +28,7 @@ const Header = ({ match }) => {
             {/* <Link to="" id="#tab2"> */}
             <span
               onClick={() => {
-                const voteBegin = new Date("2020-12-10");
+                const voteBegin = new Date("2020-12-11");
                 const today = new Date();
 
                 if (today.getTime() < voteBegin.getTime()) {
