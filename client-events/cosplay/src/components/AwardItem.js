@@ -27,13 +27,13 @@ const AwardItem = ({ contestant, award, judge1 = "", judge2 = "" }) => {
         </p>
         {judge1 !== "" && (
           <p>
-            ✛短評-狂間／
+            ✛評審評語-狂間／
             <span>{judge1}</span>
           </p>
         )}
         {judge2 !== "" && (
           <p>
-            ✛短評-竜／
+            ✛評審評語-竜／
             <span>{judge2}</span>
           </p>
         )}
