@@ -92,6 +92,33 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+router.get("/list/award", async (req, res) => {
+  try {
+    const contestants = await CosplayApply.find({
+      $or: [
+        { nickname: "瞬" },
+        { nickname: "LUMIMI" },
+        { nickname: "黑咪喵" },
+        { nickname: "莫爺" },
+        { nickname: "昔鵲鵲" },
+        { nickname: "藍色抹茶" },
+        { nickname: "伍滋一笑春滿園" },
+      ],
+    }).select({
+      imgs: 1,
+      work_subject: 1,
+      work_desc: 1,
+      cover_img: 1,
+      category: 1,
+      nickname: 1,
+    });
+
+    res.json(contestants);
+  } catch (err) {
+    return res.status(500).json({ msg: err.message });
+  }
+});
+
 router.post("/auth/user", async (req, res) => {
   const { siteToken } = req.body;
   //console.log(req.query);

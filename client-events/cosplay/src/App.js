@@ -4,6 +4,7 @@ import HomeScreen from "./pages/HomeScreen";
 import SignUpScreen from "./pages/SignUpScreen";
 import ShowCaseScreen from "./pages/ShowCaseScreen";
 import ContestantScreen from "./pages/ContestantScreen";
+import AwardScreen from "./pages/AwardScreen";
 function App() {
   return (
     <Router>
@@ -22,6 +23,7 @@ function App() {
           component={ContestantScreen}
           exact
         />
+        <Route path="/cosplay/award" component={AwardScreen} exact />
 
         <div id="gotop">
           <img src="image/top.png" width="150px;" alt="回到頁首" />

@@ -44,17 +44,13 @@ const Header = ({ match }) => {
               <p>線上投票階段</p>
             </span>
           </li>
-
-          <li>
-            <span
-              onClick={() =>
-                window.alert("敬請期待，預計2020/12/16公布得獎者喔！")
-              }
-              id="#tab3"
-            >
-              <p>2020/12/16</p>
-              <p>得獎公告</p>
-            </span>
+          <li className={match?.path.indexOf("award") > -1 ? "open" : ""}>
+            <Link to="/cosplay/award" id="#tab3">
+              <span>
+                <p>2020/12/16</p>
+                <p>得獎公告</p>
+              </span>
+            </Link>
           </li>
         </ul>
       </nav>

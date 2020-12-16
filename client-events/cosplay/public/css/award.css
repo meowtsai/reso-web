@@ -1,0 +1,141 @@
+.main .sec5 {
+  height: 5100px;
+  padding-bottom: 100px;
+  background: url(../image/award/bg-sec5.jpg) no-repeat top;
+  background-color: #202842;
+}
+.main .sec5 .sec-title {
+  margin-bottom: 20px;
+}
+.main .sec5 .sec-title2 {
+  color: #d5ba1e;
+  font-size: 0.95rem;
+  font-weight: 600;
+  width: 100%;
+  text-align: left;
+  margin: 20px 0;
+}
+.main .sec5 .userSign-box .userSign-title {
+  width: 100%;
+  height: 60px;
+  margin-bottom: 48px;
+}
+.main .sec5 .userSign-box > div {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+.tab-inner .info p {
+  display: block;
+  vertical-align: top;
+  font-size: 1rem;
+  color: #c7c7c7;
+  line-height: 30px;
+}
+.tab-inner img {
+  width: 100%;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+.info p span {
+  color: #fff;
+}
+#gotop {
+  display: none;
+  position: fixed;
+  right: 20px;
+  bottom: 200px;
+  cursor: pointer;
+  z-index: 999;
+}
+.nav {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: url(../image/nav_bg.png) center top;
+  z-index: 99;
+}
+.swiper-container {
+  width: 100%;
+  height: 740px;
+  margin-top: 25px;
+}
+.swiper-slide {
+  /*background:#212842;*/
+  padding: 0;
+}
+.swiper-slide img {
+  width: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  height: 100%;
+  max-width: 100%;
+  min-height: 100%;
+}
+.swiper-pagination-bullet {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
+  color: #c6c6c6;
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.5);
+}
+.swiper-pagination-bullet-active {
+  color: #fff;
+  background: #212842;
+}
+.swiper-container-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  bottom: 105px;
+}
+#tab-demo {
+  width: 1000px;
+  height: 1000px;
+  position: relative;
+  left: 50%;
+  margin-left: -540px;
+}
+#tab-demo > ul {
+  display: block;
+  margin: 0;
+  list-style: none;
+}
+.tab-title {
+  list-style: none;
+}
+#tab-demo > ul > li {
+  display: inline-block;
+  vertical-align: top;
+  font-family: "微軟正黑體";
+  line-height: 30px;
+  background: #111926;
+  padding: 0 15px;
+  list-style: none;
+  box-sizing: border-box;
+  padding: 15px 180px;
+}
+#tab-demo > ul > li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+#tab-demo > ul > li.active {
+  border-bottom: 1px solid #fff;
+  color: #ffd900;
+}
+#tab-demo > .tab-inner {
+  clear: both;
+  color: #000;
+}
+.tab-inner {
+  padding: 15px;
+  height: 50px;
+  margin-top: 25px;
+}
+.swiper-container {
+  background: rgba(0, 0, 0, 0);
+}
