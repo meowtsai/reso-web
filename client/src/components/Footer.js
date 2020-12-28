@@ -56,7 +56,7 @@ const Footer = () => {
               </p>
               <p>
                 <i className="far fa fa-map-marker"></i>
-                &ensp;&thinsp;台北市大安區和平東路二段177號9樓
+                &ensp;&thinsp;新北市新店區民權路82號4樓之D
               </p>
             </div>
           </div>
