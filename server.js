@@ -105,11 +105,12 @@ app.use("/uploads/cosplay", express.static("uploads/cosplay"));
 
 app.use("/login/facebook", require("./routes/fb_login_result"));
 app.use("/fbshare", require("./routes/fb_share"));
-// app.use("/public", express.static("public"));
+app.use("/youtube_who", require("./routes/fb_pixel"));
+app.use("/public", express.static("public"));
 //serve static assets if in production
 if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {
   //set a static folder
-  app.use("/course", express.static(path.join(__dirname, "course/build")));
+  //app.use("/course", express.static(path.join(__dirname, "mentors/live")));
   app.use(
     "/idvtwcampus",
     express.static(path.join(__dirname, "h55-event/build"))
@@ -133,7 +134,8 @@ if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {
   app.use(express.static("client/build"));
   //set a route for anything else not list above
   app.get("/course/*", (req, res) => {
-    res.sendFile(path.join(__dirname + "/course/build/index.html"));
+    //res.sendFile(path.join(__dirname + "/mentors/live/index.html"));
+    res.redirect("/mentors");
   });
   app.get("/idvtwcampus/*", (req, res) => {
     res.sendFile(path.join(__dirname + "/h55-event/build/index.html"));
